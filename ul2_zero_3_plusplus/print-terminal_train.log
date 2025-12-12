@@ -1,0 +1,1292 @@
+(venv-ul) megha89@nid001245:/pscratch/sd/m/megha89/ul2-proj> deepspeed --num_gpus=4 --num_nodes=4 --hostfile=ds_hostfile --master_addr=$MASTER_ADDR --master_port=$MASTER_PORT src/train_ZERO3.py --config configs/ul2-config.yaml
+[2025-11-30 01:17:34,022] [INFO] [multinode_runner.py:85:get_cmd] Running on the following workers: nid001245,nid001248,nid001249,nid001252
+[2025-11-30 01:17:34,023] [INFO] [runner.py:630:main] cmd = pdsh -S -f 1024 -w nid001245,nid001248,nid001249,nid001252 export PYTHONPATH=/pscratch/sd/m/megha89/ul2-proj:/opt/nersc/pymon; export NCCL_NET_GDR_LEVEL=PHB; export PYTHONUSERBASE=/global/homes/m/megha89/.local/perlmutter/python-3.10; export NCCL_SOCKET_IFNAME=hsn;  cd /pscratch/sd/m/megha89/ul2-proj; /pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python -u -m deepspeed.launcher.launch --world_info=eyJuaWQwMDEyNDUiOiBbMCwgMSwgMiwgM10sICJuaWQwMDEyNDgiOiBbMCwgMSwgMiwgM10sICJuaWQwMDEyNDkiOiBbMCwgMSwgMiwgM10sICJuaWQwMDEyNTIiOiBbMCwgMSwgMiwgM119 --node_rank=%n --master_addr=nid001245 --master_port=11111 --enable_each_rank_log=None src/train_ZERO3.py --config configs/ul2-config.yaml
+nid001252: ***************************************************************************
+nid001252:                           NOTICE TO USERS
+nid001252: 
+nid001252: Lawrence Berkeley National Laboratory operates this computer system under 
+nid001252: contract to the U.S. Department of Energy.  This computer system is the 
+nid001252: property of the United States Government and is for authorized use only.
+nid001252: Users (authorized or unauthorized) have no explicit or implicit 
+nid001252: expectation of privacy.
+nid001252: 
+nid001252: Any or all uses of this system and all files on this system may be
+nid001252: intercepted, monitored, recorded, copied, audited, inspected, and disclosed
+nid001252: to authorized site, Department of Energy, and law enforcement personnel,
+nid001252: as well as authorized officials of other agencies, both domestic and foreign.
+nid001252: By using this system, the user consents to such interception, monitoring,
+nid001252: recording, copying, auditing, inspection, and disclosure at the discretion
+nid001252: of authorized site or Department of Energy personnel.
+nid001252: 
+nid001252: Unauthorized or improper use of this system may result in administrative
+nid001252: disciplinary action and civil and criminal penalties. By continuing to use
+nid001252: this system you indicate your awareness of and consent to these terms and
+nid001252: conditions of use. LOG OFF IMMEDIATELY if you do not agree to the conditions
+nid001252: stated in this warning.
+nid001252: 
+nid001252: *****************************************************************************
+nid001252: 
+nid001252: Login connection to host x1000c7s7b0n0:
+nid001252: 
+nid001245: ***************************************************************************
+nid001245:                           NOTICE TO USERS
+nid001245: 
+nid001245: Lawrence Berkeley National Laboratory operates this computer system under 
+nid001245: contract to the U.S. Department of Energy.  This computer system is the 
+nid001245: property of the United States Government and is for authorized use only.
+nid001245: Users (authorized or unauthorized) have no explicit or implicit 
+nid001245: expectation of privacy.
+nid001245: 
+nid001245: Any or all uses of this system and all files on this system may be
+nid001245: intercepted, monitored, recorded, copied, audited, inspected, and disclosed
+nid001245: to authorized site, Department of Energy, and law enforcement personnel,
+nid001245: as well as authorized officials of other agencies, both domestic and foreign.
+nid001245: By using this system, the user consents to such interception, monitoring,
+nid001245: recording, copying, auditing, inspection, and disclosure at the discretion
+nid001245: of authorized site or Department of Energy personnel.
+nid001245: 
+nid001245: Unauthorized or improper use of this system may result in administrative
+nid001245: disciplinary action and civil and criminal penalties. By continuing to use
+nid001245: this system you indicate your awareness of and consent to these terms and
+nid001245: conditions of use. LOG OFF IMMEDIATELY if you do not agree to the conditions
+nid001245: stated in this warning.
+nid001245: 
+nid001245: *****************************************************************************
+nid001245: 
+nid001245: Login connection to host x1000c7s5b0n1:
+nid001245: 
+nid001248: ***************************************************************************
+nid001248:                           NOTICE TO USERS
+nid001248: 
+nid001248: Lawrence Berkeley National Laboratory operates this computer system under 
+nid001248: contract to the U.S. Department of Energy.  This computer system is the 
+nid001248: property of the United States Government and is for authorized use only.
+nid001248: Users (authorized or unauthorized) have no explicit or implicit 
+nid001248: expectation of privacy.
+nid001248: 
+nid001248: Any or all uses of this system and all files on this system may be
+nid001248: intercepted, monitored, recorded, copied, audited, inspected, and disclosed
+nid001248: to authorized site, Department of Energy, and law enforcement personnel,
+nid001248: as well as authorized officials of other agencies, both domestic and foreign.
+nid001248: By using this system, the user consents to such interception, monitoring,
+nid001248: recording, copying, auditing, inspection, and disclosure at the discretion
+nid001248: of authorized site or Department of Energy personnel.
+nid001248: 
+nid001248: Unauthorized or improper use of this system may result in administrative
+nid001248: disciplinary action and civil and criminal penalties. By continuing to use
+nid001248: this system you indicate your awareness of and consent to these terms and
+nid001248: conditions of use. LOG OFF IMMEDIATELY if you do not agree to the conditions
+nid001248: stated in this warning.
+nid001248: 
+nid001248: *****************************************************************************
+nid001248: 
+nid001248: Login connection to host x1000c7s6b0n0:
+nid001248: 
+nid001249: ***************************************************************************
+nid001249:                           NOTICE TO USERS
+nid001249: 
+nid001249: Lawrence Berkeley National Laboratory operates this computer system under 
+nid001249: contract to the U.S. Department of Energy.  This computer system is the 
+nid001249: property of the United States Government and is for authorized use only.
+nid001249: Users (authorized or unauthorized) have no explicit or implicit 
+nid001249: expectation of privacy.
+nid001249: 
+nid001249: Any or all uses of this system and all files on this system may be
+nid001249: intercepted, monitored, recorded, copied, audited, inspected, and disclosed
+nid001249: to authorized site, Department of Energy, and law enforcement personnel,
+nid001249: as well as authorized officials of other agencies, both domestic and foreign.
+nid001249: By using this system, the user consents to such interception, monitoring,
+nid001249: recording, copying, auditing, inspection, and disclosure at the discretion
+nid001249: of authorized site or Department of Energy personnel.
+nid001249: 
+nid001249: Unauthorized or improper use of this system may result in administrative
+nid001249: disciplinary action and civil and criminal penalties. By continuing to use
+nid001249: this system you indicate your awareness of and consent to these terms and
+nid001249: conditions of use. LOG OFF IMMEDIATELY if you do not agree to the conditions
+nid001249: stated in this warning.
+nid001249: 
+nid001249: *****************************************************************************
+nid001249: 
+nid001249: Login connection to host x1000c7s6b0n1:
+nid001249: 
+nid001245: [2025-11-30 01:17:40,652] [INFO] [launch.py:155:main] 0 NCCL_NET_GDR_LEVEL=PHB
+nid001245: [2025-11-30 01:17:40,652] [INFO] [launch.py:155:main] 0 NCCL_SOCKET_IFNAME=hsn
+nid001245: [2025-11-30 01:17:40,652] [INFO] [launch.py:162:main] WORLD INFO DICT: {'nid001245': [0, 1, 2, 3], 'nid001248': [0, 1, 2, 3], 'nid001249': [0, 1, 2, 3], 'nid001252': [0, 1, 2, 3]}
+nid001245: [2025-11-30 01:17:40,652] [INFO] [launch.py:168:main] nnodes=4, num_local_procs=4, node_rank=0
+nid001245: [2025-11-30 01:17:40,653] [INFO] [launch.py:179:main] global_rank_mapping=defaultdict(<class 'list'>, {'nid001245': [0, 1, 2, 3], 'nid001248': [4, 5, 6, 7], 'nid001249': [8, 9, 10, 11], 'nid001252': [12, 13, 14, 15]})
+nid001245: [2025-11-30 01:17:40,653] [INFO] [launch.py:180:main] dist_world_size=16
+nid001245: [2025-11-30 01:17:40,653] [INFO] [launch.py:184:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+nid001245: [2025-11-30 01:17:40,654] [INFO] [launch.py:272:main] process 696229 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=0', '--config', 'configs/ul2-config.yaml']
+nid001245: [2025-11-30 01:17:40,655] [INFO] [launch.py:272:main] process 696230 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=1', '--config', 'configs/ul2-config.yaml']
+nid001245: [2025-11-30 01:17:40,656] [INFO] [launch.py:272:main] process 696231 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=2', '--config', 'configs/ul2-config.yaml']
+nid001245: [2025-11-30 01:17:40,657] [INFO] [launch.py:272:main] process 696232 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=3', '--config', 'configs/ul2-config.yaml']
+nid001248: [2025-11-30 01:17:42,577] [INFO] [launch.py:155:main] 1 NCCL_NET_GDR_LEVEL=PHB
+nid001248: [2025-11-30 01:17:42,577] [INFO] [launch.py:155:main] 1 NCCL_SOCKET_IFNAME=hsn
+nid001248: [2025-11-30 01:17:42,577] [INFO] [launch.py:162:main] WORLD INFO DICT: {'nid001245': [0, 1, 2, 3], 'nid001248': [0, 1, 2, 3], 'nid001249': [0, 1, 2, 3], 'nid001252': [0, 1, 2, 3]}
+nid001248: [2025-11-30 01:17:42,577] [INFO] [launch.py:168:main] nnodes=4, num_local_procs=4, node_rank=1
+nid001248: [2025-11-30 01:17:42,577] [INFO] [launch.py:179:main] global_rank_mapping=defaultdict(<class 'list'>, {'nid001245': [0, 1, 2, 3], 'nid001248': [4, 5, 6, 7], 'nid001249': [8, 9, 10, 11], 'nid001252': [12, 13, 14, 15]})
+nid001248: [2025-11-30 01:17:42,577] [INFO] [launch.py:180:main] dist_world_size=16
+nid001248: [2025-11-30 01:17:42,577] [INFO] [launch.py:184:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+nid001248: [2025-11-30 01:17:42,578] [INFO] [launch.py:272:main] process 365507 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=0', '--config', 'configs/ul2-config.yaml']
+nid001248: [2025-11-30 01:17:42,579] [INFO] [launch.py:272:main] process 365508 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=1', '--config', 'configs/ul2-config.yaml']
+nid001248: [2025-11-30 01:17:42,580] [INFO] [launch.py:272:main] process 365509 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=2', '--config', 'configs/ul2-config.yaml']
+nid001248: [2025-11-30 01:17:42,581] [INFO] [launch.py:272:main] process 365510 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=3', '--config', 'configs/ul2-config.yaml']
+nid001249: [2025-11-30 01:17:42,923] [INFO] [launch.py:155:main] 2 NCCL_NET_GDR_LEVEL=PHB
+nid001249: [2025-11-30 01:17:42,923] [INFO] [launch.py:155:main] 2 NCCL_SOCKET_IFNAME=hsn
+nid001249: [2025-11-30 01:17:42,923] [INFO] [launch.py:162:main] WORLD INFO DICT: {'nid001245': [0, 1, 2, 3], 'nid001248': [0, 1, 2, 3], 'nid001249': [0, 1, 2, 3], 'nid001252': [0, 1, 2, 3]}
+nid001249: [2025-11-30 01:17:42,923] [INFO] [launch.py:168:main] nnodes=4, num_local_procs=4, node_rank=2
+nid001249: [2025-11-30 01:17:42,923] [INFO] [launch.py:179:main] global_rank_mapping=defaultdict(<class 'list'>, {'nid001245': [0, 1, 2, 3], 'nid001248': [4, 5, 6, 7], 'nid001249': [8, 9, 10, 11], 'nid001252': [12, 13, 14, 15]})
+nid001249: [2025-11-30 01:17:42,923] [INFO] [launch.py:180:main] dist_world_size=16
+nid001249: [2025-11-30 01:17:42,923] [INFO] [launch.py:184:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+nid001249: [2025-11-30 01:17:42,924] [INFO] [launch.py:272:main] process 266843 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=0', '--config', 'configs/ul2-config.yaml']
+nid001249: [2025-11-30 01:17:42,925] [INFO] [launch.py:272:main] process 266844 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=1', '--config', 'configs/ul2-config.yaml']
+nid001249: [2025-11-30 01:17:42,926] [INFO] [launch.py:272:main] process 266845 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=2', '--config', 'configs/ul2-config.yaml']
+nid001249: [2025-11-30 01:17:42,927] [INFO] [launch.py:272:main] process 266846 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=3', '--config', 'configs/ul2-config.yaml']
+nid001252: [2025-11-30 01:17:43,139] [INFO] [launch.py:155:main] 3 NCCL_NET_GDR_LEVEL=PHB
+nid001252: [2025-11-30 01:17:43,139] [INFO] [launch.py:155:main] 3 NCCL_SOCKET_IFNAME=hsn
+nid001252: [2025-11-30 01:17:43,139] [INFO] [launch.py:162:main] WORLD INFO DICT: {'nid001245': [0, 1, 2, 3], 'nid001248': [0, 1, 2, 3], 'nid001249': [0, 1, 2, 3], 'nid001252': [0, 1, 2, 3]}
+nid001252: [2025-11-30 01:17:43,139] [INFO] [launch.py:168:main] nnodes=4, num_local_procs=4, node_rank=3
+nid001252: [2025-11-30 01:17:43,139] [INFO] [launch.py:179:main] global_rank_mapping=defaultdict(<class 'list'>, {'nid001245': [0, 1, 2, 3], 'nid001248': [4, 5, 6, 7], 'nid001249': [8, 9, 10, 11], 'nid001252': [12, 13, 14, 15]})
+nid001252: [2025-11-30 01:17:43,139] [INFO] [launch.py:180:main] dist_world_size=16
+nid001252: [2025-11-30 01:17:43,139] [INFO] [launch.py:184:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+nid001252: [2025-11-30 01:17:43,141] [INFO] [launch.py:272:main] process 851981 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=0', '--config', 'configs/ul2-config.yaml']
+nid001252: [2025-11-30 01:17:43,142] [INFO] [launch.py:272:main] process 851982 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=1', '--config', 'configs/ul2-config.yaml']
+nid001252: [2025-11-30 01:17:43,143] [INFO] [launch.py:272:main] process 851983 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=2', '--config', 'configs/ul2-config.yaml']
+nid001252: [2025-11-30 01:17:43,143] [INFO] [launch.py:272:main] process 851984 spawned with command: ['/pscratch/sd/m/megha89/ul2-proj/venv-ul/bin/python', '-u', 'src/train_ZERO3.py', '--local_rank=3', '--config', 'configs/ul2-config.yaml']
+nid001245: 
+nid001245: ================================================================================
+nid001245: DISTRIBUTED TRAINING SETUP
+nid001245: ================================================================================
+nid001245: World Size: 16
+nid001245: Rank: 0
+nid001245: Local Rank: 0
+nid001245: ================================================================================
+nid001245: 
+nid001245: Loading tokenizer: google/ul2
+nid001245: Loading dataset: ccdv/govreport-summarization
+nid001245: Using subset: 8192 train, 768 validation samples
+nid001245: Preprocessing dataset...
+nid001245: [nltk_data] Downloading package wordnet to
+nid001245: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001245: [nltk_data] Downloading package wordnet to
+nid001245: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001245: [nltk_data]   Package wordnet is already up-to-date!
+nid001245: [nltk_data] Downloading package punkt_tab to
+nid001245: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001245: [nltk_data]   Package wordnet is already up-to-date!
+nid001245: [nltk_data] Downloading package punkt_tab to
+nid001245: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001245: [nltk_data] Downloading package wordnet to
+nid001245: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001245: [nltk_data]   Package wordnet is already up-to-date!
+nid001245: [nltk_data] Downloading package punkt_tab to
+nid001245: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001245: [nltk_data] Downloading package wordnet to
+nid001245: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001245: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001245: [nltk_data] Downloading package omw-1.4 to
+nid001245: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001245: [nltk_data]   Package wordnet is already up-to-date!
+nid001245: [nltk_data] Downloading package punkt_tab to
+nid001245: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001245: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001245: [nltk_data] Downloading package omw-1.4 to
+nid001245: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001245: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001245: [nltk_data] Downloading package omw-1.4 to
+nid001245: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001245: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001245: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001245: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001245: [nltk_data] Downloading package omw-1.4 to
+nid001245: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001245: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001245: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001248: [nltk_data] Downloading package wordnet to
+nid001248: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001248: [nltk_data]   Package wordnet is already up-to-date!
+nid001248: [nltk_data] Downloading package punkt_tab to
+nid001248: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001248: [nltk_data] Downloading package wordnet to
+nid001248: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001248: [nltk_data] Downloading package wordnet to
+nid001248: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001248: [nltk_data]   Package wordnet is already up-to-date!
+nid001248: [nltk_data] Downloading package punkt_tab to
+nid001248: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001252: [nltk_data] Downloading package wordnet to
+nid001252: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001248: [nltk_data] Downloading package wordnet to
+nid001248: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001252: [nltk_data] Downloading package wordnet to
+nid001252: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001248: [nltk_data]   Package wordnet is already up-to-date!
+nid001248: [nltk_data] Downloading package punkt_tab to
+nid001248: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001252: [nltk_data] Downloading package wordnet to
+nid001252: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001252: [nltk_data]   Package wordnet is already up-to-date!
+nid001252: [nltk_data] Downloading package punkt_tab to
+nid001252: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001248: [nltk_data]   Package wordnet is already up-to-date!
+nid001248: [nltk_data] Downloading package punkt_tab to
+nid001248: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001252: [nltk_data]   Package wordnet is already up-to-date!
+nid001252: [nltk_data] Downloading package punkt_tab to
+nid001252: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001249: [nltk_data] Downloading package wordnet to
+nid001249: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001248: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001248: [nltk_data] Downloading package omw-1.4 to
+nid001248: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001249: [nltk_data] Downloading package wordnet to
+nid001249: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001249: [nltk_data] Downloading package wordnet to
+nid001249: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001252: [nltk_data] Downloading package wordnet to
+nid001252: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001249: [nltk_data] Downloading package wordnet to
+nid001249: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001252: [nltk_data]   Package wordnet is already up-to-date!
+nid001252: [nltk_data] Downloading package punkt_tab to
+nid001252: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001248: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001248: [nltk_data] Downloading package omw-1.4 to
+nid001248: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001249: [nltk_data]   Package wordnet is already up-to-date!
+nid001249: [nltk_data] Downloading package punkt_tab to
+nid001249: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001248: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001248: [nltk_data] Downloading package omw-1.4 to
+nid001248: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001249: [nltk_data]   Package wordnet is already up-to-date!
+nid001249: [nltk_data] Downloading package punkt_tab to
+nid001249: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001249: [nltk_data]   Package wordnet is already up-to-date!
+nid001249: [nltk_data] Downloading package punkt_tab to
+nid001249: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001252: [nltk_data]   Package wordnet is already up-to-date!
+nid001252: [nltk_data] Downloading package punkt_tab to
+nid001252: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001249: [nltk_data]   Package wordnet is already up-to-date!
+nid001249: [nltk_data] Downloading package punkt_tab to
+nid001249: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001248: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001248: [nltk_data] Downloading package omw-1.4 to
+nid001248: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001248: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001252: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001252: [nltk_data] Downloading package omw-1.4 to
+nid001252: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001252: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001252: [nltk_data] Downloading package omw-1.4 to
+nid001252: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001248: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001252: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001252: [nltk_data] Downloading package omw-1.4 to
+nid001252: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001248: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001252: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001252: [nltk_data] Downloading package omw-1.4 to
+nid001252: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001248: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001249: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001249: [nltk_data] Downloading package omw-1.4 to
+nid001249: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001249: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001249: [nltk_data] Downloading package omw-1.4 to
+nid001249: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001249: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001249: [nltk_data] Downloading package omw-1.4 to
+nid001249: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001249: [nltk_data]   Package punkt_tab is already up-to-date!
+nid001249: [nltk_data] Downloading package omw-1.4 to
+nid001249: [nltk_data]     /global/homes/m/megha89/nltk_data...
+nid001252: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001252: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001252: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001252: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001249: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001249: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001249: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001249: [nltk_data]   Package omw-1.4 is already up-to-date!
+nid001245: 
+nid001245: TensorBoard logging to: /pscratch/sd/m/megha89/ul2-proj/ul2_govreport/outputs/run_20251130_011752/logs
+nid001245: View with: tensorboard --logdir /pscratch/sd/m/megha89/ul2-proj/ul2_govreport/outputs/run_20251130_011752/logs
+nid001245: 
+nid001245: GPU Memory profiling enabled
+nid001245: Throughput profiling enabled
+nid001245: deepspeed cache Memory Flush  enabled
+nid001245: Loading model: google/ul2
+nid001245: hpZeRO group size: 4
+Loading checkpoint shards: 100%|██████████| 4/4 [00:58<00:00, 14.62s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:58<00:00, 14.63s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:58<00:00, 14.63s/it]
+nid001245: 
+Loading checkpoint shards: 100%|██████████| 4/4 [00:58<00:00, 14.63s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:58<00:00, 15.12s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:58<00:00, 14.63s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:58<00:00, 14.61s/it]
+nid001249: 
+Loading checkpoint shards: 100%|██████████| 4/4 [00:58<00:00, 14.64s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:58<00:00, 14.61s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:58<00:00, 14.63s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:58<00:00, 14.63s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:58<00:00, 14.63s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:58<00:00, 14.62s/it]
+nid001252: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001252:   trainer = Seq2SeqTrainer(
+nid001249: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001249:   trainer = Seq2SeqTrainer(
+nid001252: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001252:   trainer = Seq2SeqTrainer(
+nid001249: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001249:   trainer = Seq2SeqTrainer(
+nid001249: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001249:   trainer = Seq2SeqTrainer(
+nid001249: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001249:   trainer = Seq2SeqTrainer(
+nid001248: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001248:   trainer = Seq2SeqTrainer(
+nid001248: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001248:   trainer = Seq2SeqTrainer(
+nid001248: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001248:   trainer = Seq2SeqTrainer(
+nid001245: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001245:   trainer = Seq2SeqTrainer(
+nid001245: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001245:   trainer = Seq2SeqTrainer(
+nid001248: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001248:   trainer = Seq2SeqTrainer(
+nid001245: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001245:   trainer = Seq2SeqTrainer(
+nid001252: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001252:   trainer = Seq2SeqTrainer(
+nid001252: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001252:   trainer = Seq2SeqTrainer(
+Loading checkpoint shards: 100%|██████████| 4/4 [01:02<00:00, 15.68s/it]
+nid001245: ✅ Gradient checkpointing enabled
+nid001245:    - use_cache set to False
+nid001245:    - Input gradients enabled
+nid001245: 
+nid001245: Model configuration:
+nid001245:   dtype: torch.bfloat16
+nid001245:   use_cache: False
+nid001245:   gradient_checkpointing: True
+nid001245: 
+nid001245: /pscratch/sd/m/megha89/ul2-proj/src/train_ZERO3.py:935: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+nid001245:   trainer = Seq2SeqTrainer(
+nid001245: 
+nid001245: ================================================================================
+nid001245: TRAINING CONFIGURATION
+nid001245: ================================================================================
+nid001245:   Total batch size:     64
+nid001245:   Num training samples: 8192
+nid001245:   Num epochs:           1
+nid001245:   Num training steps:   128
+nid001245:   Learning rate:        0.0001
+nid001245:   Warmup steps:         1
+nid001245: ================================================================================
+nid001245: 
+nid001245: Starting training with ZERO3 ...
+nid001245: Gradient accumulation steps mismatch: GradientAccumulationPlugin has 1, DeepSpeed config has 4. Using DeepSpeed's value.
+nid001245: Parameter Offload - Persistent parameters statistics: param_count = 164, numel = 664576
+nid001245: [Rank 0] time (ms) | init_optimizer_state: 0.00
+nid001249: 
+nid001249: ================================================================================
+nid001249: ================================================================================
+nid001249: 
+nid001249: [Rank 11 | Local Rank 3] GPU Memory Stats - Step 0 [TRAIN BEGIN][Rank 10 | Local Rank 2] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+nid001249: 
+nid001249: ================================================================================================================================================================
+nid001249: 
+nid001249:   Allocated:     19.576 GB (Max: 21.120 GB)  Allocated:     19.576 GB (Max: 21.120 GB)
+nid001249: 
+nid001249:   Reserved:      24.793 GB (Max: 24.793 GB)  Reserved:      24.793 GB (Max: 24.793 GB)
+nid001249: 
+nid001249:   Cached (Free): 5.216 GB  Cached (Free): 5.216 GB
+nid001249: 
+nid001249: 
+nid001249: ================================================================================
+nid001249: [Rank 8 | Local Rank 0] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+nid001249: ================================================================================
+nid001249:   Allocated:     19.576 GB (Max: 21.120 GB)
+nid001249:   Reserved:      24.793 GB (Max: 24.793 GB)
+nid001245: 
+nid001245: ================================================================================
+nid001245: [Rank 3 | Local Rank 3] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+nid001249:   Cached (Free): 5.216 GB
+nid001245: ================================================================================
+nid001245:   Allocated:     19.576 GB (Max: 21.120 GB)
+nid001245:   Reserved:      24.793 GB (Max: 24.793 GB)
+nid001245:   Cached (Free): 5.216 GB
+nid001245: 
+nid001245: ================================================================================
+nid001245: [Rank 1 | Local Rank 1] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+nid001245: ================================================================================
+nid001245:   Allocated:     19.576 GB (Max: 21.120 GB)
+nid001245:   Reserved:      24.793 GB (Max: 24.793 GB)
+nid001245:   Cached (Free): 5.216 GB
+nid001245: 
+nid001245: ================================================================================
+nid001245: [Rank 2 | Local Rank 2] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+nid001245: ================================================================================
+nid001245:   Allocated:     19.576 GB (Max: 21.120 GB)
+nid001245:   Reserved:      24.793 GB (Max: 24.793 GB)
+nid001245:   Cached (Free): 5.216 GB
+nid001249: 
+nid001249: ================================================================================
+nid001249: [Rank 9 | Local Rank 1] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+nid001249: ================================================================================
+nid001249:   Allocated:     19.576 GB (Max: 21.120 GB)
+nid001249:   Reserved:      24.793 GB (Max: 24.793 GB)
+nid001249:   Cached (Free): 5.216 GB
+nid001252: 
+nid001252: ================================================================================
+nid001252: [Rank 14 | Local Rank 2] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+nid001252: ================================================================================
+nid001252: 
+nid001252: ================================================================================  Allocated:     19.576 GB (Max: 21.120 GB)
+nid001252: 
+nid001252:   Reserved:      24.793 GB (Max: 24.793 GB)
+nid001252: [Rank 13 | Local Rank 1] GPU Memory Stats - Step 0 [TRAIN BEGIN]  Cached (Free): 5.216 GB
+nid001252: 
+nid001252: ================================================================================================================================================================
+nid001252: 
+nid001252: 
+nid001252: [Rank 12 | Local Rank 0] GPU Memory Stats - Step 0 [TRAIN BEGIN]  Allocated:     19.576 GB (Max: 21.120 GB)
+nid001252: 
+nid001252: ================================================================================
+nid001252:   Reserved:      24.793 GB (Max: 24.793 GB)
+nid001252:   Cached (Free): 5.216 GB
+nid001252:   Allocated:     19.576 GB (Max: 21.120 GB)
+nid001252: ================================================================================
+nid001252:   Reserved:      24.793 GB (Max: 24.793 GB)
+nid001252: 
+nid001252:   Cached (Free): 5.216 GB
+nid001252: [Rank 15 | Local Rank 3] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+nid001252: ================================================================================
+nid001252:   Allocated:     19.576 GB (Max: 21.120 GB)
+nid001252:   Reserved:      24.793 GB (Max: 24.793 GB)
+nid001252:   Cached (Free): 5.216 GB
+nid001248: 
+nid001248: ================================================================================
+nid001248: [Rank 5 | Local Rank 1] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+nid001248: ================================================================================
+nid001248: 
+nid001248: ================================================================================
+nid001248: ================================================================================  Allocated:     19.576 GB (Max: 21.120 GB)
+nid001248: 
+nid001248: 
+nid001248: ================================================================================
+nid001248: [Rank 6 | Local Rank 2] GPU Memory Stats - Step 0 [TRAIN BEGIN]  Reserved:      24.793 GB (Max: 24.793 GB)
+nid001248: 
+nid001248: [Rank 4 | Local Rank 0] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+nid001248: ================================================================================
+nid001248:   Cached (Free): 5.216 GB
+nid001248: ================================================================================[Rank 7 | Local Rank 3] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+nid001248: 
+nid001248: 
+nid001248: ================================================================================  Allocated:     19.576 GB (Max: 21.120 GB)
+nid001248: 
+nid001248:   Allocated:     19.576 GB (Max: 21.120 GB)  Reserved:      24.793 GB (Max: 24.793 GB)
+nid001248: 
+nid001248:   Allocated:     19.576 GB (Max: 21.120 GB)  Cached (Free): 5.216 GB  Reserved:      24.793 GB (Max: 24.793 GB)
+nid001248: 
+nid001248: 
+nid001248:   Reserved:      24.793 GB (Max: 24.793 GB)  Cached (Free): 5.216 GB
+nid001248: 
+nid001248:   Cached (Free): 5.216 GB
+nid001245: 
+nid001245: ================================================================================
+nid001245: [Rank 0 | Local Rank 0] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+nid001245: ================================================================================
+nid001245:   Allocated:     19.576 GB (Max: 19.576 GB)
+nid001245:   Reserved:      24.793 GB (Max: 24.793 GB)
+nid001245:   Cached (Free): 5.216 GB
+nid001245: 
+nid001245: ================================================================================
+nid001245: Training started: 2025-11-30 01:19:25
+nid001245: ================================================================================
+nid001245: 
+nid001245: [Rank 0] time (ms) | optimizer_step: 240.85
+nid001245: [2025-11-30 01:20:16,291] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 7242.39 | bwd_microstep: 42334.71 | bwd_inner_microstep: 42122.30 | bwd_allreduce_microstep: 211.01 | step_microstep: 774.37
+nid001245: [Rank 0] time (ms) | fwd: 7242.35 | bwd: 42334.71 | bwd_inner: 42122.38 | bwd_allreduce: 211.02 | step: 774.38
+nid001245: [Rank 0] time (ms) | optimizer_step: 183.66
+nid001245: [2025-11-30 01:21:08,160] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11530.64 | bwd_microstep: 39941.65 | bwd_inner_microstep: 39753.63 | bwd_allreduce_microstep: 187.13 | step_microstep: 344.82
+nid001245: [Rank 0] time (ms) | fwd: 11530.62 | bwd: 39941.64 | bwd_inner: 39753.75 | bwd_allreduce: 187.10 | step: 344.83
+nid001245: [Rank 0] time (ms) | optimizer_step: 217.82
+nid001245: [2025-11-30 01:22:00,428] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11805.84 | bwd_microstep: 39966.89 | bwd_inner_microstep: 39777.48 | bwd_allreduce_microstep: 188.55 | step_microstep: 446.96
+nid001245: [Rank 0] time (ms) | fwd: 11805.80 | bwd: 39966.88 | bwd_inner: 39777.57 | bwd_allreduce: 188.56 | step: 446.96
+nid001245: [Rank 0] time (ms) | optimizer_step: 165.21
+nid001245: [2025-11-30 01:22:52,075] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11406.65 | bwd_microstep: 39845.59 | bwd_inner_microstep: 39655.80 | bwd_allreduce_microstep: 188.96 | step_microstep: 347.01
+nid001245: [Rank 0] time (ms) | fwd: 11406.65 | bwd: 39845.58 | bwd_inner: 39655.89 | bwd_allreduce: 188.94 | step: 347.01
+nid001245: [Rank 0] time (ms) | optimizer_step: 223.23
+nid001245: [2025-11-30 01:23:44,195] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11832.36 | bwd_microstep: 39852.97 | bwd_inner_microstep: 39658.59 | bwd_allreduce_microstep: 193.55 | step_microstep: 388.83
+nid001245: [Rank 0] time (ms) | fwd: 11832.34 | bwd: 39852.96 | bwd_inner: 39658.68 | bwd_allreduce: 193.53 | step: 388.82
+nid001245: {'loss': 7.8832, 'grad_norm': 11.784020225325419, 'learning_rate': 9.763779527559055e-05, 'epoch': 0.04}
+                                                 
+nid001245: {'eval_loss': 1.6457315683364868, 'eval_runtime': 52.5183, 'eval_samples_per_second': 14.623, 'eval_steps_per_second': 0.914, 'e  4%|▍         | 5/128 [05:11<1:46:24, 51.91s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 264.79
+nid001245: [2025-11-30 01:25:21,273] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55808.11 | bwd_microstep: 40096.72 | bwd_inner_microstep: 39902.57 | bwd_allreduce_microstep: 193.27 | step_microstep: 449.08
+nid001245: [Rank 0] time (ms) | fwd: 55808.11 | bwd: 40096.72 | bwd_inner: 39902.64 | bwd_allreduce: 193.29 | step: 449.09
+nid001245: [Rank 0] time (ms) | optimizer_step: 163.31
+nid001245: [2025-11-30 01:26:12,893] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11394.05 | bwd_microstep: 39842.91 | bwd_inner_microstep: 39651.64 | bwd_allreduce_microstep: 190.46 | step_microstep: 334.43
+nid001245: [Rank 0] time (ms) | fwd: 11394.05 | bwd: 39842.90 | bwd_inner: 39651.72 | bwd_allreduce: 190.45 | step: 334.44
+nid001245: [Rank 0] time (ms) | optimizer_step: 206.56
+nid001245: [2025-11-30 01:27:05,275] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12469.86 | bwd_microstep: 39367.52 | bwd_inner_microstep: 39152.98 | bwd_allreduce_microstep: 213.70 | step_microstep: 498.85
+nid001245: [Rank 0] time (ms) | fwd: 12469.84 | bwd: 39367.51 | bwd_inner: 39153.10 | bwd_allreduce: 213.70 | step: 498.85
+nid001245: [Rank 0] time (ms) | optimizer_step: 166.76
+nid001245: [2025-11-30 01:27:56,688] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11741.77 | bwd_microstep: 39328.76 | bwd_inner_microstep: 39134.19 | bwd_allreduce_microstep: 193.70 | step_microstep: 296.36
+nid001245: [Rank 0] time (ms) | fwd: 11741.73 | bwd: 39328.75 | bwd_inner: 39134.32 | bwd_allreduce: 193.69 | step: 296.36
+nid001245: [Rank 0] time (ms) | optimizer_step: 378.61
+nid001245: [2025-11-30 01:28:48,852] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12037.42 | bwd_microstep: 39571.38 | bwd_inner_microstep: 39341.18 | bwd_allreduce_microstep: 229.31 | step_microstep: 509.00
+nid001245: [Rank 0] time (ms) | fwd: 12037.42 | bwd: 39571.37 | bwd_inner: 39341.29 | bwd_allreduce: 229.32 | step: 509.00
+                                                  786428856, 'learning_rate': 9.370078740157481e-05, 'epoch': 0.08}
+nid001245: {'eval_loss': 1.5953203439712524, 'eval_runtime': 52.4128, 'eval_samples_per_second': 14.653, 'eval_steps_per_second': 0.916, 'e  8%|▊         | 10/128 [10:15<1:48:58, 55.41s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 259.26
+nid001245: [2025-11-30 01:30:25,790] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55544.37 | bwd_microstep: 39706.30 | bwd_inner_microstep: 39516.18 | bwd_allreduce_microstep: 189.31 | step_microstep: 467.83
+nid001245: [Rank 0] time (ms) | fwd: 55543.57 | bwd: 39706.30 | bwd_inner: 39516.26 | bwd_allreduce: 189.27 | step: 467.83
+nid001245: [Rank 0] time (ms) | optimizer_step: 177.60
+nid001245: [2025-11-30 01:31:17,271] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11556.84 | bwd_microstep: 39455.68 | bwd_inner_microstep: 39239.84 | bwd_allreduce_microstep: 214.93 | step_microstep: 419.34
+nid001245: [Rank 0] time (ms) | fwd: 11556.70 | bwd: 39455.67 | bwd_inner: 39239.94 | bwd_allreduce: 214.93 | step: 419.34
+nid001245: [Rank 0] time (ms) | optimizer_step: 215.20
+nid001245: [2025-11-30 01:32:08,817] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11813.58 | bwd_microstep: 39292.58 | bwd_inner_microstep: 39097.43 | bwd_allreduce_microstep: 194.23 | step_microstep: 393.92
+nid001245: [Rank 0] time (ms) | fwd: 11813.55 | bwd: 39292.58 | bwd_inner: 39097.54 | bwd_allreduce: 194.22 | step: 393.92
+nid001245: [Rank 0] time (ms) | optimizer_step: 166.26
+nid001245: [2025-11-30 01:33:00,611] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11599.64 | bwd_microstep: 39693.16 | bwd_inner_microstep: 39498.52 | bwd_allreduce_microstep: 193.77 | step_microstep: 454.68
+nid001245: [Rank 0] time (ms) | fwd: 11599.60 | bwd: 39693.16 | bwd_inner: 39498.61 | bwd_allreduce: 193.76 | step: 454.68
+nid001245: [Rank 0] time (ms) | optimizer_step: 209.22
+nid001245: [2025-11-30 01:33:52,489] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11815.23 | bwd_microstep: 39564.35 | bwd_inner_microstep: 39379.17 | bwd_allreduce_microstep: 184.22 | step_microstep: 450.89
+nid001245: [Rank 0] time (ms) | fwd: 11815.22 | bwd: 39564.34 | bwd_inner: 39379.35 | bwd_allreduce: 184.21 | step: 450.89
+                                                  78955574, 'learning_rate': 8.976377952755905e-05, 'epoch': 0.12}
+nid001245: {'eval_loss': 1.5417581796646118, 'eval_runtime': 52.1724, 'eval_samples_per_second': 14.72, 'eval_steps_per_second': 0.92, 'epo 12%|█▏        | 15/128 [15:18<1:44:42, 55.60s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 314.54
+nid001245: [2025-11-30 01:35:28,877] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55510.07 | bwd_microstep: 39779.83 | bwd_inner_microstep: 39580.63 | bwd_allreduce_microstep: 198.36 | step_microstep: 491.70
+nid001245: [Rank 0] time (ms) | fwd: 55509.68 | bwd: 39779.84 | bwd_inner: 39580.73 | bwd_allreduce: 198.35 | step: 491.70
+nid001245: [Rank 0] time (ms) | optimizer_step: 159.02
+nid001245: [2025-11-30 01:36:20,783] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11655.02 | bwd_microstep: 39883.87 | bwd_inner_microstep: 39695.25 | bwd_allreduce_microstep: 187.85 | step_microstep: 319.05
+nid001245: [Rank 0] time (ms) | fwd: 11655.02 | bwd: 39883.87 | bwd_inner: 39695.35 | bwd_allreduce: 187.83 | step: 319.06
+nid001245: [Rank 0] time (ms) | optimizer_step: 275.40
+nid001245: [2025-11-30 01:37:12,866] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11843.39 | bwd_microstep: 39787.06 | bwd_inner_microstep: 39569.48 | bwd_allreduce_microstep: 216.75 | step_microstep: 406.52
+nid001245: [Rank 0] time (ms) | fwd: 11843.36 | bwd: 39787.07 | bwd_inner: 39569.58 | bwd_allreduce: 216.76 | step: 406.52
+nid001245: [Rank 0] time (ms) | optimizer_step: 167.93
+nid001245: [2025-11-30 01:38:05,259] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11466.77 | bwd_microstep: 40464.18 | bwd_inner_microstep: 40275.04 | bwd_allreduce_microstep: 188.23 | step_microstep: 411.99
+nid001245: [Rank 0] time (ms) | fwd: 11466.73 | bwd: 40464.18 | bwd_inner: 40275.23 | bwd_allreduce: 188.21 | step: 411.99
+nid001245: [Rank 0] time (ms) | optimizer_step: 208.32
+nid001245: [2025-11-30 01:38:57,281] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11865.49 | bwd_microstep: 39760.99 | bwd_inner_microstep: 39568.24 | bwd_allreduce_microstep: 191.90 | step_microstep: 348.79
+nid001245: [Rank 0] time (ms) | fwd: 11865.50 | bwd: 39760.99 | bwd_inner: 39568.34 | bwd_allreduce: 191.87 | step: 348.79
+                                                  784237677, 'learning_rate': 8.582677165354331e-05, 'epoch': 0.16}
+nid001245: {'eval_loss': 1.4830843210220337, 'eval_runtime': 52.2792, 'eval_samples_per_second': 14.69, 'eval_steps_per_second': 0.918, 'ep 16%|█▌        | 20/128 [20:23<1:40:41, 55.94s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 259.68
+nid001245: [2025-11-30 01:40:33,889] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55225.86 | bwd_microstep: 39911.16 | bwd_inner_microstep: 39721.92 | bwd_allreduce_microstep: 188.37 | step_microstep: 413.78
+nid001245: [Rank 0] time (ms) | fwd: 55225.60 | bwd: 39911.16 | bwd_inner: 39722.01 | bwd_allreduce: 188.36 | step: 413.78
+nid001245: [Rank 0] time (ms) | optimizer_step: 208.47
+nid001245: [2025-11-30 01:41:25,357] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11444.93 | bwd_microstep: 39636.54 | bwd_inner_microstep: 39443.72 | bwd_allreduce_microstep: 191.95 | step_microstep: 338.64
+nid001245: [Rank 0] time (ms) | fwd: 11444.91 | bwd: 39636.55 | bwd_inner: 39443.84 | bwd_allreduce: 191.95 | step: 338.65
+nid001245: [Rank 0] time (ms) | optimizer_step: 212.89
+nid001245: [2025-11-30 01:42:17,737] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11858.37 | bwd_microstep: 40041.26 | bwd_inner_microstep: 39844.17 | bwd_allreduce_microstep: 196.28 | step_microstep: 433.27
+nid001245: [Rank 0] time (ms) | fwd: 11858.35 | bwd: 40041.27 | bwd_inner: 39844.25 | bwd_allreduce: 196.24 | step: 433.27
+nid001245: [Rank 0] time (ms) | optimizer_step: 162.09
+nid001245: [2025-11-30 01:43:09,256] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11567.80 | bwd_microstep: 39585.79 | bwd_inner_microstep: 39389.89 | bwd_allreduce_microstep: 195.07 | step_microstep: 317.62
+nid001245: [Rank 0] time (ms) | fwd: 11567.79 | bwd: 39585.79 | bwd_inner: 39389.97 | bwd_allreduce: 195.06 | step: 317.63
+nid001245: [Rank 0] time (ms) | optimizer_step: 217.62
+nid001245: [2025-11-30 01:44:01,171] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11773.62 | bwd_microstep: 39678.61 | bwd_inner_microstep: 39479.74 | bwd_allreduce_microstep: 198.02 | step_microstep: 416.44
+nid001245: [Rank 0] time (ms) | fwd: 11773.59 | bwd: 39678.60 | bwd_inner: 39479.82 | bwd_allreduce: 198.02 | step: 416.43
+                                                  386348467, 'learning_rate': 8.188976377952757e-05, 'epoch': 0.2}
+nid001245: {'eval_loss': 1.4567832946777344, 'eval_runtime': 52.1069, 'eval_samples_per_second': 14.739, 'eval_steps_per_second': 0.921, 'e 20%|█▉        | 25/128 [25:27<1:35:44, 55.77s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 255.07
+nid001245: [2025-11-30 01:45:37,100] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55216.89 | bwd_microstep: 39400.42 | bwd_inner_microstep: 39215.17 | bwd_allreduce_microstep: 184.40 | step_microstep: 459.95
+nid001245: [Rank 0] time (ms) | fwd: 55216.73 | bwd: 39400.43 | bwd_inner: 39215.25 | bwd_allreduce: 184.39 | step: 459.96
+nid001245: [Rank 0] time (ms) | optimizer_step: 154.70
+nid001245: [2025-11-30 01:46:28,214] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11459.28 | bwd_microstep: 39253.78 | bwd_inner_microstep: 39057.93 | bwd_allreduce_microstep: 195.03 | step_microstep: 353.40
+nid001245: [Rank 0] time (ms) | fwd: 11459.26 | bwd: 39253.77 | bwd_inner: 39058.04 | bwd_allreduce: 195.01 | step: 353.41
+nid001245: [Rank 0] time (ms) | optimizer_step: 206.90
+nid001245: [2025-11-30 01:47:20,260] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11851.28 | bwd_microstep: 39788.78 | bwd_inner_microstep: 39580.60 | bwd_allreduce_microstep: 207.34 | step_microstep: 360.49
+nid001245: [Rank 0] time (ms) | fwd: 11851.28 | bwd: 39788.77 | bwd_inner: 39580.70 | bwd_allreduce: 207.33 | step: 360.49
+nid001245: [Rank 0] time (ms) | optimizer_step: 257.18
+nid001245: [2025-11-30 01:48:11,922] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11565.53 | bwd_microstep: 39571.08 | bwd_inner_microstep: 39358.61 | bwd_allreduce_microstep: 211.65 | step_microstep: 475.93
+nid001245: [Rank 0] time (ms) | fwd: 11565.49 | bwd: 39571.09 | bwd_inner: 39358.68 | bwd_allreduce: 211.60 | step: 475.93
+nid001245: [Rank 0] time (ms) | optimizer_step: 272.27
+nid001245: [2025-11-30 01:49:04,609] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12314.16 | bwd_microstep: 39914.01 | bwd_inner_microstep: 39726.59 | bwd_allreduce_microstep: 186.61 | step_microstep: 411.87
+nid001245: [Rank 0] time (ms) | fwd: 12314.13 | bwd: 39914.01 | bwd_inner: 39726.66 | bwd_allreduce: 186.60 | step: 411.87
+                                                  556966908, 'learning_rate': 7.795275590551181e-05, 'epoch': 0.23}
+nid001245: {'eval_loss': 1.4351412057876587, 'eval_runtime': 52.0507, 'eval_samples_per_second': 14.755, 'eval_steps_per_second': 0.922, 'e 23%|██▎       | 30/128 [30:30<1:31:15, 55.87s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 256.15
+nid001245: [2025-11-30 01:50:40,881] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55442.44 | bwd_microstep: 39698.03 | bwd_inner_microstep: 39484.90 | bwd_allreduce_microstep: 212.32 | step_microstep: 524.40
+nid001245: [Rank 0] time (ms) | fwd: 55442.11 | bwd: 39698.02 | bwd_inner: 39485.00 | bwd_allreduce: 212.26 | step: 524.40
+nid001245: [Rank 0] time (ms) | optimizer_step: 133.34
+nid001245: [2025-11-30 01:51:32,177] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11384.78 | bwd_microstep: 39344.67 | bwd_inner_microstep: 39155.97 | bwd_allreduce_microstep: 187.82 | step_microstep: 519.44
+nid001245: [Rank 0] time (ms) | fwd: 11384.76 | bwd: 39344.65 | bwd_inner: 39156.06 | bwd_allreduce: 187.79 | step: 519.44
+nid001245: [Rank 0] time (ms) | optimizer_step: 271.08
+nid001245: [2025-11-30 01:52:24,342] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11757.16 | bwd_microstep: 39952.59 | bwd_inner_microstep: 39743.32 | bwd_allreduce_microstep: 208.37 | step_microstep: 405.82
+nid001245: [Rank 0] time (ms) | fwd: 11757.15 | bwd: 39952.58 | bwd_inner: 39743.40 | bwd_allreduce: 208.36 | step: 405.83
+nid001245: [Rank 0] time (ms) | optimizer_step: 163.62
+nid001245: [2025-11-30 01:53:16,103] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11402.32 | bwd_microstep: 39876.83 | bwd_inner_microstep: 39670.60 | bwd_allreduce_microstep: 205.19 | step_microstep: 433.19
+nid001245: [Rank 0] time (ms) | fwd: 11402.32 | bwd: 39876.82 | bwd_inner: 39670.72 | bwd_allreduce: 205.18 | step: 433.19
+nid001245: [Rank 0] time (ms) | optimizer_step: 212.88
+nid001245: [2025-11-30 01:54:07,837] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11819.28 | bwd_microstep: 39389.45 | bwd_inner_microstep: 39195.98 | bwd_allreduce_microstep: 192.62 | step_microstep: 479.28
+nid001245: [Rank 0] time (ms) | fwd: 11819.28 | bwd: 39389.45 | bwd_inner: 39196.06 | bwd_allreduce: 192.62 | step: 479.28
+                                                  308440828, 'learning_rate': 7.401574803149607e-05, 'epoch': 0.27}
+nid001245: {'eval_loss': 1.433280348777771, 'eval_runtime': 52.1057, 'eval_samples_per_second': 14.739, 'eval_steps_per_second': 0.921, 'ep 27%|██▋       | 35/128 [35:34<1:26:18, 55.68s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 255.16
+nid001245: [2025-11-30 01:55:43,776] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55474.42 | bwd_microstep: 39402.98 | bwd_inner_microstep: 39211.70 | bwd_allreduce_microstep: 190.47 | step_microstep: 490.99
+nid001245: [Rank 0] time (ms) | fwd: 55474.30 | bwd: 39402.98 | bwd_inner: 39211.77 | bwd_allreduce: 190.48 | step: 491.00
+nid001245: [Rank 0] time (ms) | optimizer_step: 171.36
+nid001245: [2025-11-30 01:56:35,152] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11463.82 | bwd_microstep: 39489.33 | bwd_inner_microstep: 39293.95 | bwd_allreduce_microstep: 194.53 | step_microstep: 373.76
+nid001245: [Rank 0] time (ms) | fwd: 11463.81 | bwd: 39489.32 | bwd_inner: 39294.05 | bwd_allreduce: 194.53 | step: 373.77
+nid001245: [Rank 0] time (ms) | optimizer_step: 205.10
+nid001245: [2025-11-30 01:57:27,226] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11973.46 | bwd_microstep: 39616.89 | bwd_inner_microstep: 39388.32 | bwd_allreduce_microstep: 227.70 | step_microstep: 435.01
+nid001245: [Rank 0] time (ms) | fwd: 11973.43 | bwd: 39616.88 | bwd_inner: 39388.42 | bwd_allreduce: 227.71 | step: 435.02
+nid001245: [Rank 0] time (ms) | optimizer_step: 180.00
+nid001245: [2025-11-30 01:58:18,413] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11469.71 | bwd_microstep: 39157.85 | bwd_inner_microstep: 38950.38 | bwd_allreduce_microstep: 206.64 | step_microstep: 509.84
+nid001245: [Rank 0] time (ms) | fwd: 11469.66 | bwd: 39157.84 | bwd_inner: 38950.47 | bwd_allreduce: 206.62 | step: 509.84
+nid001245: [Rank 0] time (ms) | optimizer_step: 207.12
+nid001245: [2025-11-30 01:59:10,802] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12630.45 | bwd_microstep: 39312.21 | bwd_inner_microstep: 39120.72 | bwd_allreduce_microstep: 190.62 | step_microstep: 397.89
+nid001245: [Rank 0] time (ms) | fwd: 12630.42 | bwd: 39312.20 | bwd_inner: 39120.78 | bwd_allreduce: 190.63 | step: 397.90
+                                                  8722822, 'learning_rate': 7.007874015748031e-05, 'epoch': 0.31}
+nid001245: {'eval_loss': 1.4210929870605469, 'eval_runtime': 52.9729, 'eval_samples_per_second': 14.498, 'eval_steps_per_second': 0.906, 'e 31%|███▏      | 40/128 [40:38<1:21:40, 55.69s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 259.31
+nid001245: [2025-11-30 02:00:47,801] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 56162.84 | bwd_microstep: 39659.05 | bwd_inner_microstep: 39461.45 | bwd_allreduce_microstep: 196.80 | step_microstep: 427.90
+nid001245: [Rank 0] time (ms) | fwd: 56162.57 | bwd: 39659.05 | bwd_inner: 39461.52 | bwd_allreduce: 196.79 | step: 427.91
+nid001245: [Rank 0] time (ms) | optimizer_step: 185.48
+nid001245: [2025-11-30 02:01:39,216] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11458.93 | bwd_microstep: 39523.23 | bwd_inner_microstep: 39331.74 | bwd_allreduce_microstep: 190.62 | step_microstep: 383.26
+nid001245: [Rank 0] time (ms) | fwd: 11458.89 | bwd: 39523.23 | bwd_inner: 39331.85 | bwd_allreduce: 190.60 | step: 383.27
+nid001245: [Rank 0] time (ms) | optimizer_step: 227.98
+nid001245: [2025-11-30 02:02:30,965] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11751.12 | bwd_microstep: 39591.75 | bwd_inner_microstep: 39401.73 | bwd_allreduce_microstep: 189.22 | step_microstep: 359.67
+nid001245: [Rank 0] time (ms) | fwd: 11751.12 | bwd: 39591.75 | bwd_inner: 39401.79 | bwd_allreduce: 189.18 | step: 359.68
+nid001245: [Rank 0] time (ms) | optimizer_step: 165.24
+nid001245: [2025-11-30 02:03:22,599] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11491.90 | bwd_microstep: 39650.06 | bwd_inner_microstep: 39424.17 | bwd_allreduce_microstep: 225.06 | step_microstep: 444.63
+nid001245: [Rank 0] time (ms) | fwd: 11491.87 | bwd: 39650.05 | bwd_inner: 39424.25 | bwd_allreduce: 225.07 | step: 444.63
+nid001245: [Rank 0] time (ms) | optimizer_step: 209.16
+nid001245: [2025-11-30 02:04:14,542] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11870.08 | bwd_microstep: 39612.45 | bwd_inner_microstep: 39419.88 | bwd_allreduce_microstep: 191.74 | step_microstep: 412.56
+nid001245: [Rank 0] time (ms) | fwd: 11870.04 | bwd: 39612.44 | bwd_inner: 39419.97 | bwd_allreduce: 191.74 | step: 412.56
+                                                  562876598, 'learning_rate': 6.614173228346457e-05, 'epoch': 0.35}
+nid001245: {'eval_loss': 1.4189351797103882, 'eval_runtime': 52.4493, 'eval_samples_per_second': 14.643, 'eval_steps_per_second': 0.915, 'e 35%|███▌      | 45/128 [45:41<1:17:02, 55.69s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 266.21
+nid001245: [2025-11-30 02:05:50,968] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55733.36 | bwd_microstep: 39550.88 | bwd_inner_microstep: 39361.76 | bwd_allreduce_microstep: 188.30 | step_microstep: 491.98
+nid001245: [Rank 0] time (ms) | fwd: 55733.20 | bwd: 39550.88 | bwd_inner: 39361.84 | bwd_allreduce: 188.30 | step: 491.99
+nid001245: [Rank 0] time (ms) | optimizer_step: 201.66
+nid001245: [2025-11-30 02:06:42,518] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11620.53 | bwd_microstep: 39549.32 | bwd_inner_microstep: 39363.66 | bwd_allreduce_microstep: 184.83 | step_microstep: 332.35
+nid001245: [Rank 0] time (ms) | fwd: 11620.52 | bwd: 39549.31 | bwd_inner: 39363.74 | bwd_allreduce: 184.82 | step: 332.36
+nid001245: [Rank 0] time (ms) | optimizer_step: 218.71
+nid001245: [2025-11-30 02:07:34,783] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12284.51 | bwd_microstep: 39571.75 | bwd_inner_microstep: 39360.52 | bwd_allreduce_microstep: 210.37 | step_microstep: 361.81
+nid001245: [Rank 0] time (ms) | fwd: 12284.40 | bwd: 39571.75 | bwd_inner: 39360.60 | bwd_allreduce: 210.39 | step: 361.81
+nid001245: [Rank 0] time (ms) | optimizer_step: 159.03
+nid001245: [2025-11-30 02:08:26,498] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11576.59 | bwd_microstep: 39683.21 | bwd_inner_microstep: 39482.93 | bwd_allreduce_microstep: 199.40 | step_microstep: 408.86
+nid001245: [Rank 0] time (ms) | fwd: 11576.57 | bwd: 39683.20 | bwd_inner: 39483.00 | bwd_allreduce: 199.40 | step: 408.86
+nid001245: [Rank 0] time (ms) | optimizer_step: 364.48
+nid001245: [2025-11-30 02:09:19,212] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12314.70 | bwd_microstep: 39640.22 | bwd_inner_microstep: 39444.85 | bwd_allreduce_microstep: 194.50 | step_microstep: 712.64
+nid001245: [Rank 0] time (ms) | fwd: 12314.67 | bwd: 39640.22 | bwd_inner: 39444.95 | bwd_allreduce: 194.50 | step: 712.64
+                                                  97649309, 'learning_rate': 6.220472440944882e-05, 'epoch': 0.39}
+nid001245: {'eval_loss': 1.408365249633789, 'eval_runtime': 52.3377, 'eval_samples_per_second': 14.674, 'eval_steps_per_second': 0.917, 'ep 39%|███▉      | 50/128 [50:46<1:12:53, 56.07s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 256.03
+nid001245: [2025-11-30 02:10:56,105] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55352.63 | bwd_microstep: 39844.81 | bwd_inner_microstep: 39651.47 | bwd_allreduce_microstep: 192.53 | step_microstep: 529.38
+nid001245: [Rank 0] time (ms) | fwd: 55352.45 | bwd: 39844.81 | bwd_inner: 39651.55 | bwd_allreduce: 192.51 | step: 529.39
+nid001245: [Rank 0] time (ms) | optimizer_step: 205.71
+nid001245: [2025-11-30 02:11:48,402] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11890.36 | bwd_microstep: 39627.83 | bwd_inner_microstep: 39416.12 | bwd_allreduce_microstep: 210.86 | step_microstep: 731.62
+nid001245: [Rank 0] time (ms) | fwd: 11890.35 | bwd: 39627.82 | bwd_inner: 39416.21 | bwd_allreduce: 210.86 | step: 731.62
+nid001245: [Rank 0] time (ms) | optimizer_step: 420.36
+nid001245: [2025-11-30 02:12:43,227] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12835.46 | bwd_microstep: 41390.84 | bwd_inner_microstep: 41194.28 | bwd_allreduce_microstep: 195.69 | step_microstep: 553.08
+nid001245: [Rank 0] time (ms) | fwd: 12835.46 | bwd: 41390.83 | bwd_inner: 41194.36 | bwd_allreduce: 195.68 | step: 553.09
+nid001245: [Rank 0] time (ms) | optimizer_step: 163.55
+nid001245: [2025-11-30 02:13:36,044] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12311.27 | bwd_microstep: 40160.47 | bwd_inner_microstep: 39955.38 | bwd_allreduce_microstep: 204.25 | step_microstep: 299.36
+nid001245: [Rank 0] time (ms) | fwd: 12311.26 | bwd: 40160.47 | bwd_inner: 39955.46 | bwd_allreduce: 204.25 | step: 299.37
+nid001245: [Rank 0] time (ms) | optimizer_step: 214.34
+nid001245: [2025-11-30 02:14:28,531] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12013.48 | bwd_microstep: 40016.90 | bwd_inner_microstep: 39815.06 | bwd_allreduce_microstep: 200.84 | step_microstep: 409.31
+nid001245: [Rank 0] time (ms) | fwd: 12013.47 | bwd: 40016.90 | bwd_inner: 39815.13 | bwd_allreduce: 200.82 | step: 409.32
+                                                  44294756, 'learning_rate': 5.826771653543307e-05, 'epoch': 0.43}
+nid001245: {'eval_loss': 1.4029903411865234, 'eval_runtime': 52.5154, 'eval_samples_per_second': 14.624, 'eval_steps_per_second': 0.914, 'e 43%|████▎     | 55/128 [55:55<1:08:57, 56.68s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 259.74
+nid001245: [2025-11-30 02:16:05,022] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55900.13 | bwd_microstep: 39519.59 | bwd_inner_microstep: 39315.34 | bwd_allreduce_microstep: 203.41 | step_microstep: 495.20
+nid001245: [Rank 0] time (ms) | fwd: 55899.90 | bwd: 39519.59 | bwd_inner: 39315.42 | bwd_allreduce: 203.41 | step: 495.20
+nid001245: [Rank 0] time (ms) | optimizer_step: 205.16
+nid001245: [2025-11-30 02:16:57,317] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11965.02 | bwd_microstep: 39944.77 | bwd_inner_microstep: 39756.69 | bwd_allreduce_microstep: 187.21 | step_microstep: 337.01
+nid001245: [Rank 0] time (ms) | fwd: 11964.99 | bwd: 39944.77 | bwd_inner: 39756.82 | bwd_allreduce: 187.23 | step: 337.01
+nid001245: [Rank 0] time (ms) | optimizer_step: 256.86
+nid001245: [2025-11-30 02:17:49,824] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11979.97 | bwd_microstep: 40058.97 | bwd_inner_microstep: 39862.55 | bwd_allreduce_microstep: 195.64 | step_microstep: 423.00
+nid001245: [Rank 0] time (ms) | fwd: 11979.94 | bwd: 40058.98 | bwd_inner: 39862.62 | bwd_allreduce: 195.63 | step: 423.00
+nid001245: [Rank 0] time (ms) | optimizer_step: 159.79
+nid001245: [2025-11-30 02:18:41,674] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11581.73 | bwd_microstep: 39877.01 | bwd_inner_microstep: 39682.09 | bwd_allreduce_microstep: 194.08 | step_microstep: 343.98
+nid001245: [Rank 0] time (ms) | fwd: 11581.67 | bwd: 39877.00 | bwd_inner: 39682.17 | bwd_allreduce: 194.09 | step: 343.99
+nid001245: [Rank 0] time (ms) | optimizer_step: 209.32
+nid001245: [2025-11-30 02:19:34,583] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12635.19 | bwd_microstep: 39874.11 | bwd_inner_microstep: 39689.93 | bwd_allreduce_microstep: 183.26 | step_microstep: 354.98
+nid001245: [Rank 0] time (ms) | fwd: 12635.20 | bwd: 39874.11 | bwd_inner: 39690.06 | bwd_allreduce: 183.24 | step: 354.98
+                                                    2020007, 'learning_rate': 5.433070866141733e-05, 'epoch': 0.47}
+nid001245: {'eval_loss': 1.3920097351074219, 'eval_runtime': 52.5624, 'eval_samples_per_second': 14.611, 'eval_steps_per_second': 0.913, 'e 47%|████▋     | 60/128 [1:01:01<1:03:52, 56.35s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 257.80
+nid001245: [2025-11-30 02:21:11,584] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55636.62 | bwd_microstep: 40070.71 | bwd_inner_microstep: 39854.95 | bwd_allreduce_microstep: 214.93 | step_microstep: 436.59
+nid001245: [Rank 0] time (ms) | fwd: 55636.52 | bwd: 40070.71 | bwd_inner: 39855.01 | bwd_allreduce: 214.94 | step: 436.60
+nid001245: [Rank 0] time (ms) | optimizer_step: 180.56
+nid001245: [2025-11-30 02:22:03,415] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11867.28 | bwd_microstep: 39503.86 | bwd_inner_microstep: 39308.17 | bwd_allreduce_microstep: 194.88 | step_microstep: 409.62
+nid001245: [Rank 0] time (ms) | fwd: 11867.07 | bwd: 39503.87 | bwd_inner: 39308.26 | bwd_allreduce: 194.84 | step: 409.63
+nid001245: [Rank 0] time (ms) | optimizer_step: 279.33
+nid001245: [2025-11-30 02:22:56,526] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11907.46 | bwd_microstep: 40639.03 | bwd_inner_microstep: 40446.59 | bwd_allreduce_microstep: 191.51 | step_microstep: 518.98
+nid001245: [Rank 0] time (ms) | fwd: 11907.44 | bwd: 40639.02 | bwd_inner: 40446.69 | bwd_allreduce: 191.48 | step: 518.99
+nid001245: [Rank 0] time (ms) | optimizer_step: 163.48
+nid001245: [2025-11-30 02:23:48,690] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12039.96 | bwd_microstep: 39646.06 | bwd_inner_microstep: 39450.57 | bwd_allreduce_microstep: 194.07 | step_microstep: 424.23
+nid001245: [Rank 0] time (ms) | fwd: 12039.96 | bwd: 39646.06 | bwd_inner: 39450.66 | bwd_allreduce: 194.01 | step: 424.23
+nid001245: [Rank 0] time (ms) | optimizer_step: 214.41
+nid001245: [2025-11-30 02:24:41,365] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12544.11 | bwd_microstep: 39729.05 | bwd_inner_microstep: 39526.66 | bwd_allreduce_microstep: 201.46 | step_microstep: 352.31
+nid001245: [Rank 0] time (ms) | fwd: 12544.11 | bwd: 39729.04 | bwd_inner: 39526.77 | bwd_allreduce: 201.45 | step: 352.31
+                                                    2011879, 'learning_rate': 5.0393700787401575e-05, 'epoch': 0.51}
+nid001245: {'eval_loss': 1.3879470825195312, 'eval_runtime': 53.084, 'eval_samples_per_second': 14.468, 'eval_steps_per_second': 0.904, 'ep 51%|█████     | 65/128 [1:06:09<59:16, 56.45s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 608.30
+nid001245: [2025-11-30 02:26:19,477] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55902.07 | bwd_microstep: 39888.70 | bwd_inner_microstep: 39690.44 | bwd_allreduce_microstep: 197.42 | step_microstep: 737.14
+nid001245: [Rank 0] time (ms) | fwd: 55902.01 | bwd: 39888.71 | bwd_inner: 39690.54 | bwd_allreduce: 197.41 | step: 737.15
+nid001245: [Rank 0] time (ms) | optimizer_step: 162.73
+nid001245: [2025-11-30 02:27:11,686] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11685.06 | bwd_microstep: 40133.01 | bwd_inner_microstep: 39893.63 | bwd_allreduce_microstep: 238.50 | step_microstep: 340.85
+nid001245: [Rank 0] time (ms) | fwd: 11685.06 | bwd: 40133.03 | bwd_inner: 39893.78 | bwd_allreduce: 238.49 | step: 340.86
+nid001245: [Rank 0] time (ms) | optimizer_step: 265.58
+nid001245: [2025-11-30 02:28:04,816] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12115.23 | bwd_microstep: 40547.68 | bwd_inner_microstep: 40336.30 | bwd_allreduce_microstep: 210.50 | step_microstep: 421.29
+nid001245: [Rank 0] time (ms) | fwd: 12115.23 | bwd: 40547.67 | bwd_inner: 40336.40 | bwd_allreduce: 210.49 | step: 421.30
+nid001245: [Rank 0] time (ms) | optimizer_step: 156.57
+nid001245: [2025-11-30 02:28:56,527] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11567.02 | bwd_microstep: 39792.12 | bwd_inner_microstep: 39597.26 | bwd_allreduce_microstep: 194.02 | step_microstep: 301.94
+nid001245: [Rank 0] time (ms) | fwd: 11566.99 | bwd: 39792.13 | bwd_inner: 39597.35 | bwd_allreduce: 194.04 | step: 301.95
+nid001245: [Rank 0] time (ms) | optimizer_step: 228.83
+nid001245: [2025-11-30 02:29:49,243] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11978.03 | bwd_microstep: 40135.40 | bwd_inner_microstep: 39934.05 | bwd_allreduce_microstep: 200.52 | step_microstep: 556.56
+nid001245: [Rank 0] time (ms) | fwd: 11978.03 | bwd: 40135.40 | bwd_inner: 39934.13 | bwd_allreduce: 200.50 | step: 556.57
+                                                    92348, 'learning_rate': 4.645669291338583e-05, 'epoch': 0.55}
+nid001245: {'eval_loss': 1.3862329721450806, 'eval_runtime': 52.3346, 'eval_samples_per_second': 14.675, 'eval_steps_per_second': 0.917, 'e 55%|█████▍    | 70/128 [1:11:16<54:38, 56.53s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 317.54
+nid001245: [2025-11-30 02:31:27,026] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55567.30 | bwd_microstep: 40333.16 | bwd_inner_microstep: 40121.20 | bwd_allreduce_microstep: 211.19 | step_microstep: 498.17
+nid001245: [Rank 0] time (ms) | fwd: 55567.06 | bwd: 40333.16 | bwd_inner: 40121.27 | bwd_allreduce: 211.20 | step: 498.17
+nid001245: [Rank 0] time (ms) | optimizer_step: 196.94
+nid001245: [2025-11-30 02:32:19,390] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11628.92 | bwd_microstep: 39995.17 | bwd_inner_microstep: 39792.33 | bwd_allreduce_microstep: 202.01 | step_microstep: 692.63
+nid001245: [Rank 0] time (ms) | fwd: 11628.83 | bwd: 39995.16 | bwd_inner: 39792.41 | bwd_allreduce: 202.00 | step: 692.63
+nid001245: [Rank 0] time (ms) | optimizer_step: 212.31
+nid001245: [2025-11-30 02:33:11,721] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11848.57 | bwd_microstep: 40055.46 | bwd_inner_microstep: 39858.19 | bwd_allreduce_microstep: 196.45 | step_microstep: 379.27
+nid001245: [Rank 0] time (ms) | fwd: 11848.53 | bwd: 40055.45 | bwd_inner: 39858.25 | bwd_allreduce: 196.44 | step: 379.27
+nid001245: [Rank 0] time (ms) | optimizer_step: 159.84
+nid001245: [2025-11-30 02:34:03,849] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11512.13 | bwd_microstep: 40218.22 | bwd_inner_microstep: 40016.18 | bwd_allreduce_microstep: 201.24 | step_microstep: 352.40
+nid001245: [Rank 0] time (ms) | fwd: 11512.11 | bwd: 40218.23 | bwd_inner: 40016.26 | bwd_allreduce: 201.21 | step: 352.40
+nid001245: [Rank 0] time (ms) | optimizer_step: 210.12
+nid001245: [2025-11-30 02:34:56,324] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11945.88 | bwd_microstep: 40074.64 | bwd_inner_microstep: 39880.95 | bwd_allreduce_microstep: 192.78 | step_microstep: 406.53
+nid001245: [Rank 0] time (ms) | fwd: 11945.85 | bwd: 40074.63 | bwd_inner: 39881.05 | bwd_allreduce: 192.77 | step: 406.53
+                                                    9828261, 'learning_rate': 4.251968503937008e-05, 'epoch': 0.59}
+nid001245: {'eval_loss': 1.3818308115005493, 'eval_runtime': 52.3448, 'eval_samples_per_second': 14.672, 'eval_steps_per_second': 0.917, 'e 59%|█████▊    | 75/128 [1:16:22<49:44, 56.30s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 269.83
+nid001245: [2025-11-30 02:36:33,399] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55681.47 | bwd_microstep: 40267.77 | bwd_inner_microstep: 40065.64 | bwd_allreduce_microstep: 201.31 | step_microstep: 508.82
+nid001245: [Rank 0] time (ms) | fwd: 55681.25 | bwd: 40267.77 | bwd_inner: 40065.75 | bwd_allreduce: 201.30 | step: 508.83
+nid001245: [Rank 0] time (ms) | optimizer_step: 156.60
+nid001245: [2025-11-30 02:37:25,340] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11685.10 | bwd_microstep: 39883.60 | bwd_inner_microstep: 39681.94 | bwd_allreduce_microstep: 200.77 | step_microstep: 322.14
+nid001245: [Rank 0] time (ms) | fwd: 11685.02 | bwd: 39883.60 | bwd_inner: 39682.06 | bwd_allreduce: 200.76 | step: 322.14
+nid001245: [Rank 0] time (ms) | optimizer_step: 218.28
+nid001245: [2025-11-30 02:38:17,435] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12046.44 | bwd_microstep: 39587.94 | bwd_inner_microstep: 39395.54 | bwd_allreduce_microstep: 191.44 | step_microstep: 412.27
+nid001245: [Rank 0] time (ms) | fwd: 12046.40 | bwd: 39587.93 | bwd_inner: 39395.62 | bwd_allreduce: 191.44 | step: 412.27
+nid001245: [Rank 0] time (ms) | optimizer_step: 158.13
+nid001245: [2025-11-30 02:39:09,610] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11882.64 | bwd_microstep: 39728.73 | bwd_inner_microstep: 39535.80 | bwd_allreduce_microstep: 192.02 | step_microstep: 515.76
+nid001245: [Rank 0] time (ms) | fwd: 11882.55 | bwd: 39728.73 | bwd_inner: 39535.93 | bwd_allreduce: 192.01 | step: 515.77
+nid001245: [Rank 0] time (ms) | optimizer_step: 216.55
+nid001245: [2025-11-30 02:40:02,258] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12250.00 | bwd_microstep: 39976.24 | bwd_inner_microstep: 39772.18 | bwd_allreduce_microstep: 203.11 | step_microstep: 373.29
+nid001245: [Rank 0] time (ms) | fwd: 12249.98 | bwd: 39976.24 | bwd_inner: 39772.31 | bwd_allreduce: 203.11 | step: 373.29
+                                                  4797764, 'learning_rate': 3.858267716535433e-05, 'epoch': 0.62}
+nid001245: {'eval_loss': 1.3782469034194946, 'eval_runtime': 52.221, 'eval_samples_per_second': 14.707, 'eval_steps_per_second': 0.919, 'ep 62%|██████▎   | 80/128 [1:21:28<44:59, 56.25s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 315.86
+nid001245: [2025-11-30 02:41:38,648] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55452.01 | bwd_microstep: 39666.36 | bwd_inner_microstep: 39470.84 | bwd_allreduce_microstep: 194.70 | step_microstep: 509.13
+nid001245: [Rank 0] time (ms) | fwd: 55451.62 | bwd: 39666.36 | bwd_inner: 39470.93 | bwd_allreduce: 194.70 | step: 509.14
+nid001245: [Rank 0] time (ms) | optimizer_step: 183.32
+nid001245: [2025-11-30 02:42:30,354] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11599.49 | bwd_microstep: 39682.60 | bwd_inner_microstep: 39472.97 | bwd_allreduce_microstep: 208.82 | step_microstep: 374.76
+nid001245: [Rank 0] time (ms) | fwd: 11599.49 | bwd: 39682.62 | bwd_inner: 39473.04 | bwd_allreduce: 208.83 | step: 374.76
+nid001245: [Rank 0] time (ms) | optimizer_step: 218.03
+nid001245: [2025-11-30 02:43:22,334] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11930.50 | bwd_microstep: 39625.40 | bwd_inner_microstep: 39433.58 | bwd_allreduce_microstep: 190.96 | step_microstep: 376.76
+nid001245: [Rank 0] time (ms) | fwd: 11930.44 | bwd: 39625.39 | bwd_inner: 39433.65 | bwd_allreduce: 190.96 | step: 376.78
+nid001245: [Rank 0] time (ms) | optimizer_step: 158.65
+nid001245: [2025-11-30 02:44:14,296] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11516.09 | bwd_microstep: 39915.90 | bwd_inner_microstep: 39720.88 | bwd_allreduce_microstep: 194.16 | step_microstep: 483.87
+nid001245: [Rank 0] time (ms) | fwd: 11516.08 | bwd: 39915.90 | bwd_inner: 39720.96 | bwd_allreduce: 194.16 | step: 483.88
+nid001245: [Rank 0] time (ms) | optimizer_step: 204.14
+nid001245: [2025-11-30 02:45:06,676] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11882.21 | bwd_microstep: 39961.78 | bwd_inner_microstep: 39769.20 | bwd_allreduce_microstep: 191.73 | step_microstep: 489.21
+nid001245: [Rank 0] time (ms) | fwd: 11882.15 | bwd: 39961.77 | bwd_inner: 39769.28 | bwd_allreduce: 191.71 | step: 489.21
+                                                  931269484, 'learning_rate': 3.464566929133858e-05, 'epoch': 0.66}
+nid001245: {'eval_loss': 1.375579833984375, 'eval_runtime': 52.1571, 'eval_samples_per_second': 14.725, 'eval_steps_per_second': 0.92, 'epo 66%|██████▋   | 85/128 [1:26:33<40:08, 56.00s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 269.86
+nid001245: [2025-11-30 02:46:43,509] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55565.10 | bwd_microstep: 40113.56 | bwd_inner_microstep: 39921.95 | bwd_allreduce_microstep: 190.74 | step_microstep: 597.27
+nid001245: [Rank 0] time (ms) | fwd: 55564.68 | bwd: 40113.55 | bwd_inner: 39922.04 | bwd_allreduce: 190.73 | step: 597.28
+nid001245: [Rank 0] time (ms) | optimizer_step: 169.16
+nid001245: [2025-11-30 02:47:35,068] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11414.64 | bwd_microstep: 39772.52 | bwd_inner_microstep: 39584.29 | bwd_allreduce_microstep: 187.32 | step_microstep: 321.87
+nid001245: [Rank 0] time (ms) | fwd: 11414.60 | bwd: 39772.51 | bwd_inner: 39584.42 | bwd_allreduce: 187.32 | step: 321.87
+nid001245: [Rank 0] time (ms) | optimizer_step: 216.29
+nid001245: [2025-11-30 02:48:27,617] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11736.03 | bwd_microstep: 40419.63 | bwd_inner_microstep: 40227.91 | bwd_allreduce_microstep: 190.83 | step_microstep: 346.10
+nid001245: [Rank 0] time (ms) | fwd: 11736.01 | bwd: 40419.63 | bwd_inner: 40228.00 | bwd_allreduce: 190.77 | step: 346.11
+nid001245: [Rank 0] time (ms) | optimizer_step: 334.62
+nid001245: [2025-11-30 02:49:19,426] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11543.63 | bwd_microstep: 39556.69 | bwd_inner_microstep: 39359.46 | bwd_allreduce_microstep: 196.25 | step_microstep: 660.45
+nid001245: [Rank 0] time (ms) | fwd: 11543.57 | bwd: 39556.67 | bwd_inner: 39359.56 | bwd_allreduce: 196.26 | step: 660.46
+nid001245: [Rank 0] time (ms) | optimizer_step: 212.93
+nid001245: [2025-11-30 02:50:11,463] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11955.69 | bwd_microstep: 39559.71 | bwd_inner_microstep: 39372.65 | bwd_allreduce_microstep: 186.15 | step_microstep: 472.86
+nid001245: [Rank 0] time (ms) | fwd: 11955.64 | bwd: 39559.71 | bwd_inner: 39372.77 | bwd_allreduce: 186.16 | step: 472.86
+                                                  62877167, 'learning_rate': 3.070866141732284e-05, 'epoch': 0.7}
+nid001245: {'eval_loss': 1.37350332736969, 'eval_runtime': 53.025, 'eval_samples_per_second': 14.484, 'eval_steps_per_second': 0.905, 'epoc 70%|███████   | 90/128 [1:31:38<35:25, 55.92s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 486.77
+nid001245: [2025-11-30 02:51:49,458] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 56341.73 | bwd_microstep: 40280.77 | bwd_inner_microstep: 40083.31 | bwd_allreduce_microstep: 196.66 | step_microstep: 740.95
+nid001245: [Rank 0] time (ms) | fwd: 56341.25 | bwd: 40280.76 | bwd_inner: 40083.40 | bwd_allreduce: 196.65 | step: 740.95
+nid001245: [Rank 0] time (ms) | optimizer_step: 163.35
+nid001245: [2025-11-30 02:52:41,955] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11610.56 | bwd_microstep: 40472.89 | bwd_inner_microstep: 40262.85 | bwd_allreduce_microstep: 209.17 | step_microstep: 365.43
+nid001245: [Rank 0] time (ms) | fwd: 11610.54 | bwd: 40472.88 | bwd_inner: 40262.93 | bwd_allreduce: 209.16 | step: 365.44
+nid001245: [Rank 0] time (ms) | optimizer_step: 213.12
+nid001245: [2025-11-30 02:53:35,506] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12716.17 | bwd_microstep: 40359.90 | bwd_inner_microstep: 40160.62 | bwd_allreduce_microstep: 198.47 | step_microstep: 429.03
+nid001245: [Rank 0] time (ms) | fwd: 12716.13 | bwd: 40359.89 | bwd_inner: 40160.68 | bwd_allreduce: 198.46 | step: 429.03
+nid001245: [Rank 0] time (ms) | optimizer_step: 155.83
+nid001245: [2025-11-30 02:54:27,231] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11687.03 | bwd_microstep: 39625.06 | bwd_inner_microstep: 39428.64 | bwd_allreduce_microstep: 195.60 | step_microstep: 366.51
+nid001245: [Rank 0] time (ms) | fwd: 11686.79 | bwd: 39625.05 | bwd_inner: 39428.74 | bwd_allreduce: 195.58 | step: 366.52
+nid001245: [Rank 0] time (ms) | optimizer_step: 232.98
+nid001245: [2025-11-30 02:55:19,765] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12109.11 | bwd_microstep: 39748.76 | bwd_inner_microstep: 39560.31 | bwd_allreduce_microstep: 187.60 | step_microstep: 630.04
+nid001245: [Rank 0] time (ms) | fwd: 12109.07 | bwd: 39748.75 | bwd_inner: 39560.42 | bwd_allreduce: 187.56 | step: 630.05
+                                                  528938738, 'learning_rate': 2.677165354330709e-05, 'epoch': 0.74}
+nid001245: {'eval_loss': 1.3698081970214844, 'eval_runtime': 52.3918, 'eval_samples_per_second': 14.659, 'eval_steps_per_second': 0.916, 'e 74%|███████▍  | 95/128 [1:36:46<31:00, 56.39s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 263.54
+nid001245: [2025-11-30 02:56:56,778] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55688.73 | bwd_microstep: 40206.83 | bwd_inner_microstep: 40010.33 | bwd_allreduce_microstep: 195.67 | step_microstep: 409.56
+nid001245: [Rank 0] time (ms) | fwd: 55688.65 | bwd: 40206.82 | bwd_inner: 40010.41 | bwd_allreduce: 195.67 | step: 409.56
+nid001245: [Rank 0] time (ms) | optimizer_step: 231.48
+nid001245: [2025-11-30 02:57:49,300] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11884.56 | bwd_microstep: 40015.34 | bwd_inner_microstep: 39809.53 | bwd_allreduce_microstep: 204.89 | step_microstep: 573.76
+nid001245: [Rank 0] time (ms) | fwd: 11884.55 | bwd: 40015.33 | bwd_inner: 39809.64 | bwd_allreduce: 204.91 | step: 573.77
+nid001245: [Rank 0] time (ms) | optimizer_step: 224.91
+nid001245: [2025-11-30 02:58:41,578] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12242.64 | bwd_microstep: 39601.48 | bwd_inner_microstep: 39410.82 | bwd_allreduce_microstep: 189.78 | step_microstep: 385.67
+nid001245: [Rank 0] time (ms) | fwd: 12242.62 | bwd: 39601.48 | bwd_inner: 39410.89 | bwd_allreduce: 189.78 | step: 385.67
+nid001245: [Rank 0] time (ms) | optimizer_step: 197.34
+nid001245: [2025-11-30 02:59:33,736] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11724.51 | bwd_microstep: 40007.60 | bwd_inner_microstep: 39801.87 | bwd_allreduce_microstep: 204.83 | step_microstep: 379.34
+nid001245: [Rank 0] time (ms) | fwd: 11724.34 | bwd: 40007.60 | bwd_inner: 39801.98 | bwd_allreduce: 204.83 | step: 379.35
+nid001245: [Rank 0] time (ms) | optimizer_step: 206.91
+nid001245: [2025-11-30 03:00:26,132] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11952.23 | bwd_microstep: 40040.54 | bwd_inner_microstep: 39826.43 | bwd_allreduce_microstep: 213.15 | step_microstep: 349.80
+nid001245: [Rank 0] time (ms) | fwd: 11952.16 | bwd: 40040.54 | bwd_inner: 39826.49 | bwd_allreduce: 213.17 | step: 349.80
+                                                   61430044, 'learning_rate': 2.283464566929134e-05, 'epoch': 0.78}
+nid001245: {'eval_loss': 1.3674055337905884, 'eval_runtime': 52.0688, 'eval_samples_per_second': 14.75, 'eval_steps_per_second': 0.922, 'ep 78%|███████▊  | 100/128 [1:41:52<26:15, 56.25s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 255.01
+nid001245: [2025-11-30 03:02:02,756] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55241.40 | bwd_microstep: 39908.44 | bwd_inner_microstep: 39721.56 | bwd_allreduce_microstep: 186.02 | step_microstep: 627.48
+nid001245: [Rank 0] time (ms) | fwd: 55241.11 | bwd: 39908.42 | bwd_inner: 39721.63 | bwd_allreduce: 186.02 | step: 627.48
+nid001245: [Rank 0] time (ms) | optimizer_step: 165.47
+nid001245: [2025-11-30 03:02:54,467] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11479.33 | bwd_microstep: 39868.67 | bwd_inner_microstep: 39660.36 | bwd_allreduce_microstep: 207.39 | step_microstep: 315.34
+nid001245: [Rank 0] time (ms) | fwd: 11479.13 | bwd: 39868.66 | bwd_inner: 39660.45 | bwd_allreduce: 207.36 | step: 315.34
+nid001245: [Rank 0] time (ms) | optimizer_step: 215.89
+nid001245: [2025-11-30 03:03:46,698] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11970.37 | bwd_microstep: 39851.80 | bwd_inner_microstep: 39661.11 | bwd_allreduce_microstep: 189.80 | step_microstep: 362.12
+nid001245: [Rank 0] time (ms) | fwd: 11970.37 | bwd: 39851.79 | bwd_inner: 39661.22 | bwd_allreduce: 189.81 | step: 362.12
+nid001245: [Rank 0] time (ms) | optimizer_step: 160.88
+nid001245: [2025-11-30 03:04:38,465] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11467.44 | bwd_microstep: 39863.57 | bwd_inner_microstep: 39667.90 | bwd_allreduce_microstep: 194.73 | step_microstep: 388.40
+nid001245: [Rank 0] time (ms) | fwd: 11467.39 | bwd: 39863.56 | bwd_inner: 39667.97 | bwd_allreduce: 194.74 | step: 388.41
+nid001245: [Rank 0] time (ms) | optimizer_step: 213.70
+nid001245: [2025-11-30 03:05:30,655] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11813.32 | bwd_microstep: 39865.96 | bwd_inner_microstep: 39652.22 | bwd_allreduce_microstep: 212.88 | step_microstep: 461.08
+nid001245: [Rank 0] time (ms) | fwd: 11813.20 | bwd: 39865.97 | bwd_inner: 39652.30 | bwd_allreduce: 212.89 | step: 461.09
+                                                   23936633, 'learning_rate': 1.889763779527559e-05, 'epoch': 0.82}
+nid001245: {'eval_loss': 1.366689682006836, 'eval_runtime': 52.0974, 'eval_samples_per_second': 14.742, 'eval_steps_per_second': 0.921, 'ep 82%|████████▏ | 105/128 [1:46:57<21:26, 55.95s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 259.37
+nid001245: [2025-11-30 03:07:07,336] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55372.62 | bwd_microstep: 40212.16 | bwd_inner_microstep: 40017.76 | bwd_allreduce_microstep: 193.50 | step_microstep: 407.36
+nid001245: [Rank 0] time (ms) | fwd: 55372.35 | bwd: 40212.15 | bwd_inner: 40017.81 | bwd_allreduce: 193.49 | step: 407.36
+nid001245: [Rank 0] time (ms) | optimizer_step: 157.08
+nid001245: [2025-11-30 03:07:59,299] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11441.91 | bwd_microstep: 40015.16 | bwd_inner_microstep: 39821.40 | bwd_allreduce_microstep: 192.90 | step_microstep: 456.44
+nid001245: [Rank 0] time (ms) | fwd: 11441.92 | bwd: 40015.15 | bwd_inner: 39821.47 | bwd_allreduce: 192.92 | step: 456.43
+nid001245: [Rank 0] time (ms) | optimizer_step: 214.45
+nid001245: [2025-11-30 03:08:51,502] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11812.93 | bwd_microstep: 39882.55 | bwd_inner_microstep: 39686.97 | bwd_allreduce_microstep: 194.73 | step_microstep: 459.85
+nid001245: [Rank 0] time (ms) | fwd: 11812.91 | bwd: 39882.54 | bwd_inner: 39687.03 | bwd_allreduce: 194.74 | step: 459.85
+nid001245: [Rank 0] time (ms) | optimizer_step: 163.55
+nid001245: [2025-11-30 03:09:43,186] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11582.06 | bwd_microstep: 39600.41 | bwd_inner_microstep: 39405.54 | bwd_allreduce_microstep: 194.07 | step_microstep: 455.06
+nid001245: [Rank 0] time (ms) | fwd: 11582.01 | bwd: 39600.42 | bwd_inner: 39405.66 | bwd_allreduce: 194.08 | step: 455.06
+nid001245: [Rank 0] time (ms) | optimizer_step: 253.02
+nid001245: [2025-11-30 03:10:36,647] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12516.42 | bwd_microstep: 40513.59 | bwd_inner_microstep: 40301.75 | bwd_allreduce_microstep: 210.97 | step_microstep: 386.17
+nid001245: [Rank 0] time (ms) | fwd: 12516.41 | bwd: 40513.58 | bwd_inner: 40301.82 | bwd_allreduce: 210.97 | step: 386.18
+                                                   04361774, 'learning_rate': 1.4960629921259845e-05, 'epoch': 0.86}
+nid001245: {'eval_loss': 1.3647804260253906, 'eval_runtime': 52.3281, 'eval_samples_per_second': 14.677, 'eval_steps_per_second': 0.917, 'e 86%|████████▌ | 110/128 [1:52:03<16:53, 56.32s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 258.43
+nid001245: [2025-11-30 03:12:13,595] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55359.14 | bwd_microstep: 40145.48 | bwd_inner_microstep: 39913.46 | bwd_allreduce_microstep: 231.24 | step_microstep: 393.91
+nid001245: [Rank 0] time (ms) | fwd: 55358.84 | bwd: 40145.48 | bwd_inner: 39913.55 | bwd_allreduce: 231.24 | step: 393.92
+nid001245: [Rank 0] time (ms) | optimizer_step: 158.61
+nid001245: [2025-11-30 03:13:04,830] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11531.73 | bwd_microstep: 39361.31 | bwd_inner_microstep: 39175.23 | bwd_allreduce_microstep: 185.25 | step_microstep: 294.59
+nid001245: [Rank 0] time (ms) | fwd: 11531.72 | bwd: 39361.31 | bwd_inner: 39175.33 | bwd_allreduce: 185.24 | step: 294.59
+nid001245: [Rank 0] time (ms) | optimizer_step: 213.53
+nid001245: [2025-11-30 03:13:57,429] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11746.44 | bwd_microstep: 40305.12 | bwd_inner_microstep: 40118.67 | bwd_allreduce_microstep: 185.64 | step_microstep: 500.48
+nid001245: [Rank 0] time (ms) | fwd: 11746.42 | bwd: 40305.11 | bwd_inner: 40118.75 | bwd_allreduce: 185.61 | step: 500.48
+nid001245: [Rank 0] time (ms) | optimizer_step: 187.35
+nid001245: [2025-11-30 03:14:49,957] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11520.15 | bwd_microstep: 40308.82 | bwd_inner_microstep: 40113.30 | bwd_allreduce_microstep: 194.65 | step_microstep: 653.89
+nid001245: [Rank 0] time (ms) | fwd: 11520.13 | bwd: 40308.82 | bwd_inner: 40113.38 | bwd_allreduce: 194.64 | step: 653.89
+nid001245: [Rank 0] time (ms) | optimizer_step: 214.08
+nid001245: [2025-11-30 03:15:44,478] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12333.24 | bwd_microstep: 41437.45 | bwd_inner_microstep: 41240.81 | bwd_allreduce_microstep: 195.81 | step_microstep: 704.74
+nid001245: [Rank 0] time (ms) | fwd: 12333.20 | bwd: 41437.45 | bwd_inner: 41240.88 | bwd_allreduce: 195.81 | step: 704.75
+                                                   804579583, 'learning_rate': 1.1023622047244095e-05, 'epoch': 0.9}
+nid001245: {'eval_loss': 1.3624578714370728, 'eval_runtime': 52.1716, 'eval_samples_per_second': 14.721, 'eval_steps_per_second': 0.92, 'ep 90%|████████▉ | 115/128 [1:57:10<12:19, 56.86s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 254.69
+nid001245: [2025-11-30 03:17:23,030] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 56041.30 | bwd_microstep: 40901.46 | bwd_inner_microstep: 40702.89 | bwd_allreduce_microstep: 197.80 | step_microstep: 617.50
+nid001245: [Rank 0] time (ms) | fwd: 56041.06 | bwd: 40901.45 | bwd_inner: 40702.94 | bwd_allreduce: 197.79 | step: 617.51
+nid001245: [Rank 0] time (ms) | optimizer_step: 163.65
+nid001245: [2025-11-30 03:18:14,667] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11432.87 | bwd_microstep: 39854.20 | bwd_inner_microstep: 39664.64 | bwd_allreduce_microstep: 188.71 | step_microstep: 304.35
+nid001245: [Rank 0] time (ms) | fwd: 11432.83 | bwd: 39854.19 | bwd_inner: 39664.70 | bwd_allreduce: 188.69 | step: 304.35
+nid001245: [Rank 0] time (ms) | optimizer_step: 214.91
+nid001245: [2025-11-30 03:19:06,986] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11920.50 | bwd_microstep: 39831.16 | bwd_inner_microstep: 39641.65 | bwd_allreduce_microstep: 188.70 | step_microstep: 523.48
+nid001245: [Rank 0] time (ms) | fwd: 11920.47 | bwd: 39831.14 | bwd_inner: 39641.70 | bwd_allreduce: 188.70 | step: 523.48
+nid001245: [Rank 0] time (ms) | optimizer_step: 156.47
+nid001245: [2025-11-30 03:19:58,338] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11379.63 | bwd_microstep: 39535.01 | bwd_inner_microstep: 39347.96 | bwd_allreduce_microstep: 186.26 | step_microstep: 394.23
+nid001245: [Rank 0] time (ms) | fwd: 11379.60 | bwd: 39535.00 | bwd_inner: 39348.04 | bwd_allreduce: 186.26 | step: 394.23
+nid001245: [Rank 0] time (ms) | optimizer_step: 217.63
+nid001245: [2025-11-30 03:20:50,366] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11753.79 | bwd_microstep: 39834.89 | bwd_inner_microstep: 39647.83 | bwd_allreduce_microstep: 186.29 | step_microstep: 397.48
+nid001245: [Rank 0] time (ms) | fwd: 11753.77 | bwd: 39834.88 | bwd_inner: 39647.91 | bwd_allreduce: 186.29 | step: 397.49
+                                                   17112566, 'learning_rate': 7.086614173228347e-06, 'epoch': 0.94}
+nid001245: {'eval_loss': 1.3610820770263672, 'eval_runtime': 52.0718, 'eval_samples_per_second': 14.749, 'eval_steps_per_second': 0.922, 'e 94%|█████████▍| 120/128 [2:02:16<07:28, 56.12s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 259.82
+nid001245: [2025-11-30 03:22:27,988] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55688.47 | bwd_microstep: 40572.50 | bwd_inner_microstep: 40359.86 | bwd_allreduce_microstep: 211.88 | step_microstep: 400.59
+nid001245: [Rank 0] time (ms) | fwd: 55688.07 | bwd: 40572.49 | bwd_inner: 40359.93 | bwd_allreduce: 211.88 | step: 400.60
+nid001245: [Rank 0] time (ms) | optimizer_step: 226.31
+nid001245: [2025-11-30 03:23:20,861] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11584.24 | bwd_microstep: 40778.86 | bwd_inner_microstep: 40569.46 | bwd_allreduce_microstep: 208.64 | step_microstep: 465.06
+nid001245: [Rank 0] time (ms) | fwd: 11584.23 | bwd: 40778.85 | bwd_inner: 40569.53 | bwd_allreduce: 208.61 | step: 465.07
+nid001245: [Rank 0] time (ms) | optimizer_step: 205.15
+nid001245: [2025-11-30 03:24:13,546] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11770.84 | bwd_microstep: 40468.28 | bwd_inner_microstep: 40278.94 | bwd_allreduce_microstep: 188.54 | step_microstep: 402.05
+nid001245: [Rank 0] time (ms) | fwd: 11770.80 | bwd: 40468.28 | bwd_inner: 40279.01 | bwd_allreduce: 188.54 | step: 402.06
+nid001245: [Rank 0] time (ms) | optimizer_step: 163.59
+nid001245: [2025-11-30 03:25:05,451] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11540.96 | bwd_microstep: 39953.15 | bwd_inner_microstep: 39765.11 | bwd_allreduce_microstep: 187.27 | step_microstep: 368.19
+nid001245: [Rank 0] time (ms) | fwd: 11540.97 | bwd: 39953.13 | bwd_inner: 39765.19 | bwd_allreduce: 187.26 | step: 368.20
+nid001245: [Rank 0] time (ms) | optimizer_step: 213.32
+nid001245: [2025-11-30 03:25:57,267] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11844.12 | bwd_microstep: 39585.75 | bwd_inner_microstep: 39400.57 | bwd_allreduce_microstep: 184.40 | step_microstep: 342.23
+nid001245: [Rank 0] time (ms) | fwd: 11844.09 | bwd: 39585.74 | bwd_inner: 39400.63 | bwd_allreduce: 184.40 | step: 342.23
+                                                   881657306, 'learning_rate': 3.1496062992125985e-06, 'epoch': 0.98}
+nid001245: {'eval_loss': 1.3609390258789062, 'eval_runtime': 52.0103, 'eval_samples_per_second': 14.766, 'eval_steps_per_second': 0.923, 'e 98%|█████████▊| 125/128 [2:07:23<02:48, 56.12s/it]
+nid001245: [Rank 0] time (ms) | optimizer_step: 259.10
+nid001245: [2025-11-30 03:27:33,545] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 55296.84 | bwd_microstep: 39874.43 | bwd_inner_microstep: 39678.18 | bwd_allreduce_microstep: 195.47 | step_microstep: 390.69
+nid001245: [Rank 0] time (ms) | fwd: 55296.40 | bwd: 39874.42 | bwd_inner: 39678.24 | bwd_allreduce: 195.42 | step: 390.70
+nid001245: [Rank 0] time (ms) | optimizer_step: 174.29
+nid001245: [2025-11-30 03:28:27,326] [WARNING] [stage3.py:2191:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 11814.45 | bwd_microstep: 41542.64 | bwd_inner_microstep: 41347.56 | bwd_allreduce_microstep: 193.41 | step_microstep: 370.71
+nid001245: [Rank 0] time (ms) | fwd: 11814.45 | bwd: 41542.63 | bwd_inner: 41347.66 | bwd_allreduce: 193.39 | step: 370.72
+nid001245: [Rank 0] time (ms) | optimizer_step: 206.16
+nid001245: [2025-11-30 03:29:20,233] [WARNING] [stage3.py:2191:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid001245: [Rank 0] time (ms) | fwd_microstep: 12288.48 | bwd_microstep: 40178.87 | bwd_inner_microstep: 39986.30 | bwd_allreduce_microstep: 191.70 | step_microstep: 352.24
+nid001245: [Rank 0] time (ms) | fwd: 12288.48 | bwd: 40178.86 | bwd_inner: 39986.35 | bwd_allreduce: 191.70 | step: 352.24
+nid001248: 
+nid001248: ================================================================================
+nid001248: [Rank 5 | Local Rank 1] GPU Memory Stats - Step 128 [TRAIN END]
+nid001248: ================================================================================
+nid001248:   Allocated:     19.596 GB (Max: 35.424 GB)
+nid001248:   Reserved:      36.117 GB (Max: 40.551 GB)
+nid001248:   Cached (Free): 16.521 GB
+nid001248: ================================================================================
+nid001248: 
+nid001248: [Rank 4 | Local Rank 0] GPU Memory Stats - Step 128 [TRAIN END]
+nid001248: ================================================================================
+nid001248:   Allocated:     19.596 GB (Max: 35.427 GB)
+nid001248:   Reserved:      36.281 GB (Max: 40.551 GB)
+nid001248:   Cached (Free): 16.685 GB
+nid001248: 
+nid001248: ================================================================================
+nid001248: [Rank 7 | Local Rank 3] GPU Memory Stats - Step 128 [TRAIN END]
+nid001248: ================================================================================
+nid001248:   Allocated:     19.596 GB (Max: 35.424 GB)
+nid001248:   Reserved:      36.134 GB (Max: 40.557 GB)
+nid001248:   Cached (Free): 16.538 GB
+nid001248: 
+nid001248: ================================================================================
+nid001248: [Rank 6 | Local Rank 2] GPU Memory Stats - Step 128 [TRAIN END]
+nid001248: ================================================================================
+nid001248:   Allocated:     19.596 GB (Max: 35.424 GB)
+nid001248:   Reserved:      36.117 GB (Max: 40.551 GB)
+nid001248:   Cached (Free): 16.521 GB
+nid001252: 
+nid001252: ================================================================================
+nid001252: [Rank 12 | Local Rank 0] GPU Memory Stats - Step 128 [TRAIN END]
+nid001252: ================================================================================
+nid001252: 
+nid001245: 
+nid001252: ================================================================================  Allocated:     19.596 GB (Max: 35.426 GB)
+nid001245: ================================================================================
+nid001245: [Rank 3 | Local Rank 3] GPU Memory Stats - Step 128 [TRAIN END]
+nid001252:   Reserved:      36.117 GB (Max: 40.551 GB)
+nid001245: ================================================================================
+nid001252: 
+nid001252:   Cached (Free): 16.521 GB[Rank 13 | Local Rank 1] GPU Memory Stats - Step 128 [TRAIN END]
+nid001252: 
+nid001252: ================================================================================
+nid001252:   Allocated:     19.596 GB (Max: 35.427 GB)
+nid001252:   Reserved:      36.117 GB (Max: 40.513 GB)
+nid001252:   Cached (Free): 16.521 GB
+nid001252: 
+nid001252: ================================================================================
+nid001252: [Rank 14 | Local Rank 2] GPU Memory Stats - Step 128 [TRAIN END]
+nid001252: ================================================================================
+nid001252:   Allocated:     19.596 GB (Max: 35.426 GB)
+nid001245:   Allocated:     19.596 GB (Max: 35.426 GB)
+nid001245:   Reserved:      36.281 GB (Max: 40.605 GB)
+nid001252:   Reserved:      36.134 GB (Max: 40.551 GB)
+nid001245:   Cached (Free): 16.685 GB
+nid001252:   Cached (Free): 16.538 GB
+nid001252: 
+nid001245: 
+nid001245: ================================================================================
+nid001245: [Rank 1 | Local Rank 1] GPU Memory Stats - Step 128 [TRAIN END]
+nid001245: ================================================================================
+nid001252: ================================================================================
+nid001252: [Rank 15 | Local Rank 3] GPU Memory Stats - Step 128 [TRAIN END]
+nid001252: ================================================================================
+nid001245:   Allocated:     19.596 GB (Max: 35.424 GB)
+nid001245:   Reserved:      36.281 GB (Max: 40.605 GB)
+nid001252:   Allocated:     19.596 GB (Max: 35.424 GB)
+nid001245:   Cached (Free): 16.685 GB
+nid001252:   Reserved:      36.117 GB (Max: 40.551 GB)
+nid001252:   Cached (Free): 16.521 GB
+nid001249: 
+nid001249: ================================================================================
+nid001249: [Rank 11 | Local Rank 3] GPU Memory Stats - Step 128 [TRAIN END]
+nid001249: ================================================================================
+nid001249: 
+nid001249: ================================================================================  Allocated:     19.596 GB (Max: 35.424 GB)
+nid001249:   Reserved:      36.281 GB (Max: 40.605 GB)
+nid001249: 
+nid001249:   Cached (Free): 16.685 GB
+nid001249: [Rank 8 | Local Rank 0] GPU Memory Stats - Step 128 [TRAIN END]
+nid001249: ================================================================================
+nid001249:   Allocated:     19.596 GB (Max: 35.424 GB)
+nid001249: ================================================================================
+nid001249:   Reserved:      36.117 GB (Max: 40.605 GB)
+nid001249: 
+nid001249:   Cached (Free): 16.521 GB
+nid001249: [Rank 10 | Local Rank 2] GPU Memory Stats - Step 128 [TRAIN END]
+nid001249: ================================================================================
+nid001249:   Allocated:     19.596 GB (Max: 35.424 GB)
+nid001249:   Reserved:      36.117 GB (Max: 40.605 GB)
+nid001249:   Cached (Free): 16.521 GB
+nid001249: 
+nid001249: ================================================================================
+nid001249: [Rank 9 | Local Rank 1] GPU Memory Stats - Step 128 [TRAIN END]
+nid001249: ================================================================================
+nid001249:   Allocated:     19.596 GB (Max: 35.424 GB)
+nid001249:   Reserved:      36.117 GB (Max: 40.605 GB)
+nid001249:   Cached (Free): 16.521 GB
+nid001245: 
+nid001245: ================================================================================
+nid001245: [Rank 2 | Local Rank 2] GPU Memory Stats - Step 128 [TRAIN END]
+nid001245: ================================================================================
+nid001245:   Allocated:     19.596 GB (Max: 35.424 GB)
+nid001245:   Reserved:      36.281 GB (Max: 40.605 GB)
+nid001245:   Cached (Free): 16.685 GB
+nid001245: {'train_runtime': 7794.4572, 'train_samples_per_second': 1.051, 'train_steps_per_second': 0.016, 'train_loss': 1.943658709526062, 'epoch': 1.0}
+nid001245: 
+nid001245: ================================================================================
+nid001245: [Rank 0 | Local Rank 0] GPU Memory Stats - Step 128 [TRAIN END]
+nid001245: ================================================================================
+nid001245:   Allocated:     19.596 GB (Max: 35.424 GB)
+nid001245:   Reserved:      36.281 GB (Max: 40.605 GB)
+nid001245:   Cached (Free): 16.685 GB
+nid001245: Memory timeline saved to /pscratch/sd/m/megha89/ul2-proj/ul2_govreport/outputs/run_20251130_011752/memory_logs/memory_timeline_rank_0.json
+nid001245: 
+nid001245: ================================================================================
+nid001245: TRAINING TIME SUMMARY
+nid001245: ================================================================================
+nid001245: Training ended: 2025-11-30 03:29:20
+nid001245: Total training time: 2:09:54
+nid001245:                      (7794.46 seconds)
+nid001245: Total evaluation time: 2:02:12
+nid001245:                        (7332.53 seconds)
+nid001245: Number of evaluations: 24
+nid001245: Average eval time: 305.52 seconds
+nid001245: ================================================================================
+100%|██████████| 128/128 [2:09:54<00:00, 60.89s/it]
+nid001245: [All ranks] Training completed, synchronized
+nid001245: zero3 based manual Saving model disabled and saving it using all ranks...
+nid001245: ***** train metrics *****
+nid001245:   epoch                         =        1.0
+nid001245:   total_flos                    =    62060GF
+nid001245:   total_training_time_formatted =    2:10:06
+nid001245:   total_training_time_seconds   =  7806.4619
+nid001245:   train_loss                    =     1.9437
+nid001245:   train_runtime                 = 2:09:54.45
+nid001245:   train_samples_per_second      =      1.051
+nid001245:   train_steps_per_second        =      0.016
+nid001245: Running final evaluation...
+100%|██████████| 48/48 [00:43<00:00,  1.10it/s]
+nid001245: ***** eval metrics *****
+nid001245:   epoch                     =        1.0
+nid001245:   eval_loss                 =     1.3611
+nid001245:   eval_runtime              = 0:00:44.92
+nid001245:   eval_samples_per_second   =     17.093
+nid001245:   eval_steps_per_second     =      1.068
+nid001245:   evaluation_time_formatted =    0:00:44
+nid001245:   evaluation_time_seconds   =    44.9886
+nid001245: Evaluation results: {'eval_loss': 1.3610674142837524, 'eval_runtime': 44.9297, 'eval_samples_per_second': 17.093, 'eval_steps_per_second': 1.068, 'epoch': 1.0, 'evaluation_time_seconds': 44.98864817619324, 'evaluation_time_formatted': '0:00:44'}
+nid001245: evaluation completed!
+nid001252: [Rank 15] Post-evaluation barrier passed[Rank 12] Post-evaluation barrier passed[Rank 14] Post-evaluation barrier passed[Rank 13] Post-evaluation barrier passed
+nid001252: 
+nid001252: 
+nid001248: [Rank 4] Post-evaluation barrier passed[Rank 6] Post-evaluation barrier passed[Rank 7] Post-evaluation barrier passed[Rank 5] Post-evaluation barrier passed
+nid001252: 
+nid001248: 
+nid001248: 
+nid001248: 
+nid001249: [Rank 8] Post-evaluation barrier passed[Rank 10] Post-evaluation barrier passed[Rank 9] Post-evaluation barrier passed
+nid001249: 
+nid001249: 
+nid001245: [Rank 2] Post-evaluation barrier passed[Rank 1] Post-evaluation barrier passed[Rank 3] Post-evaluation barrier passed
+nid001249: [Rank 11] Post-evaluation barrier passed
+nid001245: 
+nid001245: [Rank 0] Post-evaluation barrier passed
+nid001245: 
+nid001245: 
+nid001245: Generating visualizations...
+nid001245: Saved loss curve to /pscratch/sd/m/megha89/ul2-proj/ul2_govreport/outputs/run_20251130_011752/loss_curve.png
+nid001245: Memory timeline plot saved to /pscratch/sd/m/megha89/ul2-proj/ul2_govreport/outputs/run_20251130_011752/memory_timeline.png
+nid001245: Plotted memory timeline to /pscratch/sd/m/megha89/ul2-proj/ul2_govreport/outputs/run_20251130_011752/memory_logs/memory_timeline_rank_0.json!
+nid001245: TensorBoard writer closed
+nid001245: [Rank 0] Final barrier passed
+nid001245: [Rank 3] Final barrier passed
+nid001245: [Rank 2] Final barrier passed
+nid001245: [Rank 1] Final barrier passed
+nid001252: [Rank 15] Final barrier passed[Rank 13] Final barrier passed[Rank 12] Final barrier passed[Rank 14] Final barrier passed
+nid001252: 
+nid001252: 
+nid001252: 
+nid001248: [Rank 4] Final barrier passed[Rank 6] Final barrier passed[Rank 7] Final barrier passed[Rank 5] Final barrier passed
+nid001248: 
+nid001248: 
+nid001248: 
+nid001249: [Rank 8] Final barrier passed[Rank 10] Final barrier passed[Rank 11] Final barrier passed
+nid001249: 
+nid001249: 
+nid001249: [Rank 9] Final barrier passed
+nid001248: [Rank 6] Process group destroyed
+nid001245: [Rank 1] Process group destroyed
+nid001245: [Rank 2] Process group destroyed
+nid001245: [Rank 3] Process group destroyed
+nid001245: [Rank 0] Process group destroyed
+nid001245: Training completed successfully!
+nid001245: 
+nid001245: ================================================================================
+nid001245: TRAINING SUMMARY - TIME BREAKDOWN
+nid001245: ================================================================================
+nid001245: Total Training Time:    2:10:06
+nid001245:                         (7806.46 seconds)
+nid001245: Final Evaluation Time:  0:00:44
+nid001245:                         (44.99 seconds)
+nid001245: Total Runtime:          2:13:27
+nid001245:                         (8007.85 seconds)
+nid001245: ================================================================================
+nid001245: 
+nid001245: Timing summary saved to /pscratch/sd/m/megha89/ul2-proj/ul2_govreport/outputs/run_20251130_011752/timing_summary.json
+nid001248: [Rank 7] Process group destroyed
+nid001248: [Rank 5] Process group destroyed
+nid001248: [Rank 4] Process group destroyed
+nid001252: [Rank 12] Process group destroyed
+nid001252: [Rank 15] Process group destroyed
+nid001249: [Rank 10] Process group destroyed[Rank 11] Process group destroyed
+nid001249: 
+nid001249: [Rank 9] Process group destroyed
+nid001252: [Rank 14] Process group destroyed
+nid001252: [Rank 13] Process group destroyed
+nid001249: [Rank 8] Process group destroyed

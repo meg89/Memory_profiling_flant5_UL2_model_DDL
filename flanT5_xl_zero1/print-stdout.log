@@ -1,0 +1,1153 @@
+(venv-ds) megha89@nid001041:/pscratch/sd/m/megha89/flant5-proj/zero1> deepspeed --num_gpus=4 --num_nodes=1 --hostfile=ds_hostfile --master_addr=$MASTER_ADDR --master_port=$MASTER_PORT src/train.py --config configs/flanT5-config.yaml
+[2025-11-29 21:06:47,341] [WARNING] [runner.py:232:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0,1,2,3 but ignoring it because one or several of --include/--exclude/--num_gpus/--num_nodes cl args were used. If you want to use CUDA_VISIBLE_DEVICES don't pass any of these arguments to deepspeed.
+[2025-11-29 21:06:47,341] [INFO] [runner.py:630:main] cmd = /pscratch/sd/m/megha89/flant5-proj/venv-ds/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=11113 --enable_each_rank_log=None --log_level=info src/train.py --config configs/flanT5-config.yaml
+[2025-11-29 21:06:53,242] [INFO] [launch.py:155:main] 0 NCCL_NET_GDR_LEVEL=PHB
+[2025-11-29 21:06:53,242] [INFO] [launch.py:155:main] 0 NCCL_SOCKET_IFNAME=hsn
+[2025-11-29 21:06:53,242] [INFO] [launch.py:162:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2025-11-29 21:06:53,242] [INFO] [launch.py:168:main] nnodes=1, num_local_procs=4, node_rank=0
+[2025-11-29 21:06:53,242] [INFO] [launch.py:179:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2025-11-29 21:06:53,242] [INFO] [launch.py:180:main] dist_world_size=4
+[2025-11-29 21:06:53,242] [INFO] [launch.py:184:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2025-11-29 21:06:53,243] [INFO] [launch.py:272:main] process 216459 spawned with command: ['/pscratch/sd/m/megha89/flant5-proj/venv-ds/bin/python', '-u', 'src/train.py', '--local_rank=0', '--config', 'configs/flanT5-config.yaml']
+[2025-11-29 21:06:53,244] [INFO] [launch.py:272:main] process 216460 spawned with command: ['/pscratch/sd/m/megha89/flant5-proj/venv-ds/bin/python', '-u', 'src/train.py', '--local_rank=1', '--config', 'configs/flanT5-config.yaml']
+[2025-11-29 21:06:53,245] [INFO] [launch.py:272:main] process 216461 spawned with command: ['/pscratch/sd/m/megha89/flant5-proj/venv-ds/bin/python', '-u', 'src/train.py', '--local_rank=2', '--config', 'configs/flanT5-config.yaml']
+[2025-11-29 21:06:53,247] [INFO] [launch.py:272:main] process 216462 spawned with command: ['/pscratch/sd/m/megha89/flant5-proj/venv-ds/bin/python', '-u', 'src/train.py', '--local_rank=3', '--config', 'configs/flanT5-config.yaml']
+
+================================================================================
+DISTRIBUTED TRAINING SETUP
+================================================================================
+World Size: 4
+Rank: 0
+Local Rank: 0
+================================================================================
+
+Loading tokenizer: google/flan-t5-xl
+Loading model: google/flan-t5-xl
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 36.74it/s]
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 36.65it/s]
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 35.65it/s]
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 35.86it/s]
+Loading dataset: cnn_dailymail
+Using subset: 8192 train, 1024 validation samples
+Preprocessing dataset...
+Tokenizing dataset (num_proc=4): 100%|████████████████████████████████████████████████████████| 8192/8192 [00:04<00:00, 2024.40 examples/s]
+Tokenizing dataset (num_proc=4): 100%|████████████████████████████████████████████████████████| 8192/8192 [00:04<00:00, 2007.93 examples/s]
+Tokenizing dataset (num_proc=4): 100%|████████████████████████████████████████████████████████| 8192/8192 [00:04<00:00, 1971.06 examples/s]
+Tokenizing dataset (num_proc=4): 100%|████████████████████████████████████████████████████████| 8192/8192 [00:04<00:00, 1798.04 examples/s]
+Tokenizing dataset (num_proc=4): 100%|████████████████████████████████████████████████████████| 1024/1024 [00:00<00:00, 1313.18 examples/s]
+Tokenizing dataset (num_proc=4): 100%|████████████████████████████████████████████████████████| 1024/1024 [00:00<00:00, 1338.45 examples/s]
+Tokenizing dataset (num_proc=4): 100%|████████████████████████████████████████████████████████| 1024/1024 [00:00<00:00, 1251.73 examples/s]
+Tokenizing dataset (num_proc=4): 100%|█████████████████████████████████████████████████████████| 1024/1024 [00:00<00:00, 988.41 examples/s]
+Tokenizing dataset (num_proc=4): 100%|██████████████████████████████████████████████████████| 11490/11490 [00:06<00:00, 1753.66 examples/s]
+Tokenizing dataset (num_proc=4): 100%|██████████████████████████████████████████████████████| 11490/11490 [00:06<00:00, 1692.79 examples/s]
+Tokenizing dataset (num_proc=4): 100%|██████████████████████████████████████████████████████| 11490/11490 [00:06<00:00, 1714.06 examples/s]
+Tokenizing dataset (num_proc=4): 100%|██████████████████████████████████████████████████████| 11490/11490 [00:06<00:00, 1687.23 examples/s]
+[nltk_data] Downloading package wordnet to
+[nltk_data]     /global/homes/m/megha89/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt_tab to
+[nltk_data]     /global/homes/m/megha89/nltk_data...
+[nltk_data] Downloading package wordnet to
+[nltk_data]     /global/homes/m/megha89/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt_tab to
+[nltk_data]     /global/homes/m/megha89/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to
+[nltk_data]     /global/homes/m/megha89/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to
+[nltk_data]     /global/homes/m/megha89/nltk_data...
+[nltk_data] Downloading package wordnet to
+[nltk_data]     /global/homes/m/megha89/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt_tab to
+[nltk_data]     /global/homes/m/megha89/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data]   Package punkt_tab is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to
+[nltk_data]     /global/homes/m/megha89/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data] Downloading package wordnet to
+[nltk_data]     /global/homes/m/megha89/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt_tab to
+[nltk_data]     /global/homes/m/megha89/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to
+[nltk_data]     /global/homes/m/megha89/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+/pscratch/sd/m/megha89/flant5-proj/zero1/src/train.py:927: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+  trainer = Seq2SeqTrainer(
+/pscratch/sd/m/megha89/flant5-proj/zero1/src/train.py:927: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+  trainer = Seq2SeqTrainer(
+/pscratch/sd/m/megha89/flant5-proj/zero1/src/train.py:927: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+  trainer = Seq2SeqTrainer(
+
+TensorBoard logging to: /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/logs
+View with: tensorboard --logdir /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/logs
+
+GPU Memory profiling enabled
+Throughput profiling enabled
+PyTorch Profiler enabled
+/pscratch/sd/m/megha89/flant5-proj/zero1/src/train.py:927: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Seq2SeqTrainer.__init__`. Use `processing_class` instead.
+  trainer = Seq2SeqTrainer(
+
+================================================================================
+TRAINING CONFIGURATION
+================================================================================
+  Total batch size:     32
+  Num training samples: 8192
+  Num epochs:           1
+  Num training steps:   256
+  Learning rate:        0.0001
+  Warmup steps:         3
+================================================================================
+
+Starting training...
+Gradient accumulation steps mismatch: GradientAccumulationPlugin has 1, DeepSpeed config has 8. Using DeepSpeed's value.
+
+================================================================================
+[Rank 2 | Local Rank 2] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+================================================================================
+  Allocated:     8.551 GB (Max: 11.401 GB)
+  Reserved:      11.402 GB (Max: 11.402 GB)
+  Cached (Free): 2.851 GB
+================================================================================
+
+
+================================================================================
+[Rank 1 | Local Rank 1] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+================================================================================
+  Allocated:     8.551 GB (Max: 11.401 GB)
+  Reserved:      11.402 GB (Max: 11.402 GB)
+  Cached (Free): 2.851 GB
+================================================================================
+
+
+================================================================================
+[Rank 3 | Local Rank 3] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+================================================================================
+  Allocated:     8.551 GB (Max: 11.401 GB)
+  Reserved:      11.402 GB (Max: 11.402 GB)
+  Cached (Free): 2.851 GB
+================================================================================
+
+
+================================================================================
+[Rank 0 | Local Rank 0] GPU Memory Stats - Step 0 [TRAIN BEGIN]
+================================================================================
+  Allocated:     8.551 GB (Max: 8.551 GB)
+  Reserved:      11.402 GB (Max: 11.402 GB)
+  Cached (Free): 2.851 GB
+================================================================================
+
+
+================================================================================
+Training started: 2025-11-29 21:07:46
+================================================================================
+
+  0%|                                                                                                              | 0/256 [00:00<?, ?it/s][Rank 0] time (ms) | optimizer_allgather: 19.44 | optimizer_gradients: 18.66 | optimizer_step: 29.36
+[Rank 0] time (ms) | fwd_microstep: 1135.49 | bwd_microstep: 975.15 | bwd_inner_microstep: 899.55 | bwd_allreduce_microstep: 74.34 | step_microstep: 100.00
+[Rank 0] time (ms) | fwd: 1135.41 | bwd: 975.08 | bwd_inner: 899.76 | bwd_allreduce: 74.34 | step: 100.02
+  0%|▍                                                                                                     | 1/256 [00:02<10:43,  2.52s/it][Rank 0] time (ms) | optimizer_allgather: 19.05 | optimizer_gradients: 10.26 | optimizer_step: 19.01
+[Rank 0] time (ms) | fwd_microstep: 552.14 | bwd_microstep: 915.98 | bwd_inner_microstep: 840.88 | bwd_allreduce_microstep: 74.22 | step_microstep: 62.12
+[Rank 0] time (ms) | fwd: 552.11 | bwd: 915.92 | bwd_inner: 840.82 | bwd_allreduce: 74.22 | step: 62.13
+  1%|▊                                                                                                     | 2/256 [00:04<08:20,  1.97s/it][Rank 0] time (ms) | optimizer_allgather: 19.33 | optimizer_gradients: 10.25 | optimizer_step: 19.01
+[Rank 0] time (ms) | fwd_microstep: 552.67 | bwd_microstep: 909.09 | bwd_inner_microstep: 834.02 | bwd_allreduce_microstep: 74.22 | step_microstep: 62.45
+[Rank 0] time (ms) | fwd: 552.61 | bwd: 909.01 | bwd_inner: 833.97 | bwd_allreduce: 74.22 | step: 62.46
+  1%|█▏                                                                                                    | 3/256 [00:05<07:34,  1.80s/it][Rank 0] time (ms) | optimizer_allgather: 19.62 | optimizer_gradients: 10.24 | optimizer_step: 19.03
+[Rank 0] time (ms) | fwd_microstep: 564.64 | bwd_microstep: 926.57 | bwd_inner_microstep: 851.26 | bwd_allreduce_microstep: 74.42 | step_microstep: 62.62
+[Rank 0] time (ms) | fwd: 564.58 | bwd: 926.52 | bwd_inner: 851.24 | bwd_allreduce: 74.42 | step: 62.63
+  2%|█▌                                                                                                    | 4/256 [00:07<07:16,  1.73s/it][Rank 0] time (ms) | optimizer_allgather: 19.81 | optimizer_gradients: 10.26 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 557.41 | bwd_microstep: 926.87 | bwd_inner_microstep: 851.74 | bwd_allreduce_microstep: 74.21 | step_microstep: 62.96
+[Rank 0] time (ms) | fwd: 557.38 | bwd: 926.81 | bwd_inner: 851.72 | bwd_allreduce: 74.21 | step: 62.97
+  2%|█▉                                                                                                    | 5/256 [00:08<07:04,  1.69s/it][Rank 0] time (ms) | optimizer_allgather: 19.99 | optimizer_gradients: 10.26 | optimizer_step: 19.03
+[Rank 0] time (ms) | fwd_microstep: 579.78 | bwd_microstep: 921.27 | bwd_inner_microstep: 845.82 | bwd_allreduce_microstep: 74.49 | step_microstep: 63.56
+[Rank 0] time (ms) | fwd: 579.81 | bwd: 921.20 | bwd_inner: 845.80 | bwd_allreduce: 74.49 | step: 63.57
+  2%|██▍                                                                                                   | 6/256 [00:10<06:57,  1.67s/it][Rank 0] time (ms) | optimizer_allgather: 19.82 | optimizer_gradients: 10.24 | optimizer_step: 18.93
+[Rank 0] time (ms) | fwd_microstep: 567.70 | bwd_microstep: 915.04 | bwd_inner_microstep: 839.95 | bwd_allreduce_microstep: 74.23 | step_microstep: 63.08
+[Rank 0] time (ms) | fwd: 567.70 | bwd: 914.96 | bwd_inner: 839.91 | bwd_allreduce: 74.23 | step: 63.09
+  3%|██▊                                                                                                   | 7/256 [00:12<06:51,  1.65s/it][Rank 0] time (ms) | optimizer_allgather: 19.65 | optimizer_gradients: 10.25 | optimizer_step: 18.99
+[Rank 0] time (ms) | fwd_microstep: 544.94 | bwd_microstep: 893.58 | bwd_inner_microstep: 817.68 | bwd_allreduce_microstep: 75.16 | step_microstep: 62.55
+[Rank 0] time (ms) | fwd: 544.89 | bwd: 893.49 | bwd_inner: 817.60 | bwd_allreduce: 75.16 | step: 62.56
+  3%|███▏                                                                                                  | 8/256 [00:13<06:41,  1.62s/it][Rank 0] time (ms) | optimizer_allgather: 19.45 | optimizer_gradients: 10.25 | optimizer_step: 18.97
+[Rank 0] time (ms) | fwd_microstep: 543.82 | bwd_microstep: 902.03 | bwd_inner_microstep: 825.60 | bwd_allreduce_microstep: 75.70 | step_microstep: 62.48
+[Rank 0] time (ms) | fwd: 543.67 | bwd: 901.94 | bwd_inner: 825.52 | bwd_allreduce: 75.70 | step: 62.50
+  4%|███▌                                                                                                  | 9/256 [00:15<06:35,  1.60s/it][Rank 0] time (ms) | optimizer_allgather: 19.33 | optimizer_gradients: 10.26 | optimizer_step: 19.09
+[Rank 0] time (ms) | fwd_microstep: 534.74 | bwd_microstep: 897.00 | bwd_inner_microstep: 814.35 | bwd_allreduce_microstep: 81.94 | step_microstep: 62.49
+[Rank 0] time (ms) | fwd: 534.67 | bwd: 896.91 | bwd_inner: 814.26 | bwd_allreduce: 81.94 | step: 62.50
+{'eval_loss': 1.5390815734863281, 'eval_runtime': 15.2744, 'eval_samples_per_second': 67.04, 'eval_steps_per_second': 16.76, 'epoch': 0.04}
+  4%|███▉                                                                                                 | 10/256 [00:32<06:29,  1.58s/it[Rank 0] time (ms) | optimizer_allgather: 19.65 | optimizer_gradients: 10.27 | optimizer_step: 18.99                                        
+[Rank 0] time (ms) | fwd_microstep: 14695.02 | bwd_microstep: 938.05 | bwd_inner_microstep: 861.85 | bwd_allreduce_microstep: 75.01 | step_microstep: 62.83
+[Rank 0] time (ms) | fwd: 14692.02 | bwd: 938.00 | bwd_inner: 861.93 | bwd_allreduce: 74.99 | step: 62.85
+  4%|████▎                                                                                                | 11/256 [00:33<25:40,  6.29s/it][Rank 0] time (ms) | optimizer_allgather: 19.62 | optimizer_gradients: 10.26 | optimizer_step: 19.03
+[Rank 0] time (ms) | fwd_microstep: 557.66 | bwd_microstep: 925.93 | bwd_inner_microstep: 850.68 | bwd_allreduce_microstep: 74.32 | step_microstep: 62.81
+[Rank 0] time (ms) | fwd: 557.61 | bwd: 925.88 | bwd_inner: 850.67 | bwd_allreduce: 74.32 | step: 62.83
+  5%|████▋                                                                                                | 12/256 [00:35<19:47,  4.87s/it][Rank 0] time (ms) | optimizer_allgather: 19.60 | optimizer_gradients: 10.25 | optimizer_step: 19.01
+[Rank 0] time (ms) | fwd_microstep: 559.93 | bwd_microstep: 921.53 | bwd_inner_microstep: 846.50 | bwd_allreduce_microstep: 74.23 | step_microstep: 62.58
+[Rank 0] time (ms) | fwd: 559.84 | bwd: 921.46 | bwd_inner: 846.46 | bwd_allreduce: 74.23 | step: 62.59
+  5%|█████▏                                                                                               | 13/256 [00:37<15:43,  3.88s/it][Rank 0] time (ms) | optimizer_allgather: 19.72 | optimizer_gradients: 10.24 | optimizer_step: 19.01
+[Rank 0] time (ms) | fwd_microstep: 561.32 | bwd_microstep: 923.65 | bwd_inner_microstep: 848.48 | bwd_allreduce_microstep: 74.32 | step_microstep: 62.67
+[Rank 0] time (ms) | fwd: 561.25 | bwd: 923.57 | bwd_inner: 848.45 | bwd_allreduce: 74.31 | step: 62.68
+  5%|█████▌                                                                                               | 14/256 [00:38<12:54,  3.20s/it][Rank 0] time (ms) | optimizer_allgather: 19.13 | optimizer_gradients: 10.26 | optimizer_step: 19.03
+[Rank 0] time (ms) | fwd_microstep: 566.16 | bwd_microstep: 931.55 | bwd_inner_microstep: 856.30 | bwd_allreduce_microstep: 74.27 | step_microstep: 62.16
+[Rank 0] time (ms) | fwd: 566.01 | bwd: 931.48 | bwd_inner: 856.29 | bwd_allreduce: 74.27 | step: 62.17
+  6%|█████▉                                                                                               | 15/256 [00:40<10:57,  2.73s/it][Rank 0] time (ms) | optimizer_allgather: 19.96 | optimizer_gradients: 10.26 | optimizer_step: 18.97
+[Rank 0] time (ms) | fwd_microstep: 558.76 | bwd_microstep: 924.47 | bwd_inner_microstep: 849.06 | bwd_allreduce_microstep: 74.41 | step_microstep: 62.88
+[Rank 0] time (ms) | fwd: 558.36 | bwd: 924.42 | bwd_inner: 849.08 | bwd_allreduce: 74.41 | step: 62.89
+  6%|██████▎                                                                                              | 16/256 [00:41<09:34,  2.39s/it][Rank 0] time (ms) | optimizer_allgather: 19.68 | optimizer_gradients: 10.26 | optimizer_step: 19.02
+[Rank 0] time (ms) | fwd_microstep: 556.07 | bwd_microstep: 920.08 | bwd_inner_microstep: 844.97 | bwd_allreduce_microstep: 74.26 | step_microstep: 62.70
+[Rank 0] time (ms) | fwd: 556.01 | bwd: 920.02 | bwd_inner: 844.92 | bwd_allreduce: 74.27 | step: 62.71
+  7%|██████▋                                                                                              | 17/256 [00:43<08:35,  2.16s/it][Rank 0] time (ms) | optimizer_allgather: 19.25 | optimizer_gradients: 10.24 | optimizer_step: 19.03
+[Rank 0] time (ms) | fwd_microstep: 568.10 | bwd_microstep: 923.05 | bwd_inner_microstep: 847.91 | bwd_allreduce_microstep: 74.22 | step_microstep: 62.36
+[Rank 0] time (ms) | fwd: 567.93 | bwd: 923.00 | bwd_inner: 847.91 | bwd_allreduce: 74.22 | step: 62.37
+  7%|███████                                                                                              | 18/256 [00:45<07:55,  2.00s/it][Rank 0] time (ms) | optimizer_allgather: 19.53 | optimizer_gradients: 10.26 | optimizer_step: 19.05
+[Rank 0] time (ms) | fwd_microstep: 560.42 | bwd_microstep: 916.38 | bwd_inner_microstep: 841.40 | bwd_allreduce_microstep: 74.11 | step_microstep: 62.56
+[Rank 0] time (ms) | fwd: 560.24 | bwd: 916.32 | bwd_inner: 841.37 | bwd_allreduce: 74.12 | step: 62.57
+  7%|███████▍                                                                                             | 19/256 [00:46<07:26,  1.88s/it][Rank 0] time (ms) | optimizer_allgather: 19.30 | optimizer_gradients: 10.26 | optimizer_step: 19.01
+[Rank 0] time (ms) | fwd_microstep: 558.79 | bwd_microstep: 923.81 | bwd_inner_microstep: 848.56 | bwd_allreduce_microstep: 74.31 | step_microstep: 62.33
+[Rank 0] time (ms) | fwd: 558.64 | bwd: 923.75 | bwd_inner: 848.57 | bwd_allreduce: 74.30 | step: 62.34
+{'loss': 1.7173, 'grad_norm': 1.4350277185440063, 'learning_rate': 9.367588932806325e-05, 'epoch': 0.08}                                   
+{'eval_loss': 1.5593090057373047, 'eval_runtime': 14.4909, 'eval_samples_per_second': 70.665, 'eval_steps_per_second': 17.666, 'epoch': 0.08}                                                                                                                                         
+  8%|███████▉                                                                                             | 20/256 [01:02<07:05,  1.80s/it[Rank 0] time (ms) | optimizer_allgather: 19.82 | optimizer_gradients: 10.26 | optimizer_step: 19.01                                        
+[Rank 0] time (ms) | fwd_microstep: 14414.94 | bwd_microstep: 937.95 | bwd_inner_microstep: 862.41 | bwd_allreduce_microstep: 74.54 | step_microstep: 63.10
+[Rank 0] time (ms) | fwd: 14411.80 | bwd: 937.88 | bwd_inner: 862.42 | bwd_allreduce: 74.54 | step: 63.12
+  8%|████████▎                                                                                            | 21/256 [01:04<23:57,  6.12s/it][Rank 0] time (ms) | optimizer_allgather: 19.35 | optimizer_gradients: 10.25 | optimizer_step: 19.01
+[Rank 0] time (ms) | fwd_microstep: 559.23 | bwd_microstep: 921.79 | bwd_inner_microstep: 846.52 | bwd_allreduce_microstep: 74.33 | step_microstep: 62.45
+[Rank 0] time (ms) | fwd: 559.18 | bwd: 921.74 | bwd_inner: 846.54 | bwd_allreduce: 74.32 | step: 62.46
+  9%|████████▋                                                                                            | 22/256 [01:06<18:34,  4.76s/it][Rank 0] time (ms) | optimizer_allgather: 19.74 | optimizer_gradients: 10.26 | optimizer_step: 18.95
+[Rank 0] time (ms) | fwd_microstep: 556.56 | bwd_microstep: 912.00 | bwd_inner_microstep: 836.86 | bwd_allreduce_microstep: 74.30 | step_microstep: 62.76
+[Rank 0] time (ms) | fwd: 556.47 | bwd: 911.94 | bwd_inner: 836.84 | bwd_allreduce: 74.30 | step: 62.77
+  9%|█████████                                                                                            | 23/256 [01:07<14:49,  3.82s/it][Rank 0] time (ms) | optimizer_allgather: 19.46 | optimizer_gradients: 10.25 | optimizer_step: 19.13
+[Rank 0] time (ms) | fwd_microstep: 563.07 | bwd_microstep: 929.21 | bwd_inner_microstep: 853.99 | bwd_allreduce_microstep: 74.35 | step_microstep: 62.58
+[Rank 0] time (ms) | fwd: 562.86 | bwd: 929.15 | bwd_inner: 853.99 | bwd_allreduce: 74.34 | step: 62.59
+  9%|█████████▍                                                                                           | 24/256 [01:09<12:12,  3.16s/it][Rank 0] time (ms) | optimizer_allgather: 19.65 | optimizer_gradients: 10.26 | optimizer_step: 18.98
+[Rank 0] time (ms) | fwd_microstep: 560.98 | bwd_microstep: 940.05 | bwd_inner_microstep: 864.69 | bwd_allreduce_microstep: 74.41 | step_microstep: 62.61
+[Rank 0] time (ms) | fwd: 560.82 | bwd: 940.00 | bwd_inner: 864.70 | bwd_allreduce: 74.41 | step: 62.62
+ 10%|█████████▊                                                                                           | 25/256 [01:11<10:24,  2.70s/it]
+================================================================================
+Starting PyTorch Profiler at step 25
+================================================================================
+
+[DEBUG] Profiler initialized successfully
+[Rank 0] time (ms) | optimizer_allgather: 19.51 | optimizer_gradients: 10.26 | optimizer_step: 19.14
+[Rank 0] time (ms) | fwd_microstep: 561.05 | bwd_microstep: 927.42 | bwd_inner_microstep: 852.35 | bwd_allreduce_microstep: 74.23 | step_microstep: 62.65
+[Rank 0] time (ms) | fwd: 561.00 | bwd: 927.35 | bwd_inner: 852.31 | bwd_allreduce: 74.24 | step: 62.66
+ 10%|██████████▎                                                                                          | 26/256 [01:12<09:07,  2.38s/it][Rank 0] time (ms) | optimizer_allgather: 19.36 | optimizer_gradients: 10.25 | optimizer_step: 19.05
+[Rank 0] time (ms) | fwd_microstep: 560.05 | bwd_microstep: 923.45 | bwd_inner_microstep: 848.38 | bwd_allreduce_microstep: 74.19 | step_microstep: 62.44
+[Rank 0] time (ms) | fwd: 559.98 | bwd: 923.39 | bwd_inner: 848.37 | bwd_allreduce: 74.19 | step: 62.45
+ 11%|██████████▋                                                                                          | 27/256 [01:14<08:16,  2.17s/it][Rank 0] time (ms) | optimizer_allgather: 19.68 | optimizer_gradients: 10.35 | optimizer_step: 19.08
+[Rank 0] time (ms) | fwd_microstep: 725.33 | bwd_microstep: 1235.81 | bwd_inner_microstep: 1159.48 | bwd_allreduce_microstep: 74.92 | step_microstep: 63.29
+[Rank 0] time (ms) | fwd: 725.35 | bwd: 1235.78 | bwd_inner: 1159.56 | bwd_allreduce: 74.91 | step: 63.30
+ 11%|███████████                                                                                          | 28/256 [01:16<08:10,  2.15s/it][Rank 0] time (ms) | optimizer_allgather: 19.70 | optimizer_gradients: 10.34 | optimizer_step: 19.05
+[Rank 0] time (ms) | fwd_microstep: 699.37 | bwd_microstep: 1218.65 | bwd_inner_microstep: 1142.52 | bwd_allreduce_microstep: 74.81 | step_microstep: 63.25
+[Rank 0] time (ms) | fwd: 699.24 | bwd: 1218.61 | bwd_inner: 1142.58 | bwd_allreduce: 74.81 | step: 63.26
+ 11%|███████████▍                                                                                         | 29/256 [01:18<08:01,  2.12s/it][Rank 0] time (ms) | optimizer_allgather: 19.65 | optimizer_gradients: 10.33 | optimizer_step: 19.06
+[Rank 0] time (ms) | fwd_microstep: 714.76 | bwd_microstep: 1256.96 | bwd_inner_microstep: 1180.74 | bwd_allreduce_microstep: 74.86 | step_microstep: 63.22
+[Rank 0] time (ms) | fwd: 714.76 | bwd: 1256.92 | bwd_inner: 1180.83 | bwd_allreduce: 74.86 | step: 63.23
+{'eval_loss': 1.5640125274658203, 'eval_runtime': 29.5909, 'eval_samples_per_second': 34.605, 'eval_steps_per_second': 8.651, 'epoch': 0.12}                                                                                                                                          
+ 12%|███████████▊                                                                                         | 30/256 [01:50<07:58,  2.12s/it[Rank 0] time (ms) | optimizer_allgather: 19.97 | optimizer_gradients: 11.08 | optimizer_step: 19.08                                        
+[Rank 0] time (ms) | fwd_microstep: 30008.49 | bwd_microstep: 2072.62 | bwd_inner_microstep: 1994.04 | bwd_allreduce_microstep: 76.93 | step_microstep: 66.42
+[Rank 0] time (ms) | fwd: 30008.43 | bwd: 2072.56 | bwd_inner: 1994.11 | bwd_allreduce: 76.92 | step: 66.43
+ 12%|████████████▏                                                                                        | 31/256 [01:53<42:36, 11.36s/it][Rank 0] time (ms) | optimizer_allgather: 20.87 | optimizer_gradients: 11.45 | optimizer_step: 19.13
+[Rank 0] time (ms) | fwd_microstep: 1072.21 | bwd_microstep: 2092.42 | bwd_inner_microstep: 2011.64 | bwd_allreduce_microstep: 79.16 | step_microstep: 68.65
+[Rank 0] time (ms) | fwd: 1072.22 | bwd: 2092.36 | bwd_inner: 2011.70 | bwd_allreduce: 79.15 | step: 68.67
+ 12%|████████████▋                                                                                        | 32/256 [01:56<33:24,  8.95s/it][Rank 0] time (ms) | optimizer_allgather: 20.33 | optimizer_gradients: 11.19 | optimizer_step: 19.19
+[Rank 0] time (ms) | fwd_microstep: 1052.78 | bwd_microstep: 2083.10 | bwd_inner_microstep: 2003.23 | bwd_allreduce_microstep: 78.24 | step_microstep: 67.28
+[Rank 0] time (ms) | fwd: 1052.79 | bwd: 2083.05 | bwd_inner: 2003.30 | bwd_allreduce: 78.24 | step: 67.29
+ 13%|█████████████                                                                                        | 33/256 [02:00<26:56,  7.25s/it][Rank 0] time (ms) | optimizer_allgather: 19.51 | optimizer_gradients: 10.91 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 1069.74 | bwd_microstep: 2049.86 | bwd_inner_microstep: 1972.01 | bwd_allreduce_microstep: 76.25 | step_microstep: 65.67
+[Rank 0] time (ms) | fwd: 1069.70 | bwd: 2049.81 | bwd_inner: 1972.08 | bwd_allreduce: 76.24 | step: 65.69
+ 13%|█████████████▍                                                                                       | 34/256 [02:03<22:23,  6.05s/it][Rank 0] time (ms) | optimizer_allgather: 20.46 | optimizer_gradients: 11.18 | optimizer_step: 19.09
+[Rank 0] time (ms) | fwd_microstep: 1084.20 | bwd_microstep: 2082.95 | bwd_inner_microstep: 2002.80 | bwd_allreduce_microstep: 78.49 | step_microstep: 67.20
+[Rank 0] time (ms) | fwd: 1084.18 | bwd: 2082.89 | bwd_inner: 2002.87 | bwd_allreduce: 78.48 | step: 67.21
+ 14%|█████████████▊                                                                                       | 35/256 [02:06<19:16,  5.23s/it][Rank 0] time (ms) | optimizer_allgather: 20.60 | optimizer_gradients: 11.31 | optimizer_step: 19.11
+[Rank 0] time (ms) | fwd_microstep: 1065.21 | bwd_microstep: 2060.09 | bwd_inner_microstep: 1979.72 | bwd_allreduce_microstep: 78.74 | step_microstep: 67.91
+[Rank 0] time (ms) | fwd: 1065.25 | bwd: 2060.05 | bwd_inner: 1979.78 | bwd_allreduce: 78.74 | step: 67.92
+ 14%|██████████████▏                                                                                      | 36/256 [02:09<17:01,  4.65s/it][Rank 0] time (ms) | optimizer_allgather: 19.73 | optimizer_gradients: 10.89 | optimizer_step: 19.01
+[Rank 0] time (ms) | fwd_microstep: 1098.74 | bwd_microstep: 2075.57 | bwd_inner_microstep: 1997.34 | bwd_allreduce_microstep: 76.42 | step_microstep: 65.69
+[Rank 0] time (ms) | fwd: 1098.75 | bwd: 2075.52 | bwd_inner: 1997.41 | bwd_allreduce: 76.42 | step: 65.70
+ 14%|██████████████▌                                                                                      | 37/256 [02:13<15:30,  4.25s/it][Rank 0] time (ms) | optimizer_allgather: 20.61 | optimizer_gradients: 11.40 | optimizer_step: 19.25
+[Rank 0] time (ms) | fwd_microstep: 1063.08 | bwd_microstep: 2085.03 | bwd_inner_microstep: 2004.29 | bwd_allreduce_microstep: 79.07 | step_microstep: 67.86
+[Rank 0] time (ms) | fwd: 1063.06 | bwd: 2084.98 | bwd_inner: 2004.37 | bwd_allreduce: 79.07 | step: 67.87
+ 15%|██████████████▉                                                                                      | 38/256 [02:16<14:23,  3.96s/it][Rank 0] time (ms) | optimizer_allgather: 20.84 | optimizer_gradients: 11.35 | optimizer_step: 19.28
+[Rank 0] time (ms) | fwd_microstep: 1065.03 | bwd_microstep: 2072.68 | bwd_inner_microstep: 1991.88 | bwd_allreduce_microstep: 79.16 | step_microstep: 68.30
+[Rank 0] time (ms) | fwd: 1065.06 | bwd: 2072.63 | bwd_inner: 1991.95 | bwd_allreduce: 79.15 | step: 68.31
+ 15%|███████████████▍                                                                                     | 39/256 [02:19<13:35,  3.76s/it][Rank 0] time (ms) | optimizer_allgather: 19.70 | optimizer_gradients: 10.86 | optimizer_step: 19.20
+[Rank 0] time (ms) | fwd_microstep: 1054.58 | bwd_microstep: 2082.04 | bwd_inner_microstep: 2004.08 | bwd_allreduce_microstep: 76.34 | step_microstep: 66.02
+[Rank 0] time (ms) | fwd: 1054.57 | bwd: 2081.98 | bwd_inner: 2004.14 | bwd_allreduce: 76.33 | step: 66.03
+{'loss': 1.5739, 'grad_norm': 1.4858059883117676, 'learning_rate': 8.57707509881423e-05, 'epoch': 0.16}                                    
+{'eval_loss': 1.5715827941894531, 'eval_runtime': 29.2347, 'eval_samples_per_second': 35.027, 'eval_steps_per_second': 8.757, 'epoch': 0.16}                                                                                                                                          
+ 16%|███████████████▊                                                                                     | 40/256 [02:52<13:01,  3.62s/it[Rank 0] time (ms) | optimizer_allgather: 20.99 | optimizer_gradients: 11.36 | optimizer_step: 19.22                                        
+[Rank 0] time (ms) | fwd_microstep: 29299.34 | bwd_microstep: 2106.31 | bwd_inner_microstep: 2025.15 | bwd_allreduce_microstep: 79.42 | step_microstep: 68.40
+[Rank 0] time (ms) | fwd: 29299.10 | bwd: 2106.25 | bwd_inner: 2025.22 | bwd_allreduce: 79.41 | step: 68.41
+ 16%|████████████████▏                                                                                    | 41/256 [02:55<44:06, 12.31s/it][Rank 0] time (ms) | optimizer_allgather: 19.72 | optimizer_gradients: 10.91 | optimizer_step: 19.02
+[Rank 0] time (ms) | fwd_microstep: 1068.39 | bwd_microstep: 2077.71 | bwd_inner_microstep: 1999.65 | bwd_allreduce_microstep: 76.41 | step_microstep: 65.72
+[Rank 0] time (ms) | fwd: 1068.40 | bwd: 2077.64 | bwd_inner: 1999.73 | bwd_allreduce: 76.40 | step: 65.73
+ 16%|████████████████▌                                                                                    | 42/256 [02:59<34:15,  9.60s/it][Rank 0] time (ms) | optimizer_allgather: 19.60 | optimizer_gradients: 11.04 | optimizer_step: 19.09
+[Rank 0] time (ms) | fwd_microstep: 1070.83 | bwd_microstep: 2068.10 | bwd_inner_microstep: 1990.16 | bwd_allreduce_microstep: 76.34 | step_microstep: 65.74
+[Rank 0] time (ms) | fwd: 1070.86 | bwd: 2068.04 | bwd_inner: 1990.21 | bwd_allreduce: 76.34 | step: 65.76
+ 17%|████████████████▉                                                                                    | 43/256 [03:02<27:21,  7.71s/it][Rank 0] time (ms) | optimizer_allgather: 19.92 | optimizer_gradients: 10.96 | optimizer_step: 19.09
+[Rank 0] time (ms) | fwd_microstep: 1071.84 | bwd_microstep: 2090.36 | bwd_inner_microstep: 2011.39 | bwd_allreduce_microstep: 77.30 | step_microstep: 66.25
+[Rank 0] time (ms) | fwd: 1071.87 | bwd: 2090.32 | bwd_inner: 2011.44 | bwd_allreduce: 77.29 | step: 66.27
+ 17%|█████████████████▎                                                                                   | 44/256 [03:05<22:34,  6.39s/it][Rank 0] time (ms) | optimizer_allgather: 20.50 | optimizer_gradients: 11.26 | optimizer_step: 19.07
+[Rank 0] time (ms) | fwd_microstep: 1081.59 | bwd_microstep: 2074.97 | bwd_inner_microstep: 1995.00 | bwd_allreduce_microstep: 78.32 | step_microstep: 67.52
+[Rank 0] time (ms) | fwd: 1081.64 | bwd: 2074.90 | bwd_inner: 1995.08 | bwd_allreduce: 78.32 | step: 67.53
+ 18%|█████████████████▊                                                                                   | 45/256 [03:08<19:12,  5.46s/it][Rank 0] time (ms) | optimizer_allgather: 19.44 | optimizer_gradients: 10.56 | optimizer_step: 19.00
+[Rank 0] time (ms) | fwd_microstep: 1069.43 | bwd_microstep: 2092.10 | bwd_inner_microstep: 2013.75 | bwd_allreduce_microstep: 76.70 | step_microstep: 64.50
+[Rank 0] time (ms) | fwd: 1069.48 | bwd: 2092.03 | bwd_inner: 2013.80 | bwd_allreduce: 76.69 | step: 64.52
+ 18%|██████████████████▏                                                                                  | 46/256 [03:12<16:51,  4.81s/it][Rank 0] time (ms) | optimizer_allgather: 19.72 | optimizer_gradients: 11.15 | optimizer_step: 19.14
+[Rank 0] time (ms) | fwd_microstep: 1083.53 | bwd_microstep: 2064.19 | bwd_inner_microstep: 1984.84 | bwd_allreduce_microstep: 77.54 | step_microstep: 66.37
+[Rank 0] time (ms) | fwd: 1083.58 | bwd: 2064.12 | bwd_inner: 1984.92 | bwd_allreduce: 77.54 | step: 66.38
+ 18%|██████████████████▌                                                                                  | 47/256 [03:15<15:10,  4.36s/it][Rank 0] time (ms) | optimizer_allgather: 20.31 | optimizer_gradients: 11.22 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 1056.15 | bwd_microstep: 2066.97 | bwd_inner_microstep: 1986.86 | bwd_allreduce_microstep: 78.43 | step_microstep: 67.32
+[Rank 0] time (ms) | fwd: 1056.19 | bwd: 2066.91 | bwd_inner: 1986.91 | bwd_allreduce: 78.42 | step: 67.33
+ 19%|██████████████████▉                                                                                  | 48/256 [03:18<13:58,  4.03s/it][Rank 0] time (ms) | optimizer_allgather: 19.58 | optimizer_gradients: 10.97 | optimizer_step: 19.23
+[Rank 0] time (ms) | fwd_microstep: 1065.68 | bwd_microstep: 2060.04 | bwd_inner_microstep: 1981.75 | bwd_allreduce_microstep: 76.71 | step_microstep: 66.12
+[Rank 0] time (ms) | fwd: 1065.72 | bwd: 2059.98 | bwd_inner: 1981.81 | bwd_allreduce: 76.70 | step: 66.13
+ 19%|███████████████████▎                                                                                 | 49/256 [03:22<13:07,  3.80s/it][Rank 0] time (ms) | optimizer_allgather: 19.84 | optimizer_gradients: 10.91 | optimizer_step: 18.99
+[Rank 0] time (ms) | fwd_microstep: 1046.49 | bwd_microstep: 2067.75 | bwd_inner_microstep: 1989.49 | bwd_allreduce_microstep: 76.64 | step_microstep: 66.06
+[Rank 0] time (ms) | fwd: 1046.48 | bwd: 2067.70 | bwd_inner: 1989.55 | bwd_allreduce: 76.63 | step: 66.07
+Profiler trace saved to /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/profiler_logs/trace_rank_0_20251129_211440.json
+{'eval_loss': 1.5639724731445312, 'eval_runtime': 21.0287, 'eval_samples_per_second': 48.695, 'eval_steps_per_second': 12.174, 'epoch': 0.2}                                                                                                                                          
+ 20%|███████████████████▎                                                                               | 50/256 [09:05<5:40:54, 99.29s/it]
+================================================================================                                                           
+Starting PyTorch Profiler at step 50
+================================================================================
+
+[DEBUG] Profiler initialized successfully
+[Rank 0] time (ms) | optimizer_allgather: 19.75 | optimizer_gradients: 10.25 | optimizer_step: 19.03
+[Rank 0] time (ms) | fwd_microstep: 16899.53 | bwd_microstep: 1218.08 | bwd_inner_microstep: 1142.08 | bwd_allreduce_microstep: 74.70 | step_microstep: 63.06
+[Rank 0] time (ms) | fwd: 16895.93 | bwd: 1218.04 | bwd_inner: 1142.14 | bwd_allreduce: 74.69 | step: 63.08
+ 20%|███████████████████▋                                                                               | 51/256 [09:07<4:21:08, 76.43s/it][Rank 0] time (ms) | optimizer_allgather: 19.45 | optimizer_gradients: 10.24 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 652.81 | bwd_microstep: 1134.91 | bwd_inner_microstep: 1059.13 | bwd_allreduce_microstep: 74.51 | step_microstep: 62.87
+[Rank 0] time (ms) | fwd: 652.77 | bwd: 1134.87 | bwd_inner: 1059.21 | bwd_allreduce: 74.51 | step: 62.89
+ 20%|████████████████████                                                                               | 52/256 [09:09<3:03:58, 54.11s/it][Rank 0] time (ms) | optimizer_allgather: 19.52 | optimizer_gradients: 10.34 | optimizer_step: 19.03
+[Rank 0] time (ms) | fwd_microstep: 708.37 | bwd_microstep: 1260.97 | bwd_inner_microstep: 1184.78 | bwd_allreduce_microstep: 74.84 | step_microstep: 63.05
+[Rank 0] time (ms) | fwd: 708.38 | bwd: 1260.94 | bwd_inner: 1184.86 | bwd_allreduce: 74.84 | step: 63.06
+ 21%|████████████████████▍                                                                              | 53/256 [09:11<2:10:17, 38.51s/it][Rank 0] time (ms) | optimizer_allgather: 19.33 | optimizer_gradients: 10.34 | optimizer_step: 18.95
+[Rank 0] time (ms) | fwd_microstep: 701.60 | bwd_microstep: 1255.29 | bwd_inner_microstep: 1179.04 | bwd_allreduce_microstep: 74.93 | step_microstep: 62.76
+[Rank 0] time (ms) | fwd: 701.56 | bwd: 1255.25 | bwd_inner: 1179.10 | bwd_allreduce: 74.92 | step: 62.77
+ 21%|████████████████████▉                                                                              | 54/256 [09:13<1:32:52, 27.59s/it][Rank 0] time (ms) | optimizer_allgather: 19.43 | optimizer_gradients: 10.35 | optimizer_step: 19.05
+[Rank 0] time (ms) | fwd_microstep: 705.31 | bwd_microstep: 1264.01 | bwd_inner_microstep: 1187.92 | bwd_allreduce_microstep: 74.76 | step_microstep: 63.00
+[Rank 0] time (ms) | fwd: 705.19 | bwd: 1263.98 | bwd_inner: 1187.98 | bwd_allreduce: 74.75 | step: 63.01
+ 21%|█████████████████████▎                                                                             | 55/256 [09:15<1:06:48, 19.94s/it][Rank 0] time (ms) | optimizer_allgather: 20.98 | optimizer_gradients: 11.40 | optimizer_step: 19.08
+[Rank 0] time (ms) | fwd_microstep: 1025.46 | bwd_microstep: 2041.01 | bwd_inner_microstep: 1960.29 | bwd_allreduce_microstep: 79.11 | step_microstep: 68.28
+[Rank 0] time (ms) | fwd: 1025.49 | bwd: 2040.96 | bwd_inner: 1960.35 | bwd_allreduce: 79.10 | step: 68.29
+ 22%|██████████████████████                                                                               | 56/256 [09:18<49:44, 14.92s/it][Rank 0] time (ms) | optimizer_allgather: 20.82 | optimizer_gradients: 11.22 | optimizer_step: 19.17
+[Rank 0] time (ms) | fwd_microstep: 1034.91 | bwd_microstep: 2037.94 | bwd_inner_microstep: 1958.08 | bwd_allreduce_microstep: 78.29 | step_microstep: 68.91
+[Rank 0] time (ms) | fwd: 1034.94 | bwd: 2037.89 | bwd_inner: 1958.15 | bwd_allreduce: 78.28 | step: 68.92
+ 22%|██████████████████████▍                                                                              | 57/256 [09:22<37:50, 11.41s/it][Rank 0] time (ms) | optimizer_allgather: 20.20 | optimizer_gradients: 11.13 | optimizer_step: 19.09
+[Rank 0] time (ms) | fwd_microstep: 1046.79 | bwd_microstep: 2049.94 | bwd_inner_microstep: 1970.43 | bwd_allreduce_microstep: 77.89 | step_microstep: 66.86
+[Rank 0] time (ms) | fwd: 1046.81 | bwd: 2049.89 | bwd_inner: 1970.49 | bwd_allreduce: 77.88 | step: 66.87
+ 23%|██████████████████████▉                                                                              | 58/256 [09:25<29:34,  8.96s/it][Rank 0] time (ms) | optimizer_allgather: 20.10 | optimizer_gradients: 11.06 | optimizer_step: 19.21
+[Rank 0] time (ms) | fwd_microstep: 1026.07 | bwd_microstep: 2042.63 | bwd_inner_microstep: 1963.49 | bwd_allreduce_microstep: 77.58 | step_microstep: 66.77
+[Rank 0] time (ms) | fwd: 1026.09 | bwd: 2042.59 | bwd_inner: 1963.56 | bwd_allreduce: 77.55 | step: 66.78
+ 23%|███████████████████████▎                                                                             | 59/256 [09:28<23:45,  7.24s/it][Rank 0] time (ms) | optimizer_allgather: 20.54 | optimizer_gradients: 11.19 | optimizer_step: 19.20
+[Rank 0] time (ms) | fwd_microstep: 1027.41 | bwd_microstep: 2038.06 | bwd_inner_microstep: 1958.10 | bwd_allreduce_microstep: 78.36 | step_microstep: 67.32
+[Rank 0] time (ms) | fwd: 1027.41 | bwd: 2038.01 | bwd_inner: 1958.16 | bwd_allreduce: 78.35 | step: 67.33
+{'loss': 1.5658, 'grad_norm': 1.256189227104187, 'learning_rate': 7.786561264822134e-05, 'epoch': 0.23}                                    
+{'eval_loss': 1.575124740600586, 'eval_runtime': 32.1757, 'eval_samples_per_second': 31.825, 'eval_steps_per_second': 7.956, 'epoch': 0.23}
+ 23%|███████████████████████▋                                                                             | 60/256 [10:03<19:41,  6.03s/it[Rank 0] time (ms) | optimizer_allgather: 19.61 | optimizer_gradients: 10.53 | optimizer_step: 19.01                                        
+[Rank 0] time (ms) | fwd_microstep: 28236.65 | bwd_microstep: 2078.18 | bwd_inner_microstep: 1998.86 | bwd_allreduce_microstep: 77.72 | step_microstep: 64.43
+[Rank 0] time (ms) | fwd: 28235.59 | bwd: 2078.12 | bwd_inner: 1998.90 | bwd_allreduce: 77.72 | step: 64.44
+ 24%|████████████████████████                                                                             | 61/256 [10:07<48:18, 14.86s/it][Rank 0] time (ms) | optimizer_allgather: 19.58 | optimizer_gradients: 10.54 | optimizer_step: 19.04
+[Rank 0] time (ms) | fwd_microstep: 1036.26 | bwd_microstep: 2039.86 | bwd_inner_microstep: 1960.98 | bwd_allreduce_microstep: 77.19 | step_microstep: 64.74
+[Rank 0] time (ms) | fwd: 1036.30 | bwd: 2039.80 | bwd_inner: 1961.06 | bwd_allreduce: 77.18 | step: 64.75
+ 24%|████████████████████████▍                                                                            | 62/256 [10:10<36:45, 11.37s/it][Rank 0] time (ms) | optimizer_allgather: 19.61 | optimizer_gradients: 10.53 | optimizer_step: 19.01
+[Rank 0] time (ms) | fwd_microstep: 1034.68 | bwd_microstep: 2017.45 | bwd_inner_microstep: 1938.61 | bwd_allreduce_microstep: 77.23 | step_microstep: 64.87
+[Rank 0] time (ms) | fwd: 1034.71 | bwd: 2017.39 | bwd_inner: 1938.67 | bwd_allreduce: 77.22 | step: 64.89
+ 25%|████████████████████████▊                                                                            | 63/256 [10:13<28:41,  8.92s/it][Rank 0] time (ms) | optimizer_allgather: 21.09 | optimizer_gradients: 11.38 | optimizer_step: 19.24
+[Rank 0] time (ms) | fwd_microstep: 59333.33 | bwd_microstep: 2185.51 | bwd_inner_microstep: 2103.67 | bwd_allreduce_microstep: 79.88 | step_microstep: 68.50
+[Rank 0] time (ms) | fwd: 59333.36 | bwd: 2185.45 | bwd_inner: 2104.01 | bwd_allreduce: 79.87 | step: 68.51
+ 25%|████████████████████████▊                                                                          | 64/256 [11:15<1:19:10, 24.74s/it][Rank 0] time (ms) | optimizer_allgather: 19.51 | optimizer_gradients: 10.93 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 1047.70 | bwd_microstep: 2093.52 | bwd_inner_microstep: 2015.16 | bwd_allreduce_microstep: 76.43 | step_microstep: 65.52
+[Rank 0] time (ms) | fwd: 1047.73 | bwd: 2093.47 | bwd_inner: 2015.53 | bwd_allreduce: 76.43 | step: 65.54
+ 25%|█████████████████████████▋                                                                           | 65/256 [11:18<58:17, 18.31s/it][Rank 0] time (ms) | optimizer_allgather: 19.80 | optimizer_gradients: 10.53 | optimizer_step: 19.14
+[Rank 0] time (ms) | fwd_microstep: 1047.77 | bwd_microstep: 2088.41 | bwd_inner_microstep: 2009.19 | bwd_allreduce_microstep: 77.17 | step_microstep: 64.63
+[Rank 0] time (ms) | fwd: 1047.80 | bwd: 2088.37 | bwd_inner: 2009.70 | bwd_allreduce: 77.16 | step: 64.64
+ 26%|██████████████████████████                                                                           | 66/256 [11:21<43:42, 13.80s/it][Rank 0] time (ms) | optimizer_allgather: 20.82 | optimizer_gradients: 11.39 | optimizer_step: 19.17
+[Rank 0] time (ms) | fwd_microstep: 1041.51 | bwd_microstep: 2079.27 | bwd_inner_microstep: 1997.97 | bwd_allreduce_microstep: 79.23 | step_microstep: 68.38
+[Rank 0] time (ms) | fwd: 1041.54 | bwd: 2079.23 | bwd_inner: 1998.48 | bwd_allreduce: 79.23 | step: 68.40
+ 26%|██████████████████████████▍                                                                          | 67/256 [11:25<33:31, 10.64s/it][Rank 0] time (ms) | optimizer_allgather: 19.63 | optimizer_gradients: 11.45 | optimizer_step: 19.27
+[Rank 0] time (ms) | fwd_microstep: 1039.34 | bwd_microstep: 2125.36 | bwd_inner_microstep: 2043.90 | bwd_allreduce_microstep: 79.28 | step_microstep: 67.00
+[Rank 0] time (ms) | fwd: 1039.37 | bwd: 2125.31 | bwd_inner: 2044.46 | bwd_allreduce: 79.27 | step: 67.01
+ 27%|██████████████████████████▊                                                                          | 68/256 [11:28<26:27,  8.45s/it][Rank 0] time (ms) | optimizer_allgather: 19.75 | optimizer_gradients: 10.51 | optimizer_step: 19.05
+[Rank 0] time (ms) | fwd_microstep: 1028.23 | bwd_microstep: 2111.61 | bwd_inner_microstep: 2032.80 | bwd_allreduce_microstep: 77.14 | step_microstep: 64.47
+[Rank 0] time (ms) | fwd: 1028.24 | bwd: 2111.56 | bwd_inner: 2032.91 | bwd_allreduce: 77.13 | step: 64.48
+ 27%|███████████████████████████▏                                                                         | 69/256 [11:31<21:30,  6.90s/it][Rank 0] time (ms) | optimizer_allgather: 20.82 | optimizer_gradients: 11.28 | optimizer_step: 19.15
+[Rank 0] time (ms) | fwd_microstep: 1032.29 | bwd_microstep: 2115.77 | bwd_inner_microstep: 2035.07 | bwd_allreduce_microstep: 78.82 | step_microstep: 67.76
+[Rank 0] time (ms) | fwd: 1032.32 | bwd: 2115.72 | bwd_inner: 2035.42 | bwd_allreduce: 78.82 | step: 67.77
+{'eval_loss': 1.5604095458984375, 'eval_runtime': 35.0218, 'eval_samples_per_second': 29.239, 'eval_steps_per_second': 7.31, 'epoch': 0.27}
+ 27%|███████████████████████████▌                                                                         | 70/256 [12:10<18:02,  5.82s/it[Rank 0] time (ms) | optimizer_allgather: 19.43 | optimizer_gradients: 10.53 | optimizer_step: 19.11                                        
+[Rank 0] time (ms) | fwd_microstep: 31693.89 | bwd_microstep: 2234.37 | bwd_inner_microstep: 2154.54 | bwd_allreduce_microstep: 77.61 | step_microstep: 64.54
+[Rank 0] time (ms) | fwd: 31694.05 | bwd: 2234.31 | bwd_inner: 2154.77 | bwd_allreduce: 77.46 | step: 64.56
+ 28%|████████████████████████████                                                                         | 71/256 [12:13<48:09, 15.62s/it][Rank 0] time (ms) | optimizer_allgather: 21.20 | optimizer_gradients: 11.50 | optimizer_step: 19.08
+[Rank 0] time (ms) | fwd_microstep: 1058.21 | bwd_microstep: 2288.58 | bwd_inner_microstep: 2207.02 | bwd_allreduce_microstep: 79.66 | step_microstep: 68.91
+[Rank 0] time (ms) | fwd: 1058.24 | bwd: 2288.54 | bwd_inner: 2207.14 | bwd_allreduce: 79.67 | step: 68.93
+ 28%|████████████████████████████▍                                                                        | 72/256 [12:17<36:45, 11.98s/it][Rank 0] time (ms) | optimizer_allgather: 19.62 | optimizer_gradients: 11.26 | optimizer_step: 19.08
+[Rank 0] time (ms) | fwd_microstep: 1051.71 | bwd_microstep: 2280.69 | bwd_inner_microstep: 2200.26 | bwd_allreduce_microstep: 78.72 | step_microstep: 66.71
+[Rank 0] time (ms) | fwd: 1051.74 | bwd: 2280.65 | bwd_inner: 2200.39 | bwd_allreduce: 78.70 | step: 66.72
+ 29%|████████████████████████████▊                                                                        | 73/256 [12:20<28:46,  9.44s/it][Rank 0] time (ms) | optimizer_allgather: 19.54 | optimizer_gradients: 10.55 | optimizer_step: 19.04
+[Rank 0] time (ms) | fwd_microstep: 1049.12 | bwd_microstep: 2255.45 | bwd_inner_microstep: 2176.10 | bwd_allreduce_microstep: 77.22 | step_microstep: 64.85
+[Rank 0] time (ms) | fwd: 1049.12 | bwd: 2255.40 | bwd_inner: 2176.68 | bwd_allreduce: 77.22 | step: 64.87
+ 29%|█████████████████████████████▏                                                                       | 74/256 [12:23<23:10,  7.64s/it][Rank 0] time (ms) | optimizer_allgather: 19.58 | optimizer_gradients: 10.58 | optimizer_step: 19.04
+[Rank 0] time (ms) | fwd_microstep: 1070.68 | bwd_microstep: 2250.62 | bwd_inner_microstep: 2171.85 | bwd_allreduce_microstep: 76.89 | step_microstep: 64.85
+[Rank 0] time (ms) | fwd: 1070.73 | bwd: 2250.56 | bwd_inner: 2172.16 | bwd_allreduce: 76.88 | step: 64.87
+Profiler trace saved to /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/profiler_logs/trace_rank_0_20251129_212427.json
+ 29%|████████████████████████████▋                                                                     | 75/256 [18:50<6:05:34, 121.18s/it]
+================================================================================
+Starting PyTorch Profiler at step 75
+================================================================================
+
+[DEBUG] Profiler initialized successfully
+[Rank 0] time (ms) | optimizer_allgather: 20.72 | optimizer_gradients: 10.26 | optimizer_step: 19.05
+[Rank 0] time (ms) | fwd_microstep: 679.34 | bwd_microstep: 1176.85 | bwd_inner_microstep: 1090.30 | bwd_allreduce_microstep: 85.63 | step_microstep: 64.27
+[Rank 0] time (ms) | fwd: 679.31 | bwd: 1176.75 | bwd_inner: 1090.23 | bwd_allreduce: 85.63 | step: 64.28
+ 30%|█████████████████████████████▍                                                                     | 76/256 [18:52<4:16:16, 85.43s/it][Rank 0] time (ms) | optimizer_allgather: 19.33 | optimizer_gradients: 10.27 | optimizer_step: 18.91
+[Rank 0] time (ms) | fwd_microstep: 652.60 | bwd_microstep: 1073.13 | bwd_inner_microstep: 998.12 | bwd_allreduce_microstep: 74.11 | step_microstep: 62.76
+[Rank 0] time (ms) | fwd: 652.55 | bwd: 1073.04 | bwd_inner: 998.02 | bwd_allreduce: 74.12 | step: 62.77
+ 30%|█████████████████████████████▊                                                                     | 77/256 [18:54<3:00:11, 60.40s/it][Rank 0] time (ms) | optimizer_allgather: 19.45 | optimizer_gradients: 10.34 | optimizer_step: 19.09
+[Rank 0] time (ms) | fwd_microstep: 715.61 | bwd_microstep: 1217.22 | bwd_inner_microstep: 1141.64 | bwd_allreduce_microstep: 74.55 | step_microstep: 63.10
+[Rank 0] time (ms) | fwd: 715.63 | bwd: 1217.13 | bwd_inner: 1141.56 | bwd_allreduce: 74.56 | step: 63.11
+ 30%|██████████████████████████████▏                                                                    | 78/256 [18:56<2:07:15, 42.90s/it][Rank 0] time (ms) | optimizer_allgather: 19.43 | optimizer_gradients: 10.34 | optimizer_step: 19.13
+[Rank 0] time (ms) | fwd_microstep: 712.42 | bwd_microstep: 1211.80 | bwd_inner_microstep: 1136.06 | bwd_allreduce_microstep: 74.54 | step_microstep: 63.12
+[Rank 0] time (ms) | fwd: 712.35 | bwd: 1211.74 | bwd_inner: 1135.99 | bwd_allreduce: 74.55 | step: 63.13
+ 31%|██████████████████████████████▌                                                                    | 79/256 [18:58<1:30:23, 30.64s/it][Rank 0] time (ms) | optimizer_allgather: 19.57 | optimizer_gradients: 10.34 | optimizer_step: 19.02
+[Rank 0] time (ms) | fwd_microstep: 726.37 | bwd_microstep: 1227.91 | bwd_inner_microstep: 1152.30 | bwd_allreduce_microstep: 74.52 | step_microstep: 63.10
+[Rank 0] time (ms) | fwd: 726.39 | bwd: 1227.83 | bwd_inner: 1152.24 | bwd_allreduce: 74.51 | step: 63.11
+{'loss': 1.558, 'grad_norm': 1.3671435117721558, 'learning_rate': 6.99604743083004e-05, 'epoch': 0.31}                                     
+{'eval_loss': 1.5567455291748047, 'eval_runtime': 34.6795, 'eval_samples_per_second': 29.528, 'eval_steps_per_second': 7.382, 'epoch': 0.31}                                                                                                                                          
+ 31%|██████████████████████████████▉                                                                    | 80/256 [19:34<1:04:45, 22.07s/it[Rank 0] time (ms) | optimizer_allgather: 19.73 | optimizer_gradients: 10.98 | optimizer_step: 19.09                                        
+[Rank 0] time (ms) | fwd_microstep: 30837.66 | bwd_microstep: 2145.28 | bwd_inner_microstep: 2066.43 | bwd_allreduce_microstep: 77.26 | step_microstep: 65.83
+[Rank 0] time (ms) | fwd: 30838.58 | bwd: 2145.23 | bwd_inner: 2066.49 | bwd_allreduce: 77.26 | step: 65.84
+ 32%|███████████████████████████████▎                                                                   | 81/256 [19:38<1:18:22, 26.87s/it][Rank 0] time (ms) | optimizer_allgather: 19.82 | optimizer_gradients: 10.96 | optimizer_step: 19.20
+[Rank 0] time (ms) | fwd_microstep: 1042.49 | bwd_microstep: 2150.34 | bwd_inner_microstep: 2071.81 | bwd_allreduce_microstep: 76.93 | step_microstep: 66.19
+[Rank 0] time (ms) | fwd: 1042.48 | bwd: 2150.28 | bwd_inner: 2071.88 | bwd_allreduce: 76.92 | step: 66.20
+ 32%|████████████████████████████████▎                                                                    | 82/256 [19:41<57:27, 19.81s/it][Rank 0] time (ms) | optimizer_allgather: 21.06 | optimizer_gradients: 11.34 | optimizer_step: 19.29
+[Rank 0] time (ms) | fwd_microstep: 1012.34 | bwd_microstep: 2175.53 | bwd_inner_microstep: 2094.76 | bwd_allreduce_microstep: 79.22 | step_microstep: 68.42
+[Rank 0] time (ms) | fwd: 1012.38 | bwd: 2175.48 | bwd_inner: 2094.81 | bwd_allreduce: 79.22 | step: 68.44
+ 32%|████████████████████████████████▋                                                                    | 83/256 [19:45<42:52, 14.87s/it][Rank 0] time (ms) | optimizer_allgather: 19.69 | optimizer_gradients: 10.54 | optimizer_step: 18.96
+[Rank 0] time (ms) | fwd_microstep: 1031.10 | bwd_microstep: 2180.79 | bwd_inner_microstep: 2102.17 | bwd_allreduce_microstep: 77.03 | step_microstep: 64.64
+[Rank 0] time (ms) | fwd: 1031.14 | bwd: 2180.75 | bwd_inner: 2102.24 | bwd_allreduce: 77.02 | step: 64.65
+ 33%|█████████████████████████████████▏                                                                   | 84/256 [19:48<32:43, 11.42s/it][Rank 0] time (ms) | optimizer_allgather: 19.63 | optimizer_gradients: 11.02 | optimizer_step: 19.05
+[Rank 0] time (ms) | fwd_microstep: 1053.77 | bwd_microstep: 2160.06 | bwd_inner_microstep: 2081.73 | bwd_allreduce_microstep: 76.64 | step_microstep: 65.73
+[Rank 0] time (ms) | fwd: 1053.81 | bwd: 2159.98 | bwd_inner: 2081.79 | bwd_allreduce: 76.64 | step: 65.75
+ 33%|█████████████████████████████████▌                                                                   | 85/256 [19:51<25:38,  9.00s/it][Rank 0] time (ms) | optimizer_allgather: 19.24 | optimizer_gradients: 10.57 | optimizer_step: 19.00
+[Rank 0] time (ms) | fwd_microstep: 1031.30 | bwd_microstep: 2121.21 | bwd_inner_microstep: 2042.49 | bwd_allreduce_microstep: 77.14 | step_microstep: 64.34
+[Rank 0] time (ms) | fwd: 1031.34 | bwd: 2121.16 | bwd_inner: 2042.55 | bwd_allreduce: 77.14 | step: 64.36
+ 34%|█████████████████████████████████▉                                                                   | 86/256 [19:55<20:39,  7.29s/it][Rank 0] time (ms) | optimizer_allgather: 20.99 | optimizer_gradients: 11.35 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 1058.78 | bwd_microstep: 2124.51 | bwd_inner_microstep: 2043.20 | bwd_allreduce_microstep: 79.51 | step_microstep: 68.51
+[Rank 0] time (ms) | fwd: 1058.81 | bwd: 2124.47 | bwd_inner: 2043.30 | bwd_allreduce: 79.50 | step: 68.53
+ 34%|██████████████████████████████████▎                                                                  | 87/256 [19:58<17:11,  6.10s/it][Rank 0] time (ms) | optimizer_allgather: 20.75 | optimizer_gradients: 11.36 | optimizer_step: 19.18
+[Rank 0] time (ms) | fwd_microstep: 1060.08 | bwd_microstep: 2228.38 | bwd_inner_microstep: 2146.09 | bwd_allreduce_microstep: 80.27 | step_microstep: 68.29
+[Rank 0] time (ms) | fwd: 1060.09 | bwd: 2228.34 | bwd_inner: 2146.24 | bwd_allreduce: 80.27 | step: 68.31
+ 34%|██████████████████████████████████▋                                                                  | 88/256 [20:01<14:50,  5.30s/it][Rank 0] time (ms) | optimizer_allgather: 19.46 | optimizer_gradients: 10.64 | optimizer_step: 19.08
+[Rank 0] time (ms) | fwd_microstep: 1046.21 | bwd_microstep: 2165.95 | bwd_inner_microstep: 2086.69 | bwd_allreduce_microstep: 77.51 | step_microstep: 64.71
+[Rank 0] time (ms) | fwd: 1046.24 | bwd: 2165.90 | bwd_inner: 2086.78 | bwd_allreduce: 77.50 | step: 64.72
+ 35%|███████████████████████████████████                                                                  | 89/256 [20:05<13:07,  4.72s/it][Rank 0] time (ms) | optimizer_allgather: 19.71 | optimizer_gradients: 10.88 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 1035.95 | bwd_microstep: 2134.50 | bwd_inner_microstep: 2056.38 | bwd_allreduce_microstep: 76.51 | step_microstep: 65.61
+[Rank 0] time (ms) | fwd: 1035.99 | bwd: 2134.44 | bwd_inner: 2056.43 | bwd_allreduce: 76.50 | step: 65.63
+{'eval_loss': 1.5569038391113281, 'eval_runtime': 33.0308, 'eval_samples_per_second': 31.001, 'eval_steps_per_second': 7.75, 'epoch': 0.35}
+ 35%|███████████████████████████████████▌                                                                 | 90/256 [20:41<11:52,  4.29s/it[Rank 0] time (ms) | optimizer_allgather: 19.61 | optimizer_gradients: 10.87 | optimizer_step: 19.15                                        
+[Rank 0] time (ms) | fwd_microstep: 28556.11 | bwd_microstep: 2058.91 | bwd_inner_microstep: 1980.41 | bwd_allreduce_microstep: 76.70 | step_microstep: 65.96
+[Rank 0] time (ms) | fwd: 28554.84 | bwd: 2058.90 | bwd_inner: 1980.52 | bwd_allreduce: 76.69 | step: 65.97
+ 36%|███████████████████████████████████▉                                                                 | 91/256 [20:44<38:13, 13.90s/it][Rank 0] time (ms) | optimizer_allgather: 19.51 | optimizer_gradients: 10.84 | optimizer_step: 19.14
+[Rank 0] time (ms) | fwd_microstep: 1049.38 | bwd_microstep: 2066.09 | bwd_inner_microstep: 1988.01 | bwd_allreduce_microstep: 76.34 | step_microstep: 65.38
+[Rank 0] time (ms) | fwd: 1049.44 | bwd: 2066.06 | bwd_inner: 1988.11 | bwd_allreduce: 76.34 | step: 65.39
+ 36%|████████████████████████████████████▎                                                                | 92/256 [20:48<29:15, 10.71s/it][Rank 0] time (ms) | optimizer_allgather: 19.26 | optimizer_gradients: 11.27 | optimizer_step: 18.97
+[Rank 0] time (ms) | fwd_microstep: 1057.64 | bwd_microstep: 2070.75 | bwd_inner_microstep: 1989.90 | bwd_allreduce_microstep: 79.16 | step_microstep: 66.09
+[Rank 0] time (ms) | fwd: 1057.68 | bwd: 2070.71 | bwd_inner: 1989.96 | bwd_allreduce: 79.16 | step: 66.10
+ 36%|████████████████████████████████████▋                                                                | 93/256 [20:51<23:01,  8.47s/it][Rank 0] time (ms) | optimizer_allgather: 19.72 | optimizer_gradients: 10.63 | optimizer_step: 18.99
+[Rank 0] time (ms) | fwd_microstep: 1075.71 | bwd_microstep: 2077.91 | bwd_inner_microstep: 1999.10 | bwd_allreduce_microstep: 77.07 | step_microstep: 64.91
+[Rank 0] time (ms) | fwd: 1075.75 | bwd: 2077.86 | bwd_inner: 1999.17 | bwd_allreduce: 77.06 | step: 64.92
+ 37%|█████████████████████████████████████                                                                | 94/256 [20:54<18:41,  6.92s/it][Rank 0] time (ms) | optimizer_allgather: 20.86 | optimizer_gradients: 11.27 | optimizer_step: 19.19
+[Rank 0] time (ms) | fwd_microstep: 1060.08 | bwd_microstep: 2065.66 | bwd_inner_microstep: 1984.89 | bwd_allreduce_microstep: 79.03 | step_microstep: 68.01
+[Rank 0] time (ms) | fwd: 1060.11 | bwd: 2065.61 | bwd_inner: 1984.97 | bwd_allreduce: 79.02 | step: 68.02
+ 37%|█████████████████████████████████████▍                                                               | 95/256 [20:57<15:37,  5.82s/it][Rank 0] time (ms) | optimizer_allgather: 19.50 | optimizer_gradients: 10.98 | optimizer_step: 19.11
+[Rank 0] time (ms) | fwd_microstep: 1050.50 | bwd_microstep: 2109.38 | bwd_inner_microstep: 2030.46 | bwd_allreduce_microstep: 77.26 | step_microstep: 65.66
+[Rank 0] time (ms) | fwd: 1050.52 | bwd: 2109.34 | bwd_inner: 2030.55 | bwd_allreduce: 77.25 | step: 65.67
+ 38%|█████████████████████████████████████▉                                                               | 96/256 [21:01<13:30,  5.07s/it][Rank 0] time (ms) | optimizer_allgather: 20.02 | optimizer_gradients: 11.14 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 1068.12 | bwd_microstep: 2139.08 | bwd_inner_microstep: 2059.12 | bwd_allreduce_microstep: 78.15 | step_microstep: 66.60
+[Rank 0] time (ms) | fwd: 1068.15 | bwd: 2139.02 | bwd_inner: 2059.19 | bwd_allreduce: 78.14 | step: 66.62
+ 38%|██████████████████████████████████████▎                                                              | 97/256 [21:04<12:03,  4.55s/it][Rank 0] time (ms) | optimizer_allgather: 20.65 | optimizer_gradients: 11.16 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 1044.65 | bwd_microstep: 2087.02 | bwd_inner_microstep: 2007.06 | bwd_allreduce_microstep: 78.29 | step_microstep: 67.83
+[Rank 0] time (ms) | fwd: 1044.67 | bwd: 2086.97 | bwd_inner: 2007.10 | bwd_allreduce: 78.28 | step: 67.85
+ 38%|██████████████████████████████████████▋                                                              | 98/256 [21:07<10:58,  4.17s/it][Rank 0] time (ms) | optimizer_allgather: 19.65 | optimizer_gradients: 10.87 | optimizer_step: 19.02
+[Rank 0] time (ms) | fwd_microstep: 1046.27 | bwd_microstep: 2086.50 | bwd_inner_microstep: 2008.14 | bwd_allreduce_microstep: 76.68 | step_microstep: 65.65
+[Rank 0] time (ms) | fwd: 1046.18 | bwd: 2086.46 | bwd_inner: 2008.22 | bwd_allreduce: 76.67 | step: 65.67
+ 39%|███████████████████████████████████████                                                              | 99/256 [21:11<10:11,  3.90s/it][Rank 0] time (ms) | optimizer_allgather: 19.46 | optimizer_gradients: 10.54 | optimizer_step: 19.02
+[Rank 0] time (ms) | fwd_microstep: 1049.31 | bwd_microstep: 2091.86 | bwd_inner_microstep: 2013.60 | bwd_allreduce_microstep: 76.48 | step_microstep: 65.11
+[Rank 0] time (ms) | fwd: 1049.30 | bwd: 2091.80 | bwd_inner: 2013.65 | bwd_allreduce: 76.47 | step: 65.13
+Profiler trace saved to /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/profiler_logs/trace_rank_0_20251129_213318.json
+{'loss': 1.6061, 'grad_norm': 1.1977053880691528, 'learning_rate': 6.205533596837945e-05, 'epoch': 0.39}                                   
+{'eval_loss': 1.560964584350586, 'eval_runtime': 26.0992, 'eval_samples_per_second': 39.235, 'eval_steps_per_second': 9.809, 'epoch': 0.39}
+ 39%|█████████████████████████████████████▉                                                           | 100/256 [28:02<5:07:48, 118.39s/it]
+================================================================================                                                           
+Starting PyTorch Profiler at step 100
+================================================================================
+
+[DEBUG] Profiler initialized successfully
+[Rank 0] time (ms) | optimizer_allgather: 19.66 | optimizer_gradients: 10.27 | optimizer_step: 23.88
+[Rank 0] time (ms) | fwd_microstep: 17222.86 | bwd_microstep: 1497.79 | bwd_inner_microstep: 1421.76 | bwd_allreduce_microstep: 74.70 | step_microstep: 71.26
+[Rank 0] time (ms) | fwd: 17219.76 | bwd: 1497.74 | bwd_inner: 1421.77 | bwd_allreduce: 74.70 | step: 71.27
+ 39%|██████████████████████████████████████▋                                                           | 101/256 [28:05<3:56:13, 91.44s/it][Rank 0] time (ms) | optimizer_allgather: 19.74 | optimizer_gradients: 10.25 | optimizer_step: 18.98
+[Rank 0] time (ms) | fwd_microstep: 663.08 | bwd_microstep: 1112.72 | bwd_inner_microstep: 1036.77 | bwd_allreduce_microstep: 74.62 | step_microstep: 63.85
+[Rank 0] time (ms) | fwd: 663.10 | bwd: 1112.68 | bwd_inner: 1036.83 | bwd_allreduce: 74.61 | step: 63.89
+ 40%|███████████████████████████████████████                                                           | 102/256 [28:07<2:45:56, 64.65s/it][Rank 0] time (ms) | optimizer_allgather: 19.28 | optimizer_gradients: 10.36 | optimizer_step: 19.04
+[Rank 0] time (ms) | fwd_microstep: 714.12 | bwd_microstep: 1249.27 | bwd_inner_microstep: 1172.75 | bwd_allreduce_microstep: 75.09 | step_microstep: 63.09
+[Rank 0] time (ms) | fwd: 714.09 | bwd: 1249.23 | bwd_inner: 1172.81 | bwd_allreduce: 75.10 | step: 63.10
+ 40%|███████████████████████████████████████▍                                                          | 103/256 [28:09<1:57:00, 45.89s/it][Rank 0] time (ms) | optimizer_allgather: 19.65 | optimizer_gradients: 10.35 | optimizer_step: 19.09
+[Rank 0] time (ms) | fwd_microstep: 714.77 | bwd_microstep: 1251.15 | bwd_inner_microstep: 1174.91 | bwd_allreduce_microstep: 74.87 | step_microstep: 63.48
+[Rank 0] time (ms) | fwd: 714.71 | bwd: 1251.11 | bwd_inner: 1174.95 | bwd_allreduce: 74.86 | step: 63.49
+ 41%|███████████████████████████████████████▊                                                          | 104/256 [28:11<1:22:58, 32.75s/it][Rank 0] time (ms) | optimizer_allgather: 19.56 | optimizer_gradients: 10.35 | optimizer_step: 19.02
+[Rank 0] time (ms) | fwd_microstep: 716.23 | bwd_microstep: 1236.80 | bwd_inner_microstep: 1160.59 | bwd_allreduce_microstep: 74.89 | step_microstep: 63.25
+[Rank 0] time (ms) | fwd: 716.21 | bwd: 1236.75 | bwd_inner: 1160.64 | bwd_allreduce: 74.88 | step: 63.27
+ 41%|█████████████████████████████████████████                                                           | 105/256 [28:13<59:16, 23.55s/it][Rank 0] time (ms) | optimizer_allgather: 19.64 | optimizer_gradients: 10.59 | optimizer_step: 18.97
+[Rank 0] time (ms) | fwd_microstep: 1053.74 | bwd_microstep: 2116.28 | bwd_inner_microstep: 2036.37 | bwd_allreduce_microstep: 78.30 | step_microstep: 64.42
+[Rank 0] time (ms) | fwd: 1053.79 | bwd: 2116.22 | bwd_inner: 2036.41 | bwd_allreduce: 78.29 | step: 64.43
+ 41%|█████████████████████████████████████████▍                                                          | 106/256 [28:16<43:42, 17.48s/it][Rank 0] time (ms) | optimizer_allgather: 20.57 | optimizer_gradients: 11.27 | optimizer_step: 19.14
+[Rank 0] time (ms) | fwd_microstep: 1049.06 | bwd_microstep: 2126.06 | bwd_inner_microstep: 2046.00 | bwd_allreduce_microstep: 78.42 | step_microstep: 67.76
+[Rank 0] time (ms) | fwd: 1049.09 | bwd: 2126.00 | bwd_inner: 2046.06 | bwd_allreduce: 78.42 | step: 67.77
+ 42%|█████████████████████████████████████████▊                                                          | 107/256 [28:20<32:51, 13.23s/it][Rank 0] time (ms) | optimizer_allgather: 19.86 | optimizer_gradients: 10.56 | optimizer_step: 18.95
+[Rank 0] time (ms) | fwd_microstep: 1055.31 | bwd_microstep: 2120.71 | bwd_inner_microstep: 2042.32 | bwd_allreduce_microstep: 76.69 | step_microstep: 64.90
+[Rank 0] time (ms) | fwd: 1055.36 | bwd: 2120.65 | bwd_inner: 2042.38 | bwd_allreduce: 76.69 | step: 64.91
+ 42%|██████████████████████████████████████████▏                                                         | 108/256 [28:23<25:18, 10.26s/it][Rank 0] time (ms) | optimizer_allgather: 19.47 | optimizer_gradients: 10.91 | optimizer_step: 18.99
+[Rank 0] time (ms) | fwd_microstep: 1061.58 | bwd_microstep: 2171.38 | bwd_inner_microstep: 2092.92 | bwd_allreduce_microstep: 76.73 | step_microstep: 65.58
+[Rank 0] time (ms) | fwd: 1061.57 | bwd: 2171.33 | bwd_inner: 2092.99 | bwd_allreduce: 76.72 | step: 65.59
+ 43%|██████████████████████████████████████████▌                                                         | 109/256 [28:26<20:04,  8.20s/it][Rank 0] time (ms) | optimizer_allgather: 19.49 | optimizer_gradients: 10.72 | optimizer_step: 19.05
+[Rank 0] time (ms) | fwd_microstep: 1040.75 | bwd_microstep: 2130.34 | bwd_inner_microstep: 2051.38 | bwd_allreduce_microstep: 77.32 | step_microstep: 65.10
+[Rank 0] time (ms) | fwd: 1040.71 | bwd: 2130.29 | bwd_inner: 2051.44 | bwd_allreduce: 77.33 | step: 65.12
+{'eval_loss': 1.5489177703857422, 'eval_runtime': 37.5501, 'eval_samples_per_second': 27.27, 'eval_steps_per_second': 6.818, 'epoch': 0.43}
+ 43%|██████████████████████████████████████████▉                                                         | 110/256 [29:07<16:22,  6.73s/it[Rank 0] time (ms) | optimizer_allgather: 19.62 | optimizer_gradients: 10.85 | optimizer_step: 19.00                                        
+[Rank 0] time (ms) | fwd_microstep: 28494.08 | bwd_microstep: 2093.34 | bwd_inner_microstep: 2015.42 | bwd_allreduce_microstep: 76.30 | step_microstep: 65.56
+[Rank 0] time (ms) | fwd: 28493.91 | bwd: 2093.28 | bwd_inner: 2015.48 | bwd_allreduce: 76.30 | step: 65.57
+ 43%|███████████████████████████████████████████▎                                                        | 111/256 [29:11<41:02, 16.98s/it][Rank 0] time (ms) | optimizer_allgather: 19.94 | optimizer_gradients: 10.96 | optimizer_step: 19.09
+[Rank 0] time (ms) | fwd_microstep: 1050.60 | bwd_microstep: 2117.67 | bwd_inner_microstep: 2038.78 | bwd_allreduce_microstep: 77.15 | step_microstep: 66.43
+[Rank 0] time (ms) | fwd: 1050.64 | bwd: 2117.62 | bwd_inner: 2038.84 | bwd_allreduce: 77.14 | step: 66.44
+ 44%|███████████████████████████████████████████▊                                                        | 112/256 [29:14<30:55, 12.88s/it][Rank 0] time (ms) | optimizer_allgather: 20.28 | optimizer_gradients: 11.18 | optimizer_step: 19.17
+[Rank 0] time (ms) | fwd_microstep: 1039.99 | bwd_microstep: 2061.41 | bwd_inner_microstep: 1981.62 | bwd_allreduce_microstep: 78.07 | step_microstep: 66.99
+[Rank 0] time (ms) | fwd: 1040.00 | bwd: 2061.35 | bwd_inner: 1981.67 | bwd_allreduce: 78.17 | step: 67.01
+ 44%|████████████████████████████████████████████▏                                                       | 113/256 [29:17<23:48,  9.99s/it][Rank 0] time (ms) | optimizer_allgather: 19.84 | optimizer_gradients: 10.97 | optimizer_step: 19.09
+[Rank 0] time (ms) | fwd_microstep: 1051.93 | bwd_microstep: 2088.41 | bwd_inner_microstep: 2009.71 | bwd_allreduce_microstep: 77.03 | step_microstep: 66.09
+[Rank 0] time (ms) | fwd: 1051.99 | bwd: 2088.34 | bwd_inner: 2009.76 | bwd_allreduce: 77.04 | step: 66.10
+ 45%|████████████████████████████████████████████▌                                                       | 114/256 [29:20<18:53,  7.98s/it][Rank 0] time (ms) | optimizer_allgather: 19.22 | optimizer_gradients: 10.55 | optimizer_step: 19.01
+[Rank 0] time (ms) | fwd_microstep: 1044.11 | bwd_microstep: 2133.44 | bwd_inner_microstep: 2054.17 | bwd_allreduce_microstep: 77.64 | step_microstep: 64.10
+[Rank 0] time (ms) | fwd: 1044.15 | bwd: 2133.49 | bwd_inner: 2054.24 | bwd_allreduce: 77.63 | step: 64.11
+ 45%|████████████████████████████████████████████▉                                                       | 115/256 [29:24<15:28,  6.58s/it][Rank 0] time (ms) | optimizer_allgather: 19.28 | optimizer_gradients: 10.54 | optimizer_step: 19.01
+[Rank 0] time (ms) | fwd_microstep: 1060.11 | bwd_microstep: 2183.38 | bwd_inner_microstep: 2105.47 | bwd_allreduce_microstep: 76.34 | step_microstep: 64.74
+[Rank 0] time (ms) | fwd: 1060.12 | bwd: 2183.33 | bwd_inner: 2105.52 | bwd_allreduce: 76.33 | step: 64.76
+ 45%|█████████████████████████████████████████████▎                                                      | 116/256 [29:27<13:07,  5.62s/it][Rank 0] time (ms) | optimizer_allgather: 19.62 | optimizer_gradients: 10.61 | optimizer_step: 19.05
+[Rank 0] time (ms) | fwd_microstep: 1048.55 | bwd_microstep: 2058.44 | bwd_inner_microstep: 1979.26 | bwd_allreduce_microstep: 77.49 | step_microstep: 64.67
+[Rank 0] time (ms) | fwd: 1048.60 | bwd: 2058.39 | bwd_inner: 1979.38 | bwd_allreduce: 77.49 | step: 64.68
+ 46%|█████████████████████████████████████████████▋                                                      | 117/256 [29:30<11:22,  4.91s/it][Rank 0] time (ms) | optimizer_allgather: 20.93 | optimizer_gradients: 11.37 | optimizer_step: 19.21
+[Rank 0] time (ms) | fwd_microstep: 1046.89 | bwd_microstep: 2132.79 | bwd_inner_microstep: 2051.95 | bwd_allreduce_microstep: 79.25 | step_microstep: 68.50
+[Rank 0] time (ms) | fwd: 1046.91 | bwd: 2132.72 | bwd_inner: 2052.01 | bwd_allreduce: 79.24 | step: 68.52
+ 46%|██████████████████████████████████████████████                                                      | 118/256 [29:34<10:12,  4.44s/it][Rank 0] time (ms) | optimizer_allgather: 19.69 | optimizer_gradients: 10.52 | optimizer_step: 19.04
+[Rank 0] time (ms) | fwd_microstep: 1050.02 | bwd_microstep: 2307.10 | bwd_inner_microstep: 2226.56 | bwd_allreduce_microstep: 78.89 | step_microstep: 65.94
+[Rank 0] time (ms) | fwd: 1050.05 | bwd: 2307.06 | bwd_inner: 2226.61 | bwd_allreduce: 78.88 | step: 65.96
+ 46%|██████████████████████████████████████████████▍                                                     | 119/256 [29:37<09:29,  4.16s/it][Rank 0] time (ms) | optimizer_allgather: 19.22 | optimizer_gradients: 10.83 | optimizer_step: 19.04
+[Rank 0] time (ms) | fwd_microstep: 1041.37 | bwd_microstep: 2240.09 | bwd_inner_microstep: 2161.92 | bwd_allreduce_microstep: 76.53 | step_microstep: 65.10
+[Rank 0] time (ms) | fwd: 1041.42 | bwd: 2240.03 | bwd_inner: 2161.99 | bwd_allreduce: 76.53 | step: 65.11
+{'loss': 1.5472, 'grad_norm': 1.3531228303909302, 'learning_rate': 5.41501976284585e-05, 'epoch': 0.47}                                    
+{'eval_loss': 1.5754146575927734, 'eval_runtime': 37.2402, 'eval_samples_per_second': 27.497, 'eval_steps_per_second': 6.874, 'epoch': 0.47}                                                                                                                                          
+ 47%|██████████████████████████████████████████████▉                                                     | 120/256 [30:18<08:55,  3.94s/it[Rank 0] time (ms) | optimizer_allgather: 19.68 | optimizer_gradients: 10.53 | optimizer_step: 19.04                                        
+[Rank 0] time (ms) | fwd_microstep: 28752.37 | bwd_microstep: 2160.54 | bwd_inner_microstep: 2081.14 | bwd_allreduce_microstep: 77.75 | step_microstep: 64.81
+[Rank 0] time (ms) | fwd: 28750.95 | bwd: 2160.50 | bwd_inner: 2081.19 | bwd_allreduce: 77.74 | step: 64.82
+ 47%|███████████████████████████████████████████████▎                                                    | 121/256 [30:21<33:37, 14.95s/it][Rank 0] time (ms) | optimizer_allgather: 19.68 | optimizer_gradients: 11.15 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 1047.58 | bwd_microstep: 2130.41 | bwd_inner_microstep: 2050.71 | bwd_allreduce_microstep: 77.91 | step_microstep: 66.40
+[Rank 0] time (ms) | fwd: 1047.59 | bwd: 2130.37 | bwd_inner: 2050.79 | bwd_allreduce: 77.90 | step: 66.41
+ 48%|███████████████████████████████████████████████▋                                                    | 122/256 [30:25<25:35, 11.46s/it][Rank 0] time (ms) | optimizer_allgather: 19.51 | optimizer_gradients: 10.50 | optimizer_step: 18.98
+[Rank 0] time (ms) | fwd_microstep: 1046.46 | bwd_microstep: 2099.77 | bwd_inner_microstep: 2020.78 | bwd_allreduce_microstep: 77.25 | step_microstep: 64.24
+[Rank 0] time (ms) | fwd: 1046.42 | bwd: 2099.72 | bwd_inner: 2020.84 | bwd_allreduce: 77.34 | step: 64.25
+ 48%|████████████████████████████████████████████████                                                    | 123/256 [30:28<19:58,  9.01s/it][Rank 0] time (ms) | optimizer_allgather: 20.38 | optimizer_gradients: 11.11 | optimizer_step: 19.23
+[Rank 0] time (ms) | fwd_microstep: 1044.10 | bwd_microstep: 2100.80 | bwd_inner_microstep: 2019.99 | bwd_allreduce_microstep: 78.14 | step_microstep: 67.12
+[Rank 0] time (ms) | fwd: 1044.14 | bwd: 2100.75 | bwd_inner: 2020.05 | bwd_allreduce: 78.13 | step: 67.13
+ 48%|████████████████████████████████████████████████▍                                                   | 124/256 [30:31<16:02,  7.29s/it][Rank 0] time (ms) | optimizer_allgather: 19.22 | optimizer_gradients: 10.97 | optimizer_step: 19.21
+[Rank 0] time (ms) | fwd_microstep: 1049.88 | bwd_microstep: 2118.76 | bwd_inner_microstep: 2040.16 | bwd_allreduce_microstep: 76.97 | step_microstep: 65.52
+[Rank 0] time (ms) | fwd: 1049.89 | bwd: 2118.71 | bwd_inner: 2040.23 | bwd_allreduce: 76.97 | step: 65.53
+Profiler trace saved to /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/profiler_logs/trace_rank_0_20251129_214250.json
+ 49%|███████████████████████████████████████████████▎                                                 | 125/256 [37:35<4:48:41, 132.23s/it]
+================================================================================
+Starting PyTorch Profiler at step 125
+================================================================================
+
+[DEBUG] Profiler initialized successfully
+[Rank 0] time (ms) | optimizer_allgather: 19.26 | optimizer_gradients: 10.94 | optimizer_step: 32.93
+[Rank 0] time (ms) | fwd_microstep: 1420.09 | bwd_microstep: 1997.88 | bwd_inner_microstep: 1867.13 | bwd_allreduce_microstep: 124.16 | step_microstep: 81.71
+[Rank 0] time (ms) | fwd: 1419.07 | bwd: 1997.83 | bwd_inner: 1867.25 | bwd_allreduce: 124.16 | step: 81.72
+ 49%|████████████████████████████████████████████████▏                                                 | 126/256 [37:39<3:23:00, 93.69s/it][Rank 0] time (ms) | optimizer_allgather: 19.48 | optimizer_gradients: 10.25 | optimizer_step: 20.05
+[Rank 0] time (ms) | fwd_microstep: 765.61 | bwd_microstep: 1143.03 | bwd_inner_microstep: 1067.06 | bwd_allreduce_microstep: 74.59 | step_microstep: 63.79
+[Rank 0] time (ms) | fwd: 765.63 | bwd: 1142.99 | bwd_inner: 1067.15 | bwd_allreduce: 74.58 | step: 63.80
+ 50%|████████████████████████████████████████████████▌                                                 | 127/256 [37:41<2:22:26, 66.25s/it][Rank 0] time (ms) | optimizer_allgather: 19.77 | optimizer_gradients: 24.53 | optimizer_step: 28.80
+[Rank 0] time (ms) | fwd_microstep: 828.72 | bwd_microstep: 1267.95 | bwd_inner_microstep: 1191.62 | bwd_allreduce_microstep: 74.85 | step_microstep: 88.23
+[Rank 0] time (ms) | fwd: 828.75 | bwd: 1267.90 | bwd_inner: 1191.69 | bwd_allreduce: 74.84 | step: 88.25
+ 50%|█████████████████████████████████████████████████                                                 | 128/256 [37:43<1:40:23, 47.06s/it][Rank 0] time (ms) | optimizer_allgather: 19.68 | optimizer_gradients: 10.35 | optimizer_step: 21.74
+[Rank 0] time (ms) | fwd_microstep: 831.46 | bwd_microstep: 1314.57 | bwd_inner_microstep: 1237.82 | bwd_allreduce_microstep: 74.99 | step_microstep: 66.01
+[Rank 0] time (ms) | fwd: 831.48 | bwd: 1314.55 | bwd_inner: 1237.90 | bwd_allreduce: 74.98 | step: 66.03
+ 50%|█████████████████████████████████████████████████▍                                                | 129/256 [37:46<1:11:10, 33.63s/it][Rank 0] time (ms) | optimizer_allgather: 19.68 | optimizer_gradients: 10.37 | optimizer_step: 19.11
+[Rank 0] time (ms) | fwd_microstep: 724.90 | bwd_microstep: 1257.61 | bwd_inner_microstep: 1181.41 | bwd_allreduce_microstep: 74.82 | step_microstep: 63.60
+[Rank 0] time (ms) | fwd: 724.91 | bwd: 1257.58 | bwd_inner: 1181.47 | bwd_allreduce: 74.82 | step: 63.62
+{'eval_loss': 1.5793743133544922, 'eval_runtime': 91.4512, 'eval_samples_per_second': 11.197, 'eval_steps_per_second': 2.799, 'epoch': 0.51}                                                                                                                                          
+ 51%|██████████████████████████████████████████████████▊                                                 | 130/256 [39:19<50:46, 24.18s/it[Rank 0] time (ms) | optimizer_allgather: 20.00 | optimizer_gradients: 11.14 | optimizer_step: 24.86                                        
+[Rank 0] time (ms) | fwd_microstep: 313578.57 | bwd_microstep: 2117.47 | bwd_inner_microstep: 2028.69 | bwd_allreduce_microstep: 79.04 | step_microstep: 76.23
+[Rank 0] time (ms) | fwd: 313583.16 | bwd: 2117.44 | bwd_inner: 2028.90 | bwd_allreduce: 79.05 | step: 76.24
+ 51%|█████████████████████████████████████████████████▋                                               | 131/256 [43:23<4:04:48, 117.51s/it][Rank 0] time (ms) | optimizer_allgather: 19.71 | optimizer_gradients: 10.57 | optimizer_step: 18.96
+[Rank 0] time (ms) | fwd_microstep: 1089.03 | bwd_microstep: 2090.21 | bwd_inner_microstep: 2011.14 | bwd_allreduce_microstep: 77.28 | step_microstep: 64.81
+[Rank 0] time (ms) | fwd: 1089.05 | bwd: 2090.16 | bwd_inner: 2011.29 | bwd_allreduce: 77.19 | step: 64.84
+ 52%|██████████████████████████████████████████████████▌                                               | 132/256 [43:26<2:52:03, 83.25s/it][Rank 0] time (ms) | optimizer_allgather: 19.93 | optimizer_gradients: 11.03 | optimizer_step: 19.14
+[Rank 0] time (ms) | fwd_microstep: 1094.49 | bwd_microstep: 2084.57 | bwd_inner_microstep: 2005.51 | bwd_allreduce_microstep: 77.22 | step_microstep: 66.62
+[Rank 0] time (ms) | fwd: 1094.44 | bwd: 2084.52 | bwd_inner: 2005.71 | bwd_allreduce: 77.21 | step: 66.64
+ 52%|██████████████████████████████████████████████████▉                                               | 133/256 [43:30<2:01:31, 59.28s/it][Rank 0] time (ms) | optimizer_allgather: 19.54 | optimizer_gradients: 10.83 | optimizer_step: 19.06
+[Rank 0] time (ms) | fwd_microstep: 1070.98 | bwd_microstep: 2051.86 | bwd_inner_microstep: 1973.86 | bwd_allreduce_microstep: 76.28 | step_microstep: 65.27
+[Rank 0] time (ms) | fwd: 1071.00 | bwd: 2051.82 | bwd_inner: 1974.04 | bwd_allreduce: 76.28 | step: 65.28
+ 52%|███████████████████████████████████████████████████▎                                              | 134/256 [43:33<1:26:22, 42.48s/it][Rank 0] time (ms) | optimizer_allgather: 19.43 | optimizer_gradients: 10.53 | optimizer_step: 18.96
+[Rank 0] time (ms) | fwd_microstep: 1076.92 | bwd_microstep: 2048.63 | bwd_inner_microstep: 1970.04 | bwd_allreduce_microstep: 76.78 | step_microstep: 64.56
+[Rank 0] time (ms) | fwd: 1076.96 | bwd: 2048.59 | bwd_inner: 1970.25 | bwd_allreduce: 76.76 | step: 64.57
+ 53%|███████████████████████████████████████████████████▋                                              | 135/256 [43:36<1:01:56, 30.71s/it][Rank 0] time (ms) | optimizer_allgather: 19.51 | optimizer_gradients: 11.36 | optimizer_step: 19.01
+[Rank 0] time (ms) | fwd_microstep: 1209.85 | bwd_microstep: 2120.24 | bwd_inner_microstep: 2009.17 | bwd_allreduce_microstep: 108.83 | step_microstep: 73.64
+[Rank 0] time (ms) | fwd: 1209.88 | bwd: 2120.20 | bwd_inner: 2009.50 | bwd_allreduce: 108.85 | step: 73.65
+ 53%|█████████████████████████████████████████████████████▏                                              | 136/256 [43:40<45:05, 22.55s/it][Rank 0] time (ms) | optimizer_allgather: 20.18 | optimizer_gradients: 11.58 | optimizer_step: 19.08
+[Rank 0] time (ms) | fwd_microstep: 1524.27 | bwd_microstep: 2044.10 | bwd_inner_microstep: 1961.99 | bwd_allreduce_microstep: 79.59 | step_microstep: 67.94
+[Rank 0] time (ms) | fwd: 1524.27 | bwd: 2044.03 | bwd_inner: 1962.33 | bwd_allreduce: 79.58 | step: 67.96
+ 54%|█████████████████████████████████████████████████████▌                                              | 137/256 [43:43<33:31, 16.90s/it][Rank 0] time (ms) | optimizer_allgather: 19.73 | optimizer_gradients: 10.81 | optimizer_step: 18.85
+[Rank 0] time (ms) | fwd_microstep: 1256.96 | bwd_microstep: 2065.79 | bwd_inner_microstep: 1983.70 | bwd_allreduce_microstep: 79.57 | step_microstep: 66.59
+[Rank 0] time (ms) | fwd: 1256.98 | bwd: 2065.74 | bwd_inner: 1984.35 | bwd_allreduce: 79.53 | step: 66.61
+ 54%|█████████████████████████████████████████████████████▉                                              | 138/256 [43:47<25:18, 12.87s/it][Rank 0] time (ms) | optimizer_allgather: 19.80 | optimizer_gradients: 10.88 | optimizer_step: 19.00
+[Rank 0] time (ms) | fwd_microstep: 1428.48 | bwd_microstep: 2088.42 | bwd_inner_microstep: 2009.25 | bwd_allreduce_microstep: 76.93 | step_microstep: 65.69
+[Rank 0] time (ms) | fwd: 1428.46 | bwd: 2088.37 | bwd_inner: 2009.76 | bwd_allreduce: 76.91 | step: 65.71
+ 54%|██████████████████████████████████████████████████████▎                                             | 139/256 [43:51<19:42, 10.11s/it][Rank 0] time (ms) | optimizer_allgather: 20.19 | optimizer_gradients: 11.24 | optimizer_step: 19.15
+[Rank 0] time (ms) | fwd_microstep: 1140.95 | bwd_microstep: 2095.01 | bwd_inner_microstep: 2014.89 | bwd_allreduce_microstep: 77.76 | step_microstep: 67.09
+[Rank 0] time (ms) | fwd: 1140.91 | bwd: 2094.96 | bwd_inner: 2015.55 | bwd_allreduce: 77.75 | step: 67.10
+{'loss': 1.5286, 'grad_norm': 1.2472341060638428, 'learning_rate': 4.624505928853755e-05, 'epoch': 0.55}                                   
+{'eval_loss': 1.5589771270751953, 'eval_runtime': 52.0536, 'eval_samples_per_second': 19.672, 'eval_steps_per_second': 4.918, 'epoch': 0.55}                                                                                                                                          
+ 55%|██████████████████████████████████████████████████████▋                                             | 140/256 [44:46<15:39,  8.10s/it[Rank 0] time (ms) | optimizer_allgather: 20.46 | optimizer_gradients: 11.48 | optimizer_step: 19.18                                        
+[Rank 0] time (ms) | fwd_microstep: 41016.81 | bwd_microstep: 2175.73 | bwd_inner_microstep: 2094.75 | bwd_allreduce_microstep: 78.68 | step_microstep: 68.59
+[Rank 0] time (ms) | fwd: 41017.29 | bwd: 2175.65 | bwd_inner: 2095.17 | bwd_allreduce: 78.68 | step: 68.60
+ 55%|███████████████████████████████████████████████████████                                             | 141/256 [44:50<42:57, 22.41s/it][Rank 0] time (ms) | optimizer_allgather: 20.62 | optimizer_gradients: 11.94 | optimizer_step: 19.26
+[Rank 0] time (ms) | fwd_microstep: 1479.52 | bwd_microstep: 2187.99 | bwd_inner_microstep: 2106.16 | bwd_allreduce_microstep: 78.54 | step_microstep: 73.35
+[Rank 0] time (ms) | fwd: 1479.62 | bwd: 2187.91 | bwd_inner: 2107.50 | bwd_allreduce: 78.53 | step: 73.37
+ 55%|███████████████████████████████████████████████████████▍                                            | 142/256 [44:54<31:59, 16.84s/it][Rank 0] time (ms) | optimizer_allgather: 19.39 | optimizer_gradients: 12.22 | optimizer_step: 19.24
+[Rank 0] time (ms) | fwd_microstep: 1551.04 | bwd_microstep: 2173.20 | bwd_inner_microstep: 2091.12 | bwd_allreduce_microstep: 79.37 | step_microstep: 68.57
+[Rank 0] time (ms) | fwd: 1551.14 | bwd: 2173.09 | bwd_inner: 2091.89 | bwd_allreduce: 79.36 | step: 68.58
+ 56%|███████████████████████████████████████████████████████▊                                            | 143/256 [44:57<24:23, 12.95s/it][Rank 0] time (ms) | optimizer_allgather: 19.46 | optimizer_gradients: 11.48 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 1570.23 | bwd_microstep: 2132.87 | bwd_inner_microstep: 2052.30 | bwd_allreduce_microstep: 78.18 | step_microstep: 67.86
+[Rank 0] time (ms) | fwd: 1570.35 | bwd: 2132.73 | bwd_inner: 2052.59 | bwd_allreduce: 78.17 | step: 67.88
+ 56%|████████████████████████████████████████████████████████▎                                           | 144/256 [45:01<19:05, 10.22s/it][Rank 0] time (ms) | optimizer_allgather: 20.50 | optimizer_gradients: 11.25 | optimizer_step: 19.08
+[Rank 0] time (ms) | fwd_microstep: 1429.85 | bwd_microstep: 2153.69 | bwd_inner_microstep: 2071.89 | bwd_allreduce_microstep: 79.28 | step_microstep: 68.05
+[Rank 0] time (ms) | fwd: 1429.91 | bwd: 2153.63 | bwd_inner: 2072.57 | bwd_allreduce: 79.29 | step: 68.07
+ 57%|████████████████████████████████████████████████████████▋                                           | 145/256 [45:05<15:18,  8.28s/it][Rank 0] time (ms) | optimizer_allgather: 19.69 | optimizer_gradients: 11.12 | optimizer_step: 19.03
+[Rank 0] time (ms) | fwd_microstep: 1189.71 | bwd_microstep: 2189.77 | bwd_inner_microstep: 2109.91 | bwd_allreduce_microstep: 77.88 | step_microstep: 66.99
+[Rank 0] time (ms) | fwd: 1189.71 | bwd: 2189.72 | bwd_inner: 2110.31 | bwd_allreduce: 77.88 | step: 67.00
+ 57%|█████████████████████████████████████████████████████████                                           | 146/256 [45:09<12:34,  6.86s/it][Rank 0] time (ms) | optimizer_allgather: 20.70 | optimizer_gradients: 11.77 | optimizer_step: 19.12
+[Rank 0] time (ms) | fwd_microstep: 1291.94 | bwd_microstep: 2264.22 | bwd_inner_microstep: 2182.55 | bwd_allreduce_microstep: 78.88 | step_microstep: 69.13
+[Rank 0] time (ms) | fwd: 1291.98 | bwd: 2264.16 | bwd_inner: 2183.21 | bwd_allreduce: 78.85 | step: 69.14
+ 57%|█████████████████████████████████████████████████████████▍                                          | 147/256 [45:12<10:44,  5.92s/it][Rank 0] time (ms) | optimizer_allgather: 19.30 | optimizer_gradients: 11.68 | optimizer_step: 19.05
+[Rank 0] time (ms) | fwd_microstep: 1383.55 | bwd_microstep: 2178.68 | bwd_inner_microstep: 2096.86 | bwd_allreduce_microstep: 79.41 | step_microstep: 67.72
+[Rank 0] time (ms) | fwd: 1383.58 | bwd: 2178.60 | bwd_inner: 2097.43 | bwd_allreduce: 79.41 | step: 67.73
+ 58%|█████████████████████████████████████████████████████████▊                                          | 148/256 [45:16<09:27,  5.26s/it][Rank 0] time (ms) | optimizer_allgather: 19.38 | optimizer_gradients: 11.83 | optimizer_step: 19.27
+[Rank 0] time (ms) | fwd_microstep: 1429.59 | bwd_microstep: 2229.06 | bwd_inner_microstep: 2147.04 | bwd_allreduce_microstep: 79.52 | step_microstep: 68.65
+[Rank 0] time (ms) | fwd: 1429.68 | bwd: 2228.98 | bwd_inner: 2147.72 | bwd_allreduce: 79.42 | step: 68.66
+ 58%|██████████████████████████████████████████████████████████▏                                         | 149/256 [45:20<08:36,  4.83s/it][Rank 0] time (ms) | optimizer_allgather: 19.53 | optimizer_gradients: 10.83 | optimizer_step: 19.03
+[Rank 0] time (ms) | fwd_microstep: 1337.25 | bwd_microstep: 2196.58 | bwd_inner_microstep: 2116.42 | bwd_allreduce_microstep: 78.29 | step_microstep: 65.35
+[Rank 0] time (ms) | fwd: 1337.31 | bwd: 2196.49 | bwd_inner: 2116.52 | bwd_allreduce: 78.32 | step: 65.36
+Profiler trace saved to /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/profiler_logs/trace_rank_0_20251129_215746.json
+{'eval_loss': 1.5654315948486328, 'eval_runtime': 29.8584, 'eval_samples_per_second': 34.295, 'eval_steps_per_second': 8.574, 'epoch': 0.59}                                                                                                                                          
+ 59%|████████████████████████████████████████████████████████▊                                        | 150/256 [52:35<3:40:54, 125.04s/it]
+================================================================================                                                           
+Starting PyTorch Profiler at step 150
+================================================================================
+
+[DEBUG] Profiler initialized successfully
+[Rank 0] time (ms) | optimizer_allgather: 19.30 | optimizer_gradients: 10.27 | optimizer_step: 18.99
+[Rank 0] time (ms) | fwd_microstep: 16947.39 | bwd_microstep: 1249.70 | bwd_inner_microstep: 1174.72 | bwd_allreduce_microstep: 74.14 | step_microstep: 62.80
+[Rank 0] time (ms) | fwd: 16942.57 | bwd: 1249.59 | bwd_inner: 1174.62 | bwd_allreduce: 74.14 | step: 62.81
+ 59%|█████████████████████████████████████████████████████████▊                                        | 151/256 [52:37<2:49:54, 97.09s/it][Rank 0] time (ms) | optimizer_allgather: 19.89 | optimizer_gradients: 10.26 | optimizer_step: 19.00
+[Rank 0] time (ms) | fwd_microstep: 633.78 | bwd_microstep: 1096.27 | bwd_inner_microstep: 1021.15 | bwd_allreduce_microstep: 74.21 | step_microstep: 63.28
+[Rank 0] time (ms) | fwd: 633.80 | bwd: 1096.17 | bwd_inner: 1021.08 | bwd_allreduce: 74.21 | step: 63.29
+ 59%|██████████████████████████████████████████████████████████▏                                       | 152/256 [52:39<1:58:53, 68.59s/it][Rank 0] time (ms) | optimizer_allgather: 19.51 | optimizer_gradients: 10.35 | optimizer_step: 19.04
+[Rank 0] time (ms) | fwd_microstep: 697.53 | bwd_microstep: 1220.04 | bwd_inner_microstep: 1144.60 | bwd_allreduce_microstep: 74.43 | step_microstep: 63.31
+[Rank 0] time (ms) | fwd: 697.55 | bwd: 1219.95 | bwd_inner: 1144.52 | bwd_allreduce: 74.44 | step: 63.33
+ 60%|██████████████████████████████████████████████████████████▌                                       | 153/256 [52:41<1:23:28, 48.63s/it][Rank 0] time (ms) | optimizer_allgather: 19.39 | optimizer_gradients: 10.36 | optimizer_step: 19.04
+[Rank 0] time (ms) | fwd_microstep: 713.33 | bwd_microstep: 1217.25 | bwd_inner_microstep: 1141.94 | bwd_allreduce_microstep: 74.37 | step_microstep: 63.18
+[Rank 0] time (ms) | fwd: 713.29 | bwd: 1217.15 | bwd_inner: 1141.83 | bwd_allreduce: 74.37 | step: 63.19
+ 60%|████████████████████████████████████████████████████████████▏                                       | 154/256 [52:43<58:54, 34.65s/it][Rank 0] time (ms) | optimizer_allgather: 19.72 | optimizer_gradients: 10.37 | optimizer_step: 18.94
+[Rank 0] time (ms) | fwd_microstep: 712.01 | bwd_microstep: 1206.50 | bwd_inner_microstep: 1131.09 | bwd_allreduce_microstep: 74.41 | step_microstep: 63.45
+[Rank 0] time (ms) | fwd: 712.03 | bwd: 1206.39 | bwd_inner: 1131.01 | bwd_allreduce: 74.42 | step: 63.47
+ 61%|████████████████████████████████████████████████████████████▌                                       | 155/256 [52:45<41:51, 24.87s/it][Rank 0] time (ms) | optimizer_allgather: 19.46 | optimizer_gradients: 10.91 | optimizer_step: 19.07
+[Rank 0] time (ms) | fwd_microstep: 1046.94 | bwd_microstep: 2009.87 | bwd_inner_microstep: 1929.82 | bwd_allreduce_microstep: 78.35 | step_microstep: 66.54
+[Rank 0] time (ms) | fwd: 1046.96 | bwd: 2009.83 | bwd_inner: 1929.91 | bwd_allreduce: 78.35 | step: 66.56
+ 61%|████████████████████████████████████████████████████████████▉                                       | 156/256 [52:49<30:36, 18.37s/it][Rank 0] time (ms) | optimizer_allgather: 19.43 | optimizer_gradients: 10.83 | optimizer_step: 19.03
+[Rank 0] time (ms) | fwd_microstep: 1030.77 | bwd_microstep: 2013.13 | bwd_inner_microstep: 1935.21 | bwd_allreduce_microstep: 76.27 | step_microstep: 67.50
+[Rank 0] time (ms) | fwd: 1030.81 | bwd: 2013.10 | bwd_inner: 1935.31 | bwd_allreduce: 76.26 | step: 67.52
+ 61%|█████████████████████████████████████████████████████████████▎                                      | 157/256 [52:52<22:47, 13.81s/it][Rank 0] time (ms) | optimizer_allgather: 20.21 | optimizer_gradients: 11.13 | optimizer_step: 19.17
+[Rank 0] time (ms) | fwd_microstep: 1039.53 | bwd_microstep: 2010.45 | bwd_inner_microstep: 1930.76 | bwd_allreduce_microstep: 77.97 | step_microstep: 66.94
+[Rank 0] time (ms) | fwd: 1039.56 | bwd: 2010.41 | bwd_inner: 1930.87 | bwd_allreduce: 77.96 | step: 66.95
+ 62%|█████████████████████████████████████████████████████████████▋                                      | 158/256 [52:55<17:21, 10.62s/it][Rank 0] time (ms) | optimizer_allgather: 19.44 | optimizer_gradients: 10.50 | optimizer_step: 19.03
+[Rank 0] time (ms) | fwd_microstep: 1024.33 | bwd_microstep: 1990.73 | bwd_inner_microstep: 1911.17 | bwd_allreduce_microstep: 77.90 | step_microstep: 64.24
+[Rank 0] time (ms) | fwd: 1024.36 | bwd: 1990.69 | bwd_inner: 1911.26 | bwd_allreduce: 77.89 | step: 64.25
+ 62%|██████████████████████████████████████████████████████████████                                      | 159/256 [52:58<13:32,  8.38s/it][Rank 0] time (ms) | optimizer_allgather: 19.50 | optimizer_gradients: 10.77 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 1028.15 | bwd_microstep: 1991.87 | bwd_inner_microstep: 1914.01 | bwd_allreduce_microstep: 76.19 | step_microstep: 65.12
+[Rank 0] time (ms) | fwd: 1028.17 | bwd: 1991.83 | bwd_inner: 1914.10 | bwd_allreduce: 76.18 | step: 65.14
+{'loss': 1.549, 'grad_norm': 1.143821358680725, 'learning_rate': 3.83399209486166e-05, 'epoch': 0.62}                                      
+{'eval_loss': 1.5622444152832031, 'eval_runtime': 45.5744, 'eval_samples_per_second': 22.469, 'eval_steps_per_second': 5.617, 'epoch': 0.62}                                                                                                                                          
+ 62%|██████████████████████████████████████████████████████████████▌                                     | 160/256 [53:47<10:54,  6.81s/it[Rank 0] time (ms) | optimizer_allgather: 20.52 | optimizer_gradients: 11.40 | optimizer_step: 23.92                                        
+[Rank 0] time (ms) | fwd_microstep: 34753.41 | bwd_microstep: 2090.95 | bwd_inner_microstep: 2009.71 | bwd_allreduce_microstep: 79.30 | step_microstep: 76.71
+[Rank 0] time (ms) | fwd: 34753.34 | bwd: 2090.89 | bwd_inner: 2009.99 | bwd_allreduce: 79.29 | step: 76.72
+ 63%|██████████████████████████████████████████████████████████████▉                                     | 161/256 [53:50<30:51, 19.49s/it][Rank 0] time (ms) | optimizer_allgather: 20.99 | optimizer_gradients: 11.43 | optimizer_step: 19.32
+[Rank 0] time (ms) | fwd_microstep: 1193.07 | bwd_microstep: 2081.47 | bwd_inner_microstep: 2000.21 | bwd_allreduce_microstep: 79.25 | step_microstep: 69.29
+[Rank 0] time (ms) | fwd: 1193.14 | bwd: 2081.40 | bwd_inner: 2000.26 | bwd_allreduce: 79.24 | step: 69.31
+ 63%|███████████████████████████████████████████████████████████████▎                                    | 162/256 [53:54<22:58, 14.66s/it][Rank 0] time (ms) | optimizer_allgather: 20.72 | optimizer_gradients: 11.32 | optimizer_step: 19.28
+[Rank 0] time (ms) | fwd_microstep: 1118.81 | bwd_microstep: 2113.59 | bwd_inner_microstep: 2032.97 | bwd_allreduce_microstep: 78.91 | step_microstep: 67.99
+[Rank 0] time (ms) | fwd: 1118.84 | bwd: 2113.53 | bwd_inner: 2033.05 | bwd_allreduce: 78.90 | step: 68.00
+ 64%|███████████████████████████████████████████████████████████████▋                                    | 163/256 [53:57<17:28, 11.28s/it][Rank 0] time (ms) | optimizer_allgather: 21.05 | optimizer_gradients: 11.41 | optimizer_step: 19.15
+[Rank 0] time (ms) | fwd_microstep: 1031.31 | bwd_microstep: 2097.26 | bwd_inner_microstep: 2016.24 | bwd_allreduce_microstep: 79.33 | step_microstep: 68.27
+[Rank 0] time (ms) | fwd: 1031.34 | bwd: 2097.20 | bwd_inner: 2016.32 | bwd_allreduce: 79.32 | step: 68.28
+ 64%|████████████████████████████████████████████████████████████████                                    | 164/256 [54:00<13:36,  8.87s/it][Rank 0] time (ms) | optimizer_allgather: 19.40 | optimizer_gradients: 10.78 | optimizer_step: 18.96
+[Rank 0] time (ms) | fwd_microstep: 1024.54 | bwd_microstep: 2087.19 | bwd_inner_microstep: 2009.47 | bwd_allreduce_microstep: 76.10 | step_microstep: 64.96
+[Rank 0] time (ms) | fwd: 1024.57 | bwd: 2087.14 | bwd_inner: 2009.55 | bwd_allreduce: 76.09 | step: 64.98
+ 64%|████████████████████████████████████████████████████████████████▍                                   | 165/256 [54:04<10:53,  7.19s/it][Rank 0] time (ms) | optimizer_allgather: 19.91 | optimizer_gradients: 11.01 | optimizer_step: 19.07
+[Rank 0] time (ms) | fwd_microstep: 1051.24 | bwd_microstep: 2037.21 | bwd_inner_microstep: 1955.92 | bwd_allreduce_microstep: 77.39 | step_microstep: 66.54
+[Rank 0] time (ms) | fwd: 1051.29 | bwd: 2037.17 | bwd_inner: 1955.99 | bwd_allreduce: 77.38 | step: 66.55
+ 65%|████████████████████████████████████████████████████████████████▊                                   | 166/256 [54:07<08:59,  6.00s/it][Rank 0] time (ms) | optimizer_allgather: 19.91 | optimizer_gradients: 10.87 | optimizer_step: 19.02
+[Rank 0] time (ms) | fwd_microstep: 1057.64 | bwd_microstep: 2061.04 | bwd_inner_microstep: 1982.55 | bwd_allreduce_microstep: 76.68 | step_microstep: 65.82
+[Rank 0] time (ms) | fwd: 1057.68 | bwd: 2060.99 | bwd_inner: 1982.65 | bwd_allreduce: 76.77 | step: 65.83
+ 65%|█████████████████████████████████████████████████████████████████▏                                  | 167/256 [54:10<07:40,  5.17s/it][Rank 0] time (ms) | optimizer_allgather: 19.32 | optimizer_gradients: 10.90 | optimizer_step: 19.04
+[Rank 0] time (ms) | fwd_microstep: 1046.15 | bwd_microstep: 2044.32 | bwd_inner_microstep: 1966.22 | bwd_allreduce_microstep: 76.39 | step_microstep: 64.99
+[Rank 0] time (ms) | fwd: 1046.19 | bwd: 2044.27 | bwd_inner: 1966.32 | bwd_allreduce: 76.38 | step: 65.00
+ 66%|█████████████████████████████████████████████████████████████████▋                                  | 168/256 [54:13<06:43,  4.59s/it][Rank 0] time (ms) | optimizer_allgather: 19.54 | optimizer_gradients: 10.92 | optimizer_step: 19.18
+[Rank 0] time (ms) | fwd_microstep: 1044.72 | bwd_microstep: 2032.86 | bwd_inner_microstep: 1953.87 | bwd_allreduce_microstep: 77.22 | step_microstep: 65.86
+[Rank 0] time (ms) | fwd: 1044.75 | bwd: 2032.81 | bwd_inner: 1953.95 | bwd_allreduce: 77.21 | step: 65.87
+ 66%|██████████████████████████████████████████████████████████████████                                  | 169/256 [54:17<06:03,  4.18s/it][Rank 0] time (ms) | optimizer_allgather: 19.68 | optimizer_gradients: 10.56 | optimizer_step: 18.99
+[Rank 0] time (ms) | fwd_microstep: 1041.20 | bwd_microstep: 2094.69 | bwd_inner_microstep: 2013.41 | bwd_allreduce_microstep: 79.52 | step_microstep: 65.85
+[Rank 0] time (ms) | fwd: 1041.15 | bwd: 2094.64 | bwd_inner: 2013.55 | bwd_allreduce: 79.52 | step: 65.87
+{'eval_loss': 1.5610008239746094, 'eval_runtime': 42.307, 'eval_samples_per_second': 24.204, 'eval_steps_per_second': 6.051, 'epoch': 0.66}
+ 66%|██████████████████████████████████████████████████████████████████▍                                 | 170/256 [55:02<05:36,  3.91s/it[Rank 0] time (ms) | optimizer_allgather: 19.28 | optimizer_gradients: 10.52 | optimizer_step: 18.99                                        
+[Rank 0] time (ms) | fwd_microstep: 31548.23 | bwd_microstep: 2126.19 | bwd_inner_microstep: 2047.24 | bwd_allreduce_microstep: 77.36 | step_microstep: 64.13
+[Rank 0] time (ms) | fwd: 31548.37 | bwd: 2126.16 | bwd_inner: 2047.31 | bwd_allreduce: 77.36 | step: 64.15
+ 67%|██████████████████████████████████████████████████████████████████▊                                 | 171/256 [55:06<23:17, 16.44s/it][Rank 0] time (ms) | optimizer_allgather: 21.06 | optimizer_gradients: 11.42 | optimizer_step: 19.24
+[Rank 0] time (ms) | fwd_microstep: 1038.30 | bwd_microstep: 2118.12 | bwd_inner_microstep: 2036.64 | bwd_allreduce_microstep: 79.69 | step_microstep: 69.29
+[Rank 0] time (ms) | fwd: 1038.33 | bwd: 2118.07 | bwd_inner: 2036.72 | bwd_allreduce: 79.69 | step: 69.31
+ 67%|███████████████████████████████████████████████████████████████████▏                                | 172/256 [55:09<17:29, 12.50s/it][Rank 0] time (ms) | optimizer_allgather: 19.96 | optimizer_gradients: 11.00 | optimizer_step: 19.14
+[Rank 0] time (ms) | fwd_microstep: 1036.60 | bwd_microstep: 2092.87 | bwd_inner_microstep: 2013.96 | bwd_allreduce_microstep: 77.33 | step_microstep: 66.33
+[Rank 0] time (ms) | fwd: 1036.61 | bwd: 2092.82 | bwd_inner: 2014.02 | bwd_allreduce: 77.33 | step: 66.34
+ 68%|███████████████████████████████████████████████████████████████████▌                                | 173/256 [55:12<13:27,  9.73s/it][Rank 0] time (ms) | optimizer_allgather: 19.68 | optimizer_gradients: 10.51 | optimizer_step: 18.95
+[Rank 0] time (ms) | fwd_microstep: 1031.76 | bwd_microstep: 2085.61 | bwd_inner_microstep: 2007.29 | bwd_allreduce_microstep: 76.69 | step_microstep: 64.50
+[Rank 0] time (ms) | fwd: 1031.76 | bwd: 2085.56 | bwd_inner: 2007.36 | bwd_allreduce: 76.67 | step: 64.51
+ 68%|███████████████████████████████████████████████████████████████████▉                                | 174/256 [55:15<10:38,  7.79s/it][Rank 0] time (ms) | optimizer_allgather: 19.58 | optimizer_gradients: 10.50 | optimizer_step: 19.03
+[Rank 0] time (ms) | fwd_microstep: 1034.20 | bwd_microstep: 2059.81 | bwd_inner_microstep: 1981.28 | bwd_allreduce_microstep: 76.85 | step_microstep: 64.56
+[Rank 0] time (ms) | fwd: 1034.24 | bwd: 2059.76 | bwd_inner: 1981.34 | bwd_allreduce: 76.84 | step: 64.57
+Profiler trace saved to /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/profiler_logs/trace_rank_0_20251129_220738.json
+ 68%|████████████████████████████████████████████████████████████████▉                              | 175/256 [1:02:13<2:56:36, 130.82s/it]
+================================================================================
+Starting PyTorch Profiler at step 175
+================================================================================
+
+[DEBUG] Profiler initialized successfully
+[Rank 0] time (ms) | optimizer_allgather: 19.81 | optimizer_gradients: 10.26 | optimizer_step: 32.87
+[Rank 0] time (ms) | fwd_microstep: 1113.32 | bwd_microstep: 1289.62 | bwd_inner_microstep: 1182.67 | bwd_allreduce_microstep: 102.11 | step_microstep: 84.60
+[Rank 0] time (ms) | fwd: 1113.31 | bwd: 1289.53 | bwd_inner: 1182.59 | bwd_allreduce: 102.11 | step: 84.62
+ 69%|██████████████████████████████████████████████████████████████████                              | 176/256 [1:02:16<2:03:10, 92.39s/it][Rank 0] time (ms) | optimizer_allgather: 19.74 | optimizer_gradients: 10.26 | optimizer_step: 18.91
+[Rank 0] time (ms) | fwd_microstep: 729.00 | bwd_microstep: 1062.16 | bwd_inner_microstep: 987.11 | bwd_allreduce_microstep: 74.17 | step_microstep: 62.96
+[Rank 0] time (ms) | fwd: 729.02 | bwd: 1062.06 | bwd_inner: 987.01 | bwd_allreduce: 74.18 | step: 62.97
+ 69%|██████████████████████████████████████████████████████████████████▍                             | 177/256 [1:02:18<1:25:58, 65.29s/it][Rank 0] time (ms) | optimizer_allgather: 19.67 | optimizer_gradients: 10.34 | optimizer_step: 19.17
+[Rank 0] time (ms) | fwd_microstep: 714.42 | bwd_microstep: 1236.58 | bwd_inner_microstep: 1160.47 | bwd_allreduce_microstep: 74.82 | step_microstep: 63.97
+[Rank 0] time (ms) | fwd: 714.46 | bwd: 1236.52 | bwd_inner: 1160.49 | bwd_allreduce: 74.82 | step: 63.98
+ 70%|██████████████████████████████████████████████████████████████████▊                             | 178/256 [1:02:20<1:00:13, 46.33s/it][Rank 0] time (ms) | optimizer_allgather: 19.47 | optimizer_gradients: 10.34 | optimizer_step: 19.11
+[Rank 0] time (ms) | fwd_microstep: 713.74 | bwd_microstep: 1202.92 | bwd_inner_microstep: 1127.25 | bwd_allreduce_microstep: 74.55 | step_microstep: 63.10
+[Rank 0] time (ms) | fwd: 713.74 | bwd: 1202.84 | bwd_inner: 1127.22 | bwd_allreduce: 74.55 | step: 63.11
+ 70%|████████████████████████████████████████████████████████████████████▌                             | 179/256 [1:02:22<42:24, 33.04s/it][Rank 0] time (ms) | optimizer_allgather: 19.53 | optimizer_gradients: 10.34 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 704.31 | bwd_microstep: 1196.35 | bwd_inner_microstep: 1120.81 | bwd_allreduce_microstep: 74.50 | step_microstep: 63.27
+[Rank 0] time (ms) | fwd: 704.34 | bwd: 1196.26 | bwd_inner: 1120.73 | bwd_allreduce: 74.51 | step: 63.28
+{'loss': 1.5427, 'grad_norm': 1.2270065546035767, 'learning_rate': 3.0434782608695656e-05, 'epoch': 0.7}                                   
+{'eval_loss': 1.5578231811523438, 'eval_runtime': 47.0775, 'eval_samples_per_second': 21.751, 'eval_steps_per_second': 5.438, 'epoch': 0.7}
+ 70%|████████████████████████████████████████████████████████████████████▉                             | 180/256 [1:03:11<30:04, 23.74s/it[Rank 0] time (ms) | optimizer_allgather: 19.72 | optimizer_gradients: 11.02 | optimizer_step: 24.27                                        
+[Rank 0] time (ms) | fwd_microstep: 34502.62 | bwd_microstep: 2061.67 | bwd_inner_microstep: 1983.00 | bwd_allreduce_microstep: 77.12 | step_microstep: 73.85
+[Rank 0] time (ms) | fwd: 34502.87 | bwd: 2061.62 | bwd_inner: 1983.00 | bwd_allreduce: 77.15 | step: 73.87
+ 71%|█████████████████████████████████████████████████████████████████████▎                            | 181/256 [1:03:15<39:40, 31.74s/it][Rank 0] time (ms) | optimizer_allgather: 20.25 | optimizer_gradients: 11.11 | optimizer_step: 19.12
+[Rank 0] time (ms) | fwd_microstep: 1021.57 | bwd_microstep: 1997.40 | bwd_inner_microstep: 1917.83 | bwd_allreduce_microstep: 78.00 | step_microstep: 67.02
+[Rank 0] time (ms) | fwd: 1021.61 | bwd: 1997.36 | bwd_inner: 1917.87 | bwd_allreduce: 78.01 | step: 67.03
+ 71%|█████████████████████████████████████████████████████████████████████▋                            | 182/256 [1:03:18<28:34, 23.16s/it][Rank 0] time (ms) | optimizer_allgather: 19.53 | optimizer_gradients: 10.50 | optimizer_step: 19.04
+[Rank 0] time (ms) | fwd_microstep: 1038.64 | bwd_microstep: 2022.20 | bwd_inner_microstep: 1943.36 | bwd_allreduce_microstep: 77.23 | step_microstep: 64.26
+[Rank 0] time (ms) | fwd: 1038.67 | bwd: 2022.15 | bwd_inner: 1943.41 | bwd_allreduce: 77.23 | step: 64.27
+ 71%|██████████████████████████████████████████████████████████████████████                            | 183/256 [1:03:21<20:53, 17.17s/it][Rank 0] time (ms) | optimizer_allgather: 19.46 | optimizer_gradients: 10.53 | optimizer_step: 19.02
+[Rank 0] time (ms) | fwd_microstep: 1033.56 | bwd_microstep: 2026.97 | bwd_inner_microstep: 1947.13 | bwd_allreduce_microstep: 78.27 | step_microstep: 64.38
+[Rank 0] time (ms) | fwd: 1033.54 | bwd: 2026.93 | bwd_inner: 1947.16 | bwd_allreduce: 78.29 | step: 64.39
+ 72%|██████████████████████████████████████████████████████████████████████▍                           | 184/256 [1:03:24<15:34, 12.98s/it][Rank 0] time (ms) | optimizer_allgather: 19.72 | optimizer_gradients: 10.91 | optimizer_step: 19.14
+[Rank 0] time (ms) | fwd_microstep: 1016.12 | bwd_microstep: 1999.67 | bwd_inner_microstep: 1921.73 | bwd_allreduce_microstep: 76.44 | step_microstep: 65.54
+[Rank 0] time (ms) | fwd: 1016.13 | bwd: 1999.62 | bwd_inner: 1921.75 | bwd_allreduce: 76.22 | step: 65.55
+ 72%|██████████████████████████████████████████████████████████████████████▊                           | 185/256 [1:03:27<11:52, 10.03s/it][Rank 0] time (ms) | optimizer_allgather: 19.49 | optimizer_gradients: 10.80 | optimizer_step: 19.03
+[Rank 0] time (ms) | fwd_microstep: 1027.23 | bwd_microstep: 2051.88 | bwd_inner_microstep: 1974.21 | bwd_allreduce_microstep: 76.11 | step_microstep: 65.18
+[Rank 0] time (ms) | fwd: 1027.22 | bwd: 2051.82 | bwd_inner: 1974.26 | bwd_allreduce: 76.10 | step: 65.20
+ 73%|███████████████████████████████████████████████████████████████████████▏                          | 186/256 [1:03:31<09:19,  7.99s/it][Rank 0] time (ms) | optimizer_allgather: 20.24 | optimizer_gradients: 11.12 | optimizer_step: 19.13
+[Rank 0] time (ms) | fwd_microstep: 1042.64 | bwd_microstep: 2020.68 | bwd_inner_microstep: 1940.76 | bwd_allreduce_microstep: 78.09 | step_microstep: 67.06
+[Rank 0] time (ms) | fwd: 1042.65 | bwd: 2020.64 | bwd_inner: 1940.87 | bwd_allreduce: 78.09 | step: 67.07
+ 73%|███████████████████████████████████████████████████████████████████████▌                          | 187/256 [1:03:34<07:32,  6.55s/it][Rank 0] time (ms) | optimizer_allgather: 20.14 | optimizer_gradients: 11.12 | optimizer_step: 19.15
+[Rank 0] time (ms) | fwd_microstep: 1035.53 | bwd_microstep: 2024.44 | bwd_inner_microstep: 1945.06 | bwd_allreduce_microstep: 77.70 | step_microstep: 66.71
+[Rank 0] time (ms) | fwd: 1035.55 | bwd: 2024.43 | bwd_inner: 1945.17 | bwd_allreduce: 77.69 | step: 66.73
+ 73%|███████████████████████████████████████████████████████████████████████▉                          | 188/256 [1:03:37<06:17,  5.55s/it][Rank 0] time (ms) | optimizer_allgather: 19.61 | optimizer_gradients: 10.58 | optimizer_step: 19.00
+[Rank 0] time (ms) | fwd_microstep: 1028.23 | bwd_microstep: 2027.30 | bwd_inner_microstep: 1948.11 | bwd_allreduce_microstep: 77.58 | step_microstep: 64.58
+[Rank 0] time (ms) | fwd: 1028.27 | bwd: 2027.25 | bwd_inner: 1948.17 | bwd_allreduce: 77.58 | step: 64.59
+ 74%|████████████████████████████████████████████████████████████████████████▎                         | 189/256 [1:03:40<05:24,  4.84s/it][Rank 0] time (ms) | optimizer_allgather: 19.75 | optimizer_gradients: 10.87 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 1033.49 | bwd_microstep: 2015.11 | bwd_inner_microstep: 1937.07 | bwd_allreduce_microstep: 76.26 | step_microstep: 65.75
+[Rank 0] time (ms) | fwd: 1033.49 | bwd: 2015.06 | bwd_inner: 1937.17 | bwd_allreduce: 76.36 | step: 65.76
+{'eval_loss': 1.5552177429199219, 'eval_runtime': 42.7998, 'eval_samples_per_second': 23.925, 'eval_steps_per_second': 5.981, 'epoch': 0.74}                                                                                                                                          
+ 74%|████████████████████████████████████████████████████████████████████████▋                         | 190/256 [1:04:26<04:46,  4.34s/it[Rank 0] time (ms) | optimizer_allgather: 19.29 | optimizer_gradients: 10.63 | optimizer_step: 18.99                                        
+[Rank 0] time (ms) | fwd_microstep: 30799.57 | bwd_microstep: 2066.00 | bwd_inner_microstep: 1987.23 | bwd_allreduce_microstep: 77.12 | step_microstep: 64.73
+[Rank 0] time (ms) | fwd: 30799.81 | bwd: 2065.94 | bwd_inner: 1986.07 | bwd_allreduce: 77.12 | step: 64.74
+ 75%|█████████████████████████████████████████████████████████████████████████                         | 191/256 [1:04:29<18:16, 16.87s/it][Rank 0] time (ms) | optimizer_allgather: 20.74 | optimizer_gradients: 11.29 | optimizer_step: 19.27
+[Rank 0] time (ms) | fwd_microstep: 1060.03 | bwd_microstep: 2101.24 | bwd_inner_microstep: 2020.77 | bwd_allreduce_microstep: 78.86 | step_microstep: 68.09
+[Rank 0] time (ms) | fwd: 1060.07 | bwd: 2101.18 | bwd_inner: 2020.84 | bwd_allreduce: 78.86 | step: 68.11
+ 75%|█████████████████████████████████████████████████████████████████████████▌                        | 192/256 [1:04:33<13:39, 12.80s/it][Rank 0] time (ms) | optimizer_allgather: 19.26 | optimizer_gradients: 11.05 | optimizer_step: 18.93
+[Rank 0] time (ms) | fwd_microstep: 1065.69 | bwd_microstep: 2063.22 | bwd_inner_microstep: 1982.36 | bwd_allreduce_microstep: 79.14 | step_microstep: 66.16
+[Rank 0] time (ms) | fwd: 1065.73 | bwd: 2063.21 | bwd_inner: 1982.47 | bwd_allreduce: 79.17 | step: 66.18
+ 75%|█████████████████████████████████████████████████████████████████████████▉                        | 193/256 [1:04:36<10:26,  9.94s/it][Rank 0] time (ms) | optimizer_allgather: 19.91 | optimizer_gradients: 11.01 | optimizer_step: 19.08
+[Rank 0] time (ms) | fwd_microstep: 1042.90 | bwd_microstep: 2043.22 | bwd_inner_microstep: 1964.62 | bwd_allreduce_microstep: 76.95 | step_microstep: 66.27
+[Rank 0] time (ms) | fwd: 1042.94 | bwd: 2043.18 | bwd_inner: 1964.69 | bwd_allreduce: 76.94 | step: 66.29
+ 76%|██████████████████████████████████████████████████████████████████████████▎                       | 194/256 [1:04:39<08:11,  7.93s/it][Rank 0] time (ms) | optimizer_allgather: 19.28 | optimizer_gradients: 10.51 | optimizer_step: 19.01
+[Rank 0] time (ms) | fwd_microstep: 1056.90 | bwd_microstep: 2050.51 | bwd_inner_microstep: 1970.87 | bwd_allreduce_microstep: 78.02 | step_microstep: 64.07
+[Rank 0] time (ms) | fwd: 1056.91 | bwd: 2050.46 | bwd_inner: 1970.95 | bwd_allreduce: 78.01 | step: 64.08
+ 76%|██████████████████████████████████████████████████████████████████████████▋                       | 195/256 [1:04:43<06:38,  6.53s/it][Rank 0] time (ms) | optimizer_allgather: 19.43 | optimizer_gradients: 10.58 | optimizer_step: 19.06
+[Rank 0] time (ms) | fwd_microstep: 1052.78 | bwd_microstep: 2048.71 | bwd_inner_microstep: 1969.40 | bwd_allreduce_microstep: 77.67 | step_microstep: 67.01
+[Rank 0] time (ms) | fwd: 1052.79 | bwd: 2048.68 | bwd_inner: 1969.49 | bwd_allreduce: 77.66 | step: 67.03
+ 77%|███████████████████████████████████████████████████████████████████████████                       | 196/256 [1:04:46<05:32,  5.54s/it][Rank 0] time (ms) | optimizer_allgather: 19.52 | optimizer_gradients: 10.59 | optimizer_step: 19.02
+[Rank 0] time (ms) | fwd_microstep: 1051.62 | bwd_microstep: 2015.24 | bwd_inner_microstep: 1935.61 | bwd_allreduce_microstep: 77.83 | step_microstep: 64.35
+[Rank 0] time (ms) | fwd: 1051.65 | bwd: 2015.19 | bwd_inner: 1935.75 | bwd_allreduce: 77.82 | step: 64.37
+ 77%|███████████████████████████████████████████████████████████████████████████▍                      | 197/256 [1:04:49<04:45,  4.84s/it][Rank 0] time (ms) | optimizer_allgather: 19.66 | optimizer_gradients: 10.58 | optimizer_step: 18.98
+[Rank 0] time (ms) | fwd_microstep: 140192.66 | bwd_microstep: 2287.94 | bwd_inner_microstep: 2200.66 | bwd_allreduce_microstep: 78.54 | step_microstep: 64.82
+[Rank 0] time (ms) | fwd: 140192.65 | bwd: 2287.90 | bwd_inner: 2201.42 | bwd_allreduce: 78.53 | step: 64.84
+ 77%|███████████████████████████████████████████████████████████████████████████▊                      | 198/256 [1:07:12<44:39, 46.20s/it][Rank 0] time (ms) | optimizer_allgather: 19.77 | optimizer_gradients: 11.13 | optimizer_step: 18.93
+[Rank 0] time (ms) | fwd_microstep: 1111.41 | bwd_microstep: 2112.58 | bwd_inner_microstep: 2033.02 | bwd_allreduce_microstep: 77.33 | step_microstep: 66.45
+[Rank 0] time (ms) | fwd: 1111.43 | bwd: 2112.54 | bwd_inner: 2033.59 | bwd_allreduce: 77.32 | step: 66.47
+ 78%|████████████████████████████████████████████████████████████████████████████▏                     | 199/256 [1:07:15<31:41, 33.35s/it][Rank 0] time (ms) | optimizer_allgather: 20.79 | optimizer_gradients: 11.48 | optimizer_step: 19.25
+[Rank 0] time (ms) | fwd_microstep: 1148.65 | bwd_microstep: 2058.38 | bwd_inner_microstep: 1976.64 | bwd_allreduce_microstep: 79.37 | step_microstep: 68.95
+[Rank 0] time (ms) | fwd: 1148.68 | bwd: 2058.33 | bwd_inner: 1977.33 | bwd_allreduce: 79.40 | step: 68.96
+Profiler trace saved to /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/profiler_logs/trace_rank_0_20251129_221926.json
+{'loss': 1.5203, 'grad_norm': 1.1505335569381714, 'learning_rate': 2.2529644268774703e-05, 'epoch': 0.78}                                  
+{'eval_loss': 1.5595626831054688, 'eval_runtime': 31.2433, 'eval_samples_per_second': 32.775, 'eval_steps_per_second': 8.194, 'epoch': 0.78}                                                                                                                                          
+ 78%|██████████████████████████████████████████████████████████████████████████▏                    | 200/256 [1:14:41<2:17:49, 147.68s/it]
+================================================================================                                                           
+Starting PyTorch Profiler at step 200
+================================================================================
+
+[DEBUG] Profiler initialized successfully
+[Rank 0] time (ms) | optimizer_allgather: 19.69 | optimizer_gradients: 10.65 | optimizer_step: 24.72
+[Rank 0] time (ms) | fwd_microstep: 17498.40 | bwd_microstep: 1606.72 | bwd_inner_microstep: 1530.66 | bwd_allreduce_microstep: 74.79 | step_microstep: 72.27
+[Rank 0] time (ms) | fwd: 17494.74 | bwd: 1606.68 | bwd_inner: 1530.72 | bwd_allreduce: 74.79 | step: 72.28
+ 79%|██████████████████████████████████████████████████████████████████████████▌                    | 201/256 [1:14:43<1:44:04, 113.53s/it][Rank 0] time (ms) | optimizer_allgather: 19.84 | optimizer_gradients: 10.25 | optimizer_step: 19.09
+[Rank 0] time (ms) | fwd_microstep: 655.79 | bwd_microstep: 1103.87 | bwd_inner_microstep: 1028.02 | bwd_allreduce_microstep: 74.56 | step_microstep: 63.31
+[Rank 0] time (ms) | fwd: 655.79 | bwd: 1103.82 | bwd_inner: 1028.08 | bwd_allreduce: 74.55 | step: 63.33
+ 79%|███████████████████████████████████████████████████████████████████████████▊                    | 202/256 [1:14:46<1:12:11, 80.20s/it][Rank 0] time (ms) | optimizer_allgather: 19.74 | optimizer_gradients: 10.35 | optimizer_step: 18.95
+[Rank 0] time (ms) | fwd_microstep: 711.26 | bwd_microstep: 1231.16 | bwd_inner_microstep: 1154.93 | bwd_allreduce_microstep: 74.88 | step_microstep: 63.38
+[Rank 0] time (ms) | fwd: 711.23 | bwd: 1231.12 | bwd_inner: 1155.00 | bwd_allreduce: 74.88 | step: 63.39
+ 79%|█████████████████████████████████████████████████████████████████████████████▋                    | 203/256 [1:14:48<50:08, 56.77s/it][Rank 0] time (ms) | optimizer_allgather: 19.70 | optimizer_gradients: 10.36 | optimizer_step: 19.13
+[Rank 0] time (ms) | fwd_microstep: 710.78 | bwd_microstep: 1243.96 | bwd_inner_microstep: 1167.77 | bwd_allreduce_microstep: 74.85 | step_microstep: 63.48
+[Rank 0] time (ms) | fwd: 710.76 | bwd: 1243.92 | bwd_inner: 1167.83 | bwd_allreduce: 74.84 | step: 63.49
+ 80%|██████████████████████████████████████████████████████████████████████████████                    | 204/256 [1:14:50<34:58, 40.37s/it][Rank 0] time (ms) | optimizer_allgather: 19.23 | optimizer_gradients: 10.35 | optimizer_step: 19.07
+[Rank 0] time (ms) | fwd_microstep: 717.07 | bwd_microstep: 1239.03 | bwd_inner_microstep: 1162.87 | bwd_allreduce_microstep: 74.81 | step_microstep: 62.89
+[Rank 0] time (ms) | fwd: 717.05 | bwd: 1238.98 | bwd_inner: 1162.93 | bwd_allreduce: 74.81 | step: 62.90
+ 80%|██████████████████████████████████████████████████████████████████████████████▍                   | 205/256 [1:14:52<24:33, 28.89s/it][Rank 0] time (ms) | optimizer_allgather: 20.81 | optimizer_gradients: 11.68 | optimizer_step: 19.23
+[Rank 0] time (ms) | fwd_microstep: 1181.68 | bwd_microstep: 2055.54 | bwd_inner_microstep: 1970.97 | bwd_allreduce_microstep: 82.93 | step_microstep: 69.15
+[Rank 0] time (ms) | fwd: 1181.70 | bwd: 2055.48 | bwd_inner: 1971.00 | bwd_allreduce: 82.93 | step: 69.16
+ 80%|██████████████████████████████████████████████████████████████████████████████▊                   | 206/256 [1:14:55<17:41, 21.24s/it][Rank 0] time (ms) | optimizer_allgather: 19.33 | optimizer_gradients: 10.59 | optimizer_step: 19.15
+[Rank 0] time (ms) | fwd_microstep: 1183.43 | bwd_microstep: 2052.07 | bwd_inner_microstep: 1973.01 | bwd_allreduce_microstep: 77.42 | step_microstep: 64.73
+[Rank 0] time (ms) | fwd: 1183.46 | bwd: 2052.03 | bwd_inner: 1973.08 | bwd_allreduce: 77.41 | step: 64.75
+ 81%|███████████████████████████████████████████████████████████████████████████████▏                  | 207/256 [1:14:59<12:58, 15.88s/it][Rank 0] time (ms) | optimizer_allgather: 19.68 | optimizer_gradients: 10.64 | optimizer_step: 19.03
+[Rank 0] time (ms) | fwd_microstep: 1188.12 | bwd_microstep: 2056.68 | bwd_inner_microstep: 1978.74 | bwd_allreduce_microstep: 76.32 | step_microstep: 65.33
+[Rank 0] time (ms) | fwd: 1188.16 | bwd: 2056.63 | bwd_inner: 1978.80 | bwd_allreduce: 76.30 | step: 65.34
+ 81%|███████████████████████████████████████████████████████████████████████████████▋                  | 208/256 [1:15:02<09:42, 12.13s/it][Rank 0] time (ms) | optimizer_allgather: 19.64 | optimizer_gradients: 11.29 | optimizer_step: 19.20
+[Rank 0] time (ms) | fwd_microstep: 1173.20 | bwd_microstep: 2062.84 | bwd_inner_microstep: 1982.78 | bwd_allreduce_microstep: 78.33 | step_microstep: 67.27
+[Rank 0] time (ms) | fwd: 1173.26 | bwd: 2062.78 | bwd_inner: 1982.88 | bwd_allreduce: 78.33 | step: 67.29
+ 82%|████████████████████████████████████████████████████████████████████████████████                  | 209/256 [1:15:06<07:26,  9.51s/it][Rank 0] time (ms) | optimizer_allgather: 19.41 | optimizer_gradients: 11.40 | optimizer_step: 19.16
+[Rank 0] time (ms) | fwd_microstep: 1194.25 | bwd_microstep: 2103.16 | bwd_inner_microstep: 2021.96 | bwd_allreduce_microstep: 79.49 | step_microstep: 67.11
+[Rank 0] time (ms) | fwd: 1194.27 | bwd: 2103.09 | bwd_inner: 2022.05 | bwd_allreduce: 79.47 | step: 67.13
+{'eval_loss': 1.5617790222167969, 'eval_runtime': 43.4917, 'eval_samples_per_second': 23.545, 'eval_steps_per_second': 5.886, 'epoch': 0.82}                                                                                                                                          
+ 82%|████████████████████████████████████████████████████████████████████████████████▍                 | 210/256 [1:15:53<05:53,  7.69s/it[Rank 0] time (ms) | optimizer_allgather: 21.16 | optimizer_gradients: 11.49 | optimizer_step: 19.11                                        
+[Rank 0] time (ms) | fwd_microstep: 30731.10 | bwd_microstep: 2125.84 | bwd_inner_microstep: 2044.68 | bwd_allreduce_microstep: 79.44 | step_microstep: 69.12
+[Rank 0] time (ms) | fwd: 30730.91 | bwd: 2125.78 | bwd_inner: 2044.73 | bwd_allreduce: 79.44 | step: 69.14
+ 82%|████████████████████████████████████████████████████████████████████████████████▊                 | 211/256 [1:15:56<14:36, 19.48s/it][Rank 0] time (ms) | optimizer_allgather: 19.81 | optimizer_gradients: 11.09 | optimizer_step: 19.14
+[Rank 0] time (ms) | fwd_microstep: 1190.79 | bwd_microstep: 2139.57 | bwd_inner_microstep: 2060.56 | bwd_allreduce_microstep: 76.93 | step_microstep: 66.59
+[Rank 0] time (ms) | fwd: 1190.83 | bwd: 2139.51 | bwd_inner: 2060.63 | bwd_allreduce: 76.93 | step: 66.60
+ 83%|█████████████████████████████████████████████████████████████████████████████████▏                | 212/256 [1:16:00<10:46, 14.68s/it][Rank 0] time (ms) | optimizer_allgather: 19.58 | optimizer_gradients: 11.02 | optimizer_step: 19.04
+[Rank 0] time (ms) | fwd_microstep: 1182.44 | bwd_microstep: 2096.55 | bwd_inner_microstep: 2018.29 | bwd_allreduce_microstep: 76.59 | step_microstep: 65.93
+[Rank 0] time (ms) | fwd: 1182.48 | bwd: 2096.47 | bwd_inner: 2018.33 | bwd_allreduce: 76.58 | step: 65.94
+ 83%|█████████████████████████████████████████████████████████████████████████████████▌                | 213/256 [1:16:03<08:06, 11.30s/it][Rank 0] time (ms) | optimizer_allgather: 19.31 | optimizer_gradients: 10.60 | optimizer_step: 19.09
+[Rank 0] time (ms) | fwd_microstep: 1176.14 | bwd_microstep: 2106.05 | bwd_inner_microstep: 2026.32 | bwd_allreduce_microstep: 77.48 | step_microstep: 65.81
+[Rank 0] time (ms) | fwd: 1176.15 | bwd: 2105.86 | bwd_inner: 2026.44 | bwd_allreduce: 77.47 | step: 65.82
+ 84%|█████████████████████████████████████████████████████████████████████████████████▉                | 214/256 [1:16:06<06:15,  8.94s/it][Rank 0] time (ms) | optimizer_allgather: 19.43 | optimizer_gradients: 11.44 | optimizer_step: 19.23
+[Rank 0] time (ms) | fwd_microstep: 1152.48 | bwd_microstep: 2104.04 | bwd_inner_microstep: 2023.01 | bwd_allreduce_microstep: 79.30 | step_microstep: 67.41
+[Rank 0] time (ms) | fwd: 1152.50 | bwd: 2104.09 | bwd_inner: 2023.07 | bwd_allreduce: 79.31 | step: 67.43
+ 84%|██████████████████████████████████████████████████████████████████████████████████▎               | 215/256 [1:16:10<04:58,  7.28s/it][Rank 0] time (ms) | optimizer_allgather: 20.96 | optimizer_gradients: 11.52 | optimizer_step: 19.09
+[Rank 0] time (ms) | fwd_microstep: 1188.23 | bwd_microstep: 2122.51 | bwd_inner_microstep: 2041.47 | bwd_allreduce_microstep: 79.28 | step_microstep: 68.77
+[Rank 0] time (ms) | fwd: 1188.27 | bwd: 2122.46 | bwd_inner: 2041.53 | bwd_allreduce: 79.28 | step: 68.78
+ 84%|██████████████████████████████████████████████████████████████████████████████████▋               | 216/256 [1:16:13<04:05,  6.13s/it][Rank 0] time (ms) | optimizer_allgather: 20.66 | optimizer_gradients: 11.42 | optimizer_step: 19.15
+[Rank 0] time (ms) | fwd_microstep: 1167.99 | bwd_microstep: 2071.86 | bwd_inner_microstep: 1990.52 | bwd_allreduce_microstep: 79.54 | step_microstep: 68.10
+[Rank 0] time (ms) | fwd: 1168.03 | bwd: 2071.80 | bwd_inner: 1990.62 | bwd_allreduce: 79.50 | step: 68.12
+ 85%|███████████████████████████████████████████████████████████████████████████████████               | 217/256 [1:16:17<03:26,  5.31s/it][Rank 0] time (ms) | optimizer_allgather: 20.11 | optimizer_gradients: 11.16 | optimizer_step: 19.18
+[Rank 0] time (ms) | fwd_microstep: 1155.23 | bwd_microstep: 2077.77 | bwd_inner_microstep: 1998.25 | bwd_allreduce_microstep: 77.81 | step_microstep: 67.03
+[Rank 0] time (ms) | fwd: 1155.28 | bwd: 2077.71 | bwd_inner: 1998.34 | bwd_allreduce: 77.80 | step: 67.05
+ 85%|███████████████████████████████████████████████████████████████████████████████████▍              | 218/256 [1:16:20<02:59,  4.72s/it][Rank 0] time (ms) | optimizer_allgather: 19.51 | optimizer_gradients: 10.61 | optimizer_step: 19.01
+[Rank 0] time (ms) | fwd_microstep: 1152.88 | bwd_microstep: 2076.42 | bwd_inner_microstep: 1998.23 | bwd_allreduce_microstep: 76.40 | step_microstep: 65.01
+[Rank 0] time (ms) | fwd: 1152.95 | bwd: 2076.38 | bwd_inner: 1998.29 | bwd_allreduce: 76.39 | step: 65.02
+ 86%|███████████████████████████████████████████████████████████████████████████████████▊              | 219/256 [1:16:23<02:39,  4.32s/it][Rank 0] time (ms) | optimizer_allgather: 19.81 | optimizer_gradients: 10.96 | optimizer_step: 19.09
+[Rank 0] time (ms) | fwd_microstep: 1159.90 | bwd_microstep: 2071.99 | bwd_inner_microstep: 1993.53 | bwd_allreduce_microstep: 76.67 | step_microstep: 66.14
+[Rank 0] time (ms) | fwd: 1159.93 | bwd: 2071.93 | bwd_inner: 1993.63 | bwd_allreduce: 76.66 | step: 66.16
+{'loss': 1.5238, 'grad_norm': 1.259752869606018, 'learning_rate': 1.4624505928853754e-05, 'epoch': 0.86}                                   
+{'eval_loss': 1.5619735717773438, 'eval_runtime': 43.0451, 'eval_samples_per_second': 23.789, 'eval_steps_per_second': 5.947, 'epoch': 0.86}                                                                                                                                          
+ 86%|████████████████████████████████████████████████████████████████████████████████████▏             | 220/256 [1:17:10<02:25,  4.03s/it[Rank 0] time (ms) | optimizer_allgather: 19.53 | optimizer_gradients: 10.85 | optimizer_step: 19.11                                        
+[Rank 0] time (ms) | fwd_microstep: 31028.93 | bwd_microstep: 2113.45 | bwd_inner_microstep: 2034.60 | bwd_allreduce_microstep: 77.08 | step_microstep: 65.65
+[Rank 0] time (ms) | fwd: 31028.59 | bwd: 2113.36 | bwd_inner: 2034.66 | bwd_allreduce: 77.08 | step: 65.66
+ 86%|████████████████████████████████████████████████████████████████████████████████████▌             | 221/256 [1:17:13<09:47, 16.79s/it][Rank 0] time (ms) | optimizer_allgather: 19.48 | optimizer_gradients: 10.96 | optimizer_step: 19.08
+[Rank 0] time (ms) | fwd_microstep: 1128.45 | bwd_microstep: 2087.92 | bwd_inner_microstep: 2009.30 | bwd_allreduce_microstep: 76.63 | step_microstep: 65.29
+[Rank 0] time (ms) | fwd: 1128.49 | bwd: 2087.87 | bwd_inner: 2009.38 | bwd_allreduce: 76.62 | step: 65.30
+ 87%|████████████████████████████████████████████████████████████████████████████████████▉             | 222/256 [1:17:17<07:13, 12.76s/it][Rank 0] time (ms) | optimizer_allgather: 20.25 | optimizer_gradients: 11.26 | optimizer_step: 19.12
+[Rank 0] time (ms) | fwd_microstep: 1155.51 | bwd_microstep: 2062.73 | bwd_inner_microstep: 1981.84 | bwd_allreduce_microstep: 78.95 | step_microstep: 67.83
+[Rank 0] time (ms) | fwd: 1155.54 | bwd: 2062.70 | bwd_inner: 1981.94 | bwd_allreduce: 78.88 | step: 67.85
+ 87%|█████████████████████████████████████████████████████████████████████████████████████▎            | 223/256 [1:17:20<05:28,  9.94s/it][Rank 0] time (ms) | optimizer_allgather: 21.03 | optimizer_gradients: 11.42 | optimizer_step: 19.18
+[Rank 0] time (ms) | fwd_microstep: 1180.63 | bwd_microstep: 2092.87 | bwd_inner_microstep: 2011.75 | bwd_allreduce_microstep: 79.37 | step_microstep: 68.90
+[Rank 0] time (ms) | fwd: 1180.65 | bwd: 2092.82 | bwd_inner: 2011.79 | bwd_allreduce: 79.37 | step: 68.92
+ 88%|█████████████████████████████████████████████████████████████████████████████████████▊            | 224/256 [1:17:23<04:15,  7.98s/it][Rank 0] time (ms) | optimizer_allgather: 21.38 | optimizer_gradients: 11.41 | optimizer_step: 19.34
+[Rank 0] time (ms) | fwd_microstep: 1193.34 | bwd_microstep: 2089.96 | bwd_inner_microstep: 2008.87 | bwd_allreduce_microstep: 79.30 | step_microstep: 69.27
+[Rank 0] time (ms) | fwd: 1193.38 | bwd: 2089.91 | bwd_inner: 2008.95 | bwd_allreduce: 79.19 | step: 69.28
+ Profiler trace saved to /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/profiler_logs/trace_rank_0_20251129_222917.json
+ 88%|███████████████████████████████████████████████████████████████████████████████████▍           | 225/256 [1:23:48<1:02:33, 121.10s/it]
+================================================================================
+Starting PyTorch Profiler at step 225
+================================================================================
+
+[DEBUG] Profiler initialized successfully
+
+[Rank 0] time (ms) | optimizer_allgather: 19.69 | optimizer_gradients: 10.56 | optimizer_step: 33.23
+[Rank 0] time (ms) | fwd_microstep: 1000.57 | bwd_microstep: 1311.23 | bwd_inner_microstep: 1205.01 | bwd_allreduce_microstep: 102.93 | step_microstep: 80.51
+[Rank 0] time (ms) | fwd: 1000.55 | bwd: 1311.13 | bwd_inner: 1204.94 | bwd_allreduce: 102.93 | step: 80.53
+ 88%|██████████████████████████████████████████████████████████████████████████████████████▌           | 226/256 [1:23:51<42:45, 85.52s/it][Rank 0] time (ms) | optimizer_allgather: 19.23 | optimizer_gradients: 10.26 | optimizer_step: 31.83
+[Rank 0] time (ms) | fwd_microstep: 842.53 | bwd_microstep: 1168.96 | bwd_inner_microstep: 1090.56 | bwd_allreduce_microstep: 74.71 | step_microstep: 78.24
+[Rank 0] time (ms) | fwd: 842.54 | bwd: 1168.91 | bwd_inner: 1090.62 | bwd_allreduce: 74.71 | step: 78.25
+ 89%|██████████████████████████████████████████████████████████████████████████████████████▉           | 227/256 [1:23:53<29:16, 60.57s/it][Rank 0] time (ms) | optimizer_allgather: 19.63 | optimizer_gradients: 10.35 | optimizer_step: 19.08
+[Rank 0] time (ms) | fwd_microstep: 766.22 | bwd_microstep: 1268.39 | bwd_inner_microstep: 1191.61 | bwd_allreduce_microstep: 75.31 | step_microstep: 63.74
+[Rank 0] time (ms) | fwd: 766.24 | bwd: 1268.35 | bwd_inner: 1191.69 | bwd_allreduce: 75.30 | step: 63.76
+ 89%|███████████████████████████████████████████████████████████████████████████████████████▎          | 228/256 [1:23:56<20:05, 43.06s/it][Rank 0] time (ms) | optimizer_allgather: 19.19 | optimizer_gradients: 10.34 | optimizer_step: 20.57
+[Rank 0] time (ms) | fwd_microstep: 880.21 | bwd_microstep: 1287.75 | bwd_inner_microstep: 1209.09 | bwd_allreduce_microstep: 74.55 | step_microstep: 64.84
+[Rank 0] time (ms) | fwd: 880.23 | bwd: 1287.70 | bwd_inner: 1208.83 | bwd_allreduce: 74.55 | step: 64.85
+ 89%|███████████████████████████████████████████████████████████████████████████████████████▋          | 229/256 [1:23:58<13:52, 30.83s/it][Rank 0] time (ms) | optimizer_allgather: 19.67 | optimizer_gradients: 10.33 | optimizer_step: 19.05
+[Rank 0] time (ms) | fwd_microstep: 719.89 | bwd_microstep: 1223.99 | bwd_inner_microstep: 1147.89 | bwd_allreduce_microstep: 74.78 | step_microstep: 63.19
+[Rank 0] time (ms) | fwd: 719.92 | bwd: 1223.93 | bwd_inner: 1147.83 | bwd_allreduce: 74.80 | step: 63.20
+{'eval_loss': 1.5540847778320312, 'eval_runtime': 51.8352, 'eval_samples_per_second': 19.755, 'eval_steps_per_second': 4.939, 'epoch': 0.9}
+ 90%|████████████████████████████████████████████████████████████████████████████████████████          | 230/256 [1:24:52<09:37, 22.21s/it[Rank 0] time (ms) | optimizer_allgather: 19.67 | optimizer_gradients: 11.15 | optimizer_step: 24.73                                        
+[Rank 0] time (ms) | fwd_microstep: 38129.01 | bwd_microstep: 2133.95 | bwd_inner_microstep: 2054.57 | bwd_allreduce_microstep: 77.71 | step_microstep: 75.15
+[Rank 0] time (ms) | fwd: 38128.77 | bwd: 2133.89 | bwd_inner: 2054.66 | bwd_allreduce: 77.71 | step: 75.16
+ 90%|████████████████████████████████████████████████████████████████████████████████████████▍         | 231/256 [1:24:55<13:23, 32.13s/it][Rank 0] time (ms) | optimizer_allgather: 20.84 | optimizer_gradients: 11.39 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 1050.70 | bwd_microstep: 2095.59 | bwd_inner_microstep: 2014.22 | bwd_allreduce_microstep: 79.57 | step_microstep: 68.31
+[Rank 0] time (ms) | fwd: 1050.72 | bwd: 2095.54 | bwd_inner: 2014.33 | bwd_allreduce: 79.56 | step: 68.32
+ 91%|████████████████████████████████████████████████████████████████████████████████████████▊         | 232/256 [1:24:58<09:23, 23.48s/it][Rank 0] time (ms) | optimizer_allgather: 20.64 | optimizer_gradients: 11.21 | optimizer_step: 19.04
+[Rank 0] time (ms) | fwd_microstep: 1048.66 | bwd_microstep: 2101.84 | bwd_inner_microstep: 2021.50 | bwd_allreduce_microstep: 78.63 | step_microstep: 67.90
+[Rank 0] time (ms) | fwd: 1048.66 | bwd: 2101.80 | bwd_inner: 2021.61 | bwd_allreduce: 78.62 | step: 67.91
+ 91%|█████████████████████████████████████████████████████████████████████████████████████████▏        | 233/256 [1:25:02<06:40, 17.42s/it][Rank 0] time (ms) | optimizer_allgather: 19.85 | optimizer_gradients: 10.90 | optimizer_step: 19.11
+[Rank 0] time (ms) | fwd_microstep: 1045.33 | bwd_microstep: 2063.13 | bwd_inner_microstep: 1984.83 | bwd_allreduce_microstep: 76.62 | step_microstep: 66.01
+[Rank 0] time (ms) | fwd: 1045.38 | bwd: 2063.08 | bwd_inner: 1984.92 | bwd_allreduce: 76.63 | step: 66.03
+ 91%|█████████████████████████████████████████████████████████████████████████████████████████▌        | 234/256 [1:25:05<04:49, 13.17s/it][Rank 0] time (ms) | optimizer_allgather: 20.48 | optimizer_gradients: 11.21 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 1036.29 | bwd_microstep: 2028.36 | bwd_inner_microstep: 1948.21 | bwd_allreduce_microstep: 78.49 | step_microstep: 67.52
+[Rank 0] time (ms) | fwd: 1036.33 | bwd: 2028.42 | bwd_inner: 1948.32 | bwd_allreduce: 78.48 | step: 67.54
+ 92%|█████████████████████████████████████████████████████████████████████████████████████████▉        | 235/256 [1:25:08<03:33, 10.18s/it][Rank 0] time (ms) | optimizer_allgather: 19.56 | optimizer_gradients: 10.89 | optimizer_step: 19.13
+[Rank 0] time (ms) | fwd_microstep: 1070.38 | bwd_microstep: 2078.30 | bwd_inner_microstep: 2000.31 | bwd_allreduce_microstep: 76.32 | step_microstep: 65.74
+[Rank 0] time (ms) | fwd: 1070.39 | bwd: 2078.26 | bwd_inner: 2000.40 | bwd_allreduce: 76.31 | step: 65.76
+ 92%|██████████████████████████████████████████████████████████████████████████████████████████▎       | 236/256 [1:25:12<02:42,  8.11s/it][Rank 0] time (ms) | optimizer_allgather: 19.19 | optimizer_gradients: 10.79 | optimizer_step: 19.11
+[Rank 0] time (ms) | fwd_microstep: 1032.50 | bwd_microstep: 2043.63 | bwd_inner_microstep: 1965.48 | bwd_allreduce_microstep: 76.27 | step_microstep: 65.62
+[Rank 0] time (ms) | fwd: 1032.48 | bwd: 2043.60 | bwd_inner: 1965.69 | bwd_allreduce: 76.26 | step: 65.63
+ 93%|██████████████████████████████████████████████████████████████████████████████████████████▋       | 237/256 [1:25:15<02:06,  6.65s/it][Rank 0] time (ms) | optimizer_allgather: 19.65 | optimizer_gradients: 10.91 | optimizer_step: 19.01
+[Rank 0] time (ms) | fwd_microstep: 1030.07 | bwd_microstep: 2033.81 | bwd_inner_microstep: 1955.90 | bwd_allreduce_microstep: 76.22 | step_microstep: 65.63
+[Rank 0] time (ms) | fwd: 1030.11 | bwd: 2033.77 | bwd_inner: 1956.01 | bwd_allreduce: 76.21 | step: 65.64
+ 93%|███████████████████████████████████████████████████████████████████████████████████████████       | 238/256 [1:25:18<01:41,  5.61s/it][Rank 0] time (ms) | optimizer_allgather: 19.52 | optimizer_gradients: 10.83 | optimizer_step: 18.93
+[Rank 0] time (ms) | fwd_microstep: 1039.09 | bwd_microstep: 2037.05 | bwd_inner_microstep: 1958.96 | bwd_allreduce_microstep: 76.40 | step_microstep: 65.22
+[Rank 0] time (ms) | fwd: 1039.13 | bwd: 2037.01 | bwd_inner: 1959.06 | bwd_allreduce: 76.40 | step: 65.23
+ 93%|███████████████████████████████████████████████████████████████████████████████████████████▍      | 239/256 [1:25:21<01:23,  4.90s/it][Rank 0] time (ms) | optimizer_allgather: 19.83 | optimizer_gradients: 10.92 | optimizer_step: 18.98
+[Rank 0] time (ms) | fwd_microstep: 1028.94 | bwd_microstep: 2029.04 | bwd_inner_microstep: 1950.76 | bwd_allreduce_microstep: 76.64 | step_microstep: 66.42
+[Rank 0] time (ms) | fwd: 1028.96 | bwd: 2029.00 | bwd_inner: 1950.85 | bwd_allreduce: 76.61 | step: 66.44
+{'loss': 1.532, 'grad_norm': 1.1251206398010254, 'learning_rate': 6.719367588932807e-06, 'epoch': 0.94}                                    
+{'eval_loss': 1.5577411651611328, 'eval_runtime': 46.9098, 'eval_samples_per_second': 21.829, 'eval_steps_per_second': 5.457, 'epoch': 0.94}                                                                                                                                          
+ 94%|███████████████████████████████████████████████████████████████████████████████████████████▉      | 240/256 [1:26:11<01:10,  4.39s/it[Rank 0] time (ms) | optimizer_allgather: 21.10 | optimizer_gradients: 11.37 | optimizer_step: 24.38                                        
+[Rank 0] time (ms) | fwd_microstep: 33878.80 | bwd_microstep: 2047.83 | bwd_inner_microstep: 1966.13 | bwd_allreduce_microstep: 79.98 | step_microstep: 76.11
+[Rank 0] time (ms) | fwd: 33878.42 | bwd: 2047.77 | bwd_inner: 1966.20 | bwd_allreduce: 79.98 | step: 76.12
+ 94%|████████████████████████████████████████████████████████████████████████████████████████████▎     | 241/256 [1:26:15<04:32, 18.14s/it][Rank 0] time (ms) | optimizer_allgather: 20.27 | optimizer_gradients: 11.20 | optimizer_step: 19.17
+[Rank 0] time (ms) | fwd_microstep: 1048.67 | bwd_microstep: 2034.29 | bwd_inner_microstep: 1954.78 | bwd_allreduce_microstep: 77.90 | step_microstep: 67.23
+[Rank 0] time (ms) | fwd: 1048.71 | bwd: 2034.24 | bwd_inner: 1954.86 | bwd_allreduce: 77.89 | step: 67.24
+ 95%|████████████████████████████████████████████████████████████████████████████████████████████▋     | 242/256 [1:26:18<03:11, 13.67s/it][Rank 0] time (ms) | optimizer_allgather: 20.26 | optimizer_gradients: 11.19 | optimizer_step: 19.20
+[Rank 0] time (ms) | fwd_microstep: 1039.63 | bwd_microstep: 2024.07 | bwd_inner_microstep: 1944.51 | bwd_allreduce_microstep: 77.83 | step_microstep: 66.93
+[Rank 0] time (ms) | fwd: 1039.68 | bwd: 2024.04 | bwd_inner: 1944.59 | bwd_allreduce: 77.83 | step: 66.94
+ 95%|█████████████████████████████████████████████████████████████████████████████████████████████     | 243/256 [1:26:21<02:16, 10.53s/it][Rank 0] time (ms) | optimizer_allgather: 20.58 | optimizer_gradients: 11.23 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 1046.30 | bwd_microstep: 2036.62 | bwd_inner_microstep: 1956.69 | bwd_allreduce_microstep: 78.27 | step_microstep: 67.42
+[Rank 0] time (ms) | fwd: 1046.33 | bwd: 2036.57 | bwd_inner: 1956.77 | bwd_allreduce: 78.27 | step: 67.44
+ 95%|█████████████████████████████████████████████████████████████████████████████████████████████▍    | 244/256 [1:26:24<01:40,  8.34s/it][Rank 0] time (ms) | optimizer_allgather: 19.66 | optimizer_gradients: 10.92 | optimizer_step: 19.08
+[Rank 0] time (ms) | fwd_microstep: 1050.52 | bwd_microstep: 2047.38 | bwd_inner_microstep: 1968.95 | bwd_allreduce_microstep: 76.80 | step_microstep: 65.99
+[Rank 0] time (ms) | fwd: 1050.54 | bwd: 2047.34 | bwd_inner: 1969.03 | bwd_allreduce: 76.80 | step: 66.00
+ 96%|█████████████████████████████████████████████████████████████████████████████████████████████▊    | 245/256 [1:26:28<01:14,  6.81s/it][Rank 0] time (ms) | optimizer_allgather: 19.37 | optimizer_gradients: 10.92 | optimizer_step: 19.10
+[Rank 0] time (ms) | fwd_microstep: 1034.90 | bwd_microstep: 2114.92 | bwd_inner_microstep: 2036.47 | bwd_allreduce_microstep: 76.71 | step_microstep: 65.42
+[Rank 0] time (ms) | fwd: 1034.94 | bwd: 2114.87 | bwd_inner: 2036.53 | bwd_allreduce: 76.81 | step: 65.43
+ 96%|██████████████████████████████████████████████████████████████████████████████████████████████▏   | 246/256 [1:26:31<00:57,  5.76s/it][Rank 0] time (ms) | optimizer_allgather: 19.56 | optimizer_gradients: 10.93 | optimizer_step: 18.99
+[Rank 0] time (ms) | fwd_microstep: 1054.53 | bwd_microstep: 2057.60 | bwd_inner_microstep: 1979.60 | bwd_allreduce_microstep: 76.32 | step_microstep: 65.32
+[Rank 0] time (ms) | fwd: 1054.54 | bwd: 2057.55 | bwd_inner: 1979.67 | bwd_allreduce: 76.32 | step: 65.33
+ 96%|██████████████████████████████████████████████████████████████████████████████████████████████▌   | 247/256 [1:26:34<00:45,  5.01s/it][Rank 0] time (ms) | optimizer_allgather: 19.45 | optimizer_gradients: 10.77 | optimizer_step: 19.06
+[Rank 0] time (ms) | fwd_microstep: 1041.65 | bwd_microstep: 1998.14 | bwd_inner_microstep: 1920.49 | bwd_allreduce_microstep: 75.98 | step_microstep: 65.27
+[Rank 0] time (ms) | fwd: 1041.68 | bwd: 1998.08 | bwd_inner: 1920.57 | bwd_allreduce: 75.98 | step: 65.28
+ 97%|██████████████████████████████████████████████████████████████████████████████████████████████▉   | 248/256 [1:26:37<00:35,  4.46s/it][Rank 0] time (ms) | optimizer_allgather: 19.37 | optimizer_gradients: 10.76 | optimizer_step: 19.09
+[Rank 0] time (ms) | fwd_microstep: 1055.63 | bwd_microstep: 1984.19 | bwd_inner_microstep: 1905.80 | bwd_allreduce_microstep: 76.64 | step_microstep: 65.15
+[Rank 0] time (ms) | fwd: 1055.70 | bwd: 1984.12 | bwd_inner: 1905.87 | bwd_allreduce: 76.65 | step: 65.16
+ 97%|███████████████████████████████████████████████████████████████████████████████████████████████▎  | 249/256 [1:26:40<00:28,  4.08s/it][Rank 0] time (ms) | optimizer_allgather: 19.81 | optimizer_gradients: 10.92 | optimizer_step: 19.12
+[Rank 0] time (ms) | fwd_microstep: 1049.33 | bwd_microstep: 2002.14 | bwd_inner_microstep: 1923.84 | bwd_allreduce_microstep: 76.71 | step_microstep: 65.87
+[Rank 0] time (ms) | fwd: 1049.33 | bwd: 2002.10 | bwd_inner: 1923.91 | bwd_allreduce: 76.70 | step: 65.88
+Profiler trace saved to /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/profiler_logs/trace_rank_0_20251129_223852.json
+{'eval_loss': 1.5567474365234375, 'eval_runtime': 32.5087, 'eval_samples_per_second': 31.499, 'eval_steps_per_second': 7.875, 'epoch': 0.98}                                                                                                                                          
+ 98%|██████████████████████████████████████████████████████████████████████████████████████████████▋  | 250/256 [1:34:14<12:55, 129.19s/it]
+================================================================================                                                           
+Starting PyTorch Profiler at step 250
+================================================================================
+
+[DEBUG] Profiler initialized successfully
+[Rank 0] time (ms) | optimizer_allgather: 19.72 | optimizer_gradients: 10.27 | optimizer_step: 25.26
+[Rank 0] time (ms) | fwd_microstep: 17464.40 | bwd_microstep: 1292.04 | bwd_inner_microstep: 1216.90 | bwd_allreduce_microstep: 74.19 | step_microstep: 72.39
+[Rank 0] time (ms) | fwd: 17461.69 | bwd: 1291.95 | bwd_inner: 1216.80 | bwd_allreduce: 74.21 | step: 72.40
+ 98%|███████████████████████████████████████████████████████████████████████████████████████████████  | 251/256 [1:34:16<08:24, 100.84s/it][Rank 0] time (ms) | optimizer_allgather: 19.33 | optimizer_gradients: 10.24 | optimizer_step: 18.98
+[Rank 0] time (ms) | fwd_microstep: 628.22 | bwd_microstep: 1061.76 | bwd_inner_microstep: 986.74 | bwd_allreduce_microstep: 74.18 | step_microstep: 62.48
+[Rank 0] time (ms) | fwd: 628.19 | bwd: 1061.66 | bwd_inner: 986.64 | bwd_allreduce: 74.18 | step: 62.50
+ 98%|████████████████████████████████████████████████████████████████████████████████████████████████▍ | 252/256 [1:34:18<04:44, 71.20s/it][Rank 0] time (ms) | optimizer_allgather: 19.44 | optimizer_gradients: 10.35 | optimizer_step: 18.98
+[Rank 0] time (ms) | fwd_microstep: 684.15 | bwd_microstep: 1186.32 | bwd_inner_microstep: 1111.09 | bwd_allreduce_microstep: 74.35 | step_microstep: 63.12
+[Rank 0] time (ms) | fwd: 684.14 | bwd: 1186.21 | bwd_inner: 1110.99 | bwd_allreduce: 74.35 | step: 63.14
+ 99%|████████████████████████████████████████████████████████████████████████████████████████████████▊ | 253/256 [1:34:20<02:31, 50.44s/it][Rank 0] time (ms) | optimizer_allgather: 19.53 | optimizer_gradients: 10.35 | optimizer_step: 19.01
+[Rank 0] time (ms) | fwd_microstep: 709.69 | bwd_microstep: 1218.10 | bwd_inner_microstep: 1142.61 | bwd_allreduce_microstep: 74.46 | step_microstep: 63.19
+[Rank 0] time (ms) | fwd: 709.68 | bwd: 1218.02 | bwd_inner: 1142.54 | bwd_allreduce: 74.47 | step: 63.21
+ 99%|█████████████████████████████████████████████████████████████████████████████████████████████████▏| 254/256 [1:34:22<01:11, 35.92s/it][Rank 0] time (ms) | optimizer_allgather: 19.60 | optimizer_gradients: 10.35 | optimizer_step: 19.00
+[Rank 0] time (ms) | fwd_microstep: 698.23 | bwd_microstep: 1217.34 | bwd_inner_microstep: 1141.93 | bwd_allreduce_microstep: 74.42 | step_microstep: 63.24
+[Rank 0] time (ms) | fwd: 698.23 | bwd: 1217.25 | bwd_inner: 1141.85 | bwd_allreduce: 74.42 | step: 63.25
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████▌| 255/256 [1:34:24<00:25, 25.76s/it][Rank 0] time (ms) | optimizer_allgather: 20.04 | optimizer_gradients: 11.10 | optimizer_step: 19.06
+[Rank 0] time (ms) | fwd_microstep: 1042.57 | bwd_microstep: 2080.72 | bwd_inner_microstep: 1996.89 | bwd_allreduce_microstep: 82.01 | step_microstep: 66.99
+[Rank 0] time (ms) | fwd: 1042.61 | bwd: 2080.71 | bwd_inner: 1997.01 | bwd_allreduce: 82.00 | step: 67.00
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 256/256 [1:34:28<00:00, 19.06s/it]
+================================================================================
+[Rank 1 | Local Rank 1] GPU Memory Stats - Step 256 [TRAIN END]
+================================================================================
+  Allocated:     14.269 GB (Max: 24.626 GB)
+  Reserved:      29.561 GB (Max: 29.561 GB)
+  Cached (Free): 15.293 GB
+================================================================================
+
+
+================================================================================
+[Rank 3 | Local Rank 3] GPU Memory Stats - Step 256 [TRAIN END]
+================================================================================
+  Allocated:     14.269 GB (Max: 24.579 GB)
+  Reserved:      29.561 GB (Max: 29.561 GB)
+  Cached (Free): 15.293 GB
+================================================================================
+
+
+================================================================================
+[Rank 2 | Local Rank 2] GPU Memory Stats - Step 256 [TRAIN END]
+================================================================================
+  Allocated:     14.269 GB (Max: 24.636 GB)
+  Reserved:      29.553 GB (Max: 29.553 GB)
+  Cached (Free): 15.285 GB
+================================================================================
+
+{'train_runtime': 5668.3221, 'train_samples_per_second': 1.445, 'train_steps_per_second': 0.045, 'train_loss': 1.5601961612701416, 'epoch': 1.0}
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 256/256 [1:34:28<00:00, 19.06s/it]
+================================================================================
+[Rank 0 | Local Rank 0] GPU Memory Stats - Step 256 [TRAIN END]
+================================================================================
+  Allocated:     14.269 GB (Max: 24.728 GB)
+  Reserved:      29.540 GB (Max: 29.540 GB)
+  Cached (Free): 15.272 GB
+================================================================================
+
+Memory timeline saved to /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/memory_logs/memory_timeline_rank_0.json
+
+================================================================================
+TRAINING TIME SUMMARY
+================================================================================
+Training ended: 2025-11-29 22:42:14
+Total training time: 1:34:28
+                     (5668.33 seconds)
+Total evaluation time: 1:33:42
+                       (5622.47 seconds)
+Number of evaluations: 24
+Average eval time: 234.27 seconds
+================================================================================
+
+
+================================================================================
+⚠️  TRAINING ENDED WHILE PROFILER WAS ACTIVE
+================================================================================
+Training ended at step: 256
+❌ Error force-saving trace: 'NoneType' object has no attribute 'save'
+Traceback (most recent call last):
+  File "/pscratch/sd/m/megha89/flant5-proj/zero1/src/train.py", line 601, in on_train_end
+    self.profiler.export_chrome_trace(trace_file)
+  File "/pscratch/sd/m/megha89/flant5-proj/venv-ds/lib/python3.12/site-packages/torch/profiler/profiler.py", line 273, in export_chrome_trace
+    return self.profiler.export_chrome_trace(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pscratch/sd/m/megha89/flant5-proj/venv-ds/lib/python3.12/site-packages/torch/autograd/profiler.py", line 494, in export_chrome_trace
+    self.kineto_results.save(path)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'save'
+================================================================================
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 256/256 [1:34:28<00:00, 22.14s/it]
+
+[All ranks] Training completed, synchronized
+Saving model...
+***** train metrics *****
+  epoch                         =        1.0
+  total_flos                    = 61538313GF
+  total_training_time_formatted =    1:34:54
+  total_training_time_seconds   =  5694.0404
+  train_loss                    =     1.5602
+  train_runtime                 = 1:34:28.32
+  train_samples_per_second      =      1.445
+  train_steps_per_second        =      0.045
+Running final evaluation...
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████| 256/256 [00:35<00:00,  7.26it/s]
+***** eval metrics *****
+  epoch                     =        1.0
+  eval_loss                 =     1.5567
+  eval_runtime              = 0:00:44.92
+  eval_samples_per_second   =     22.795
+  eval_steps_per_second     =      5.699
+  evaluation_time_formatted =    0:00:44
+  evaluation_time_seconds   =    44.9611
+Evaluation results: {'eval_loss': 1.5567378997802734, 'eval_runtime': 44.9213, 'eval_samples_per_second': 22.795, 'eval_steps_per_second': 5.699, 'epoch': 1.0, 'evaluation_time_seconds': 44.961095333099365, 'evaluation_time_formatted': '0:00:44'}
+evaluation completed!
+[Rank 2] Post-evaluation barrier passed
+[Rank 0] Post-evaluation barrier passed[Rank 1] Post-evaluation barrier passed
+
+
+Generating visualizations...
+[Rank 3] Post-evaluation barrier passed
+Saved loss curve to /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/loss_curve.png
+Memory timeline plot saved to /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/memory_timeline.png
+Plotted memory timeline to /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/memory_logs/memory_timeline_rank_0.json!
+TensorBoard writer closed
+[Rank 3] Final barrier passed
+[Rank 0] Final barrier passed
+[Rank 2] Final barrier passed
+[Rank 1] Final barrier passed
+[Rank 1] Process group destroyed
+[Rank 2] Process group destroyed
+[Rank 0] Process group destroyed
+Training completed successfully!
+
+================================================================================
+TRAINING SUMMARY - TIME BREAKDOWN
+================================================================================
+Total Training Time:    1:34:54
+                        (5694.04 seconds)
+Final Evaluation Time:  0:00:44
+                        (44.96 seconds)
+Total Runtime:          1:36:13
+                        (5773.86 seconds)
+================================================================================
+
+Timing summary saved to /pscratch/sd/m/megha89/flant5-proj/zero1/outputs/run_20251129_210717/timing_summary.json
+[Rank 3] Process group destroyed
+

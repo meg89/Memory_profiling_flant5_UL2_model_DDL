@@ -1,0 +1,19 @@
+#--extra-index-url https://download.pytorch.org/whl/cu124
+torch
+torch
+transformers
+datasets
+evaluate
+deepspeed
+accelerate
+sentencepiece
+protobuf
+rouge-score
+pyyaml
+tensorboard
+scikit-learn
+numpy
+tqdm
+matplotlib
+#flash-attn==2.5.6 --config-settings=--build-option=--no-build-isolation
+

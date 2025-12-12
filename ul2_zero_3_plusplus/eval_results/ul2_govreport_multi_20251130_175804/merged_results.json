@@ -1,0 +1,5 @@
+{
+  "metrics": {},
+  "num_gpus": 4,
+  "strategy": "data_parallel"
+}

@@ -1,0 +1,95 @@
+# FLAN-T5 Training Configuration for CNN/DailyMail
+
+experiment:
+  name: ul2_govreport
+  output_dir: ul2_govreport/outputs
+
+# Model configuration
+model:
+  name: "google/ul2"
+  pretrained_path: "google/ul2"
+  model_type: "t5"
+  # Set to a checkpoint dir to resume; otherwise keep null
+  resume_from_checkpoint: null
+
+# Dataset configuration
+data:
+  dataset_name: "ccdv/govreport-summarization"
+  dataset_config: null
+  max_source_length: 2048 #1024
+  max_target_length: 256 # 128
+  text_column: report
+  summary_column: summary  
+  pad_to_max_length: false
+  source_prefix: "[S2S] Summarize: "
+  dataloader_workers: 4
+  num_proc: 8 #8
+  
+  # For debugging - set to true to use subset
+debug:
+  use_subset: true #false
+  subset_size: 1000
+  train_subset_size: 8192 #512
+  valid_subset_size:  768  #128
+  test_subset_size:   768 #128
+
+# Training hyperparameters
+training:
+  num_epochs: 1 #2
+  per_device_train_batch_size: 1 #4
+  per_device_eval_batch_size: 1 #4
+  gradient_accumulation_steps: 4 #8
+
+  learning_rate: 1.0e-4 #3.0e-5
+  weight_decay: 0.01
+  warmup_steps: 6 #500   ## Rule of thumb: 5-10% of total training steps
+  max_grad_norm: 1.0
+  lr_scheduler_type: cosine #cosine is used for faster convergence #linear
+  
+  # Evaluation and saving
+  logging_steps: 1
+  eval_steps: 5 #1000
+  save_steps: 5 #1000
+  save_total_limit: 1 #3
+  evaluation_strategy: steps
+  save_strategy: steps
+  fp16: false
+  bf16: true          # set true on A100 if your stack supports BF16
+  seed: 42              # Reproducibility
+
+  generation_max_length: 512 #256
+  report_to: ["tensorboard"]
+  load_best_model_at_end: false
+  metric_for_best_model: "eval_loss"
+  greater_is_better: false
+  gradient_checkpointing: true #true
+
+  #memory, throughput and profiler config:
+  enable_memory_profiler: True
+  mem_log_steps: 5 # 5% usually
+  enable_throughput_profiler: True
+  logging_steps: 5 # 5% usually
+  enable_pytorch_profiler: false
+  profile_steps: 10
+  wait_steps: 1
+  warmup_steps: 1
+  active_steps: 5
+  repeat_steps: 1
+  deepspeedMemoryFlush: True
+
+# DeepSpeed configuration
+deepspeed:
+  enabled: true
+  # Point these to your actual DS config JSON files:
+  deepspeed_zero3_config: ./configs/ds_zero3.json
+  deepspeed_zero3_offload_config: ./configs/ds_zero3_offload.json
+  deepspeed_zero3_plusplus_config: ./configs/ds_zero3_plusplus.json
+  deepspeed_zero3_plusplus_qwz_config: ./configs/ds_zero3_plusplus_qwz.json
+
+# Paths
+paths:
+  cache_dir: "/pscratch/sd/m/megha89/hf_cache"
+  output_dir: "/pscratch/sd/m/megha89/ul2-proj/ul2_govreport/outputs"
+  trained_model_path: "/pscratch/sd/m/megha89/ul2-proj/ul2_govreport/final_model"
+  resume_from_checkpoint: null
+
